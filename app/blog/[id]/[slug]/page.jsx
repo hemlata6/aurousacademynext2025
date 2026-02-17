@@ -15,33 +15,45 @@ export async function generateMetadata({ params }) {
 
         if (blog?.id) {
             const title = blog.title || 'Blog | Aurous Academy';
-            const description = blog.description || blog.blog?.blog || blog.content?.substring(0, 160) || 'Read our latest blog';
+            const description = blog.description || blog.blog?.blog || 'Read our latest blog from Aurous Academy';
             
-            // Build absolute image URL
-            let imageUrl = '/og-image.jpg'; // fallback
-            if (blog.image) {
-                imageUrl = blog.image.startsWith('http') ? blog.image : `${Endpoints.mediaBaseUrl}${blog.image}`;
-            } else if (blog.blog?.thumb) {
-                imageUrl = blog.blog.thumb.startsWith('http') ? blog.blog.thumb : `${Endpoints.mediaBaseUrl}${blog.blog.thumb}`;
+            // Build absolute image URL - prioritize thumb from blog.blog
+            let imageUrl = `https://aurousacademy.com/og-image.jpg`; // fallback
+            
+            if (blog.blog?.thumb) {
+                const thumbUrl = blog.blog.thumb;
+                if (thumbUrl.startsWith('http')) {
+                    imageUrl = thumbUrl;
+                } else {
+                    // Construct full URL with media base URL from endpoints
+                    imageUrl = `${Endpoints.mediaBaseUrl}${thumbUrl}`;
+                }
+            } else if (blog.image) {
+                const imageUrlValue = blog.image;
+                if (imageUrlValue.startsWith('http')) {
+                    imageUrl = imageUrlValue;
+                } else {
+                    imageUrl = `${Endpoints.mediaBaseUrl}${imageUrlValue}`;
+                }
             }
             
             const url = `https://aurousacademy.com/blog/${id}/${params.slug}`;
 
             return {
-                title,
+                title: `${title} | Aurous Academy`,
                 description,
                 openGraph: {
-                    title,
+                    title: `${title} | Aurous Academy`,
                     description,
                     image: imageUrl,
                     url,
                     type: 'article',
                     authors: [blog.author || 'Aurous Academy'],
-                    publishedTime: blog.date || new Date().toISOString(),
+                    publishedTime: blog.date || new Date(blog.createdAt).toISOString(),
                 },
                 twitter: {
                     card: 'summary_large_image',
-                    title,
+                    title: `${title} | Aurous Academy`,
                     description,
                     image: imageUrl,
                 },
