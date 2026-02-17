@@ -1,4 +1,6 @@
-﻿import React, { useEffect, useState } from 'react'
+﻿'use client';
+
+import React, { useEffect, useState } from 'react'
 import Network from '@/lib/Netwrok';
 import { usePathname } from 'next/navigation';
 import Grid from '@mui/material/Grid2';
@@ -86,7 +88,7 @@ const BannerChildSections = () => {
     const instId = 120;
     const isMobile = useMediaQuery("(min-width:600px)");
     const pathname = usePathname();
-    const domainData = location.state?.domainData || [];
+    const domainData = (typeof window !== 'undefined' && window.location.state?.domainData) || [];
     const [galleryImage, setGalleryImage] = useState([]);
     const [domainId, setDomainId] = useState(0);
     const [loading, setLoading] = useState(true);

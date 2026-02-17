@@ -1,6 +1,6 @@
 ﻿'use client';
 
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, Suspense } from 'react';
 import {
     Box,
     Button,
@@ -29,10 +29,10 @@ import Network from '@/lib/Netwrok';
 import ThankYouPage from './Thankyou';
 import { useSearchParams } from 'next/navigation';
 
-const ContactUs = ({ setApiResponse, selectedAction, handleClose }) => {
+const ContactUsContent = ({ setApiResponse, selectedAction, handleClose }) => {
 
     const searchParams = useSearchParams();
-    const queryParam = new URLSearchParams(searchParams.toString());
+    const queryParam = new URLSearchParams(searchParams?.toString() || '');
     const isMobile = useMediaQuery("(min-width:600px)");
     const instId = 120;
     const campaignId = queryParam.get("campaignid");
@@ -484,6 +484,20 @@ const ContactUs = ({ setApiResponse, selectedAction, handleClose }) => {
         </Box>
     );
 }
+
+// Fallback component for Suspense
+const ContactUsFallback = () => (
+    <Box sx={{ display: 'flex', justifyContent: 'center', alignItems: 'center', height: '200px' }}>
+        <Typography>Loading...</Typography>
+    </Box>
+);
+
+// Wrapper component with Suspense boundary
+const ContactUs = (props) => (
+    <Suspense fallback={<ContactUsFallback />}>
+        <ContactUsContent {...props} />
+    </Suspense>
+);
 
 export default ContactUs;
 

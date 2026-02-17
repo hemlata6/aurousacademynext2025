@@ -34,7 +34,9 @@ export default function BannerChildPage() {
   };
 
   const handleRedirectToCall = () => {
-    window.location.href = 'tel:+919522512624';
+    if (typeof window !== 'undefined') {
+      window.location.href = 'tel:+919522512624';
+    }
   };
 
   return (
