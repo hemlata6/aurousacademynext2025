@@ -1,0 +1,88 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Roboto+Condensed:ital,wght@0,100..900;1,100..900&display=swap');
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  font-family: "Roboto Condensed", serif;
+  background-color: #ffffff;
+}
+
+html, body, #__next {
+  width: 100%;
+  height: 100%;
+}
+
+/* Swiper Styles */
+.swiper {
+  width: 100%;
+  height: 100%;
+}
+
+.swiper-slide {
+  text-align: center;
+  font-size: 18px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.swiper-slide img {
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.mySwiper .swiper-pagination {
+  justify-content: center;
+  bottom: 16px;
+}
+
+/* Slick Carousel Styles */
+.slick-prev, .slick-next {
+  display: none !important;
+}
+
+.slick-dots {
+  position: relative !important;
+  top: 0px !important;
+}
+
+.phone-icon {
+  position: absolute !important;
+  bottom: 0px !important;
+}
+
+/* Animations */
+.zoom-fade-seesaw {
+  transition: transform 0.5s ease-in-out, opacity 0.5s ease-in-out;
+  opacity: 1;
+}
+
+.zoom-fade-seesaw:hover {
+  transform: scale(1.1) rotate(2deg);
+  opacity: 0.8;
+  transition: transform 0.5s ease-in-out, opacity 0.5s ease-in-out;
+}
+
+@keyframes border-animation {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(-360deg);
+  }
+}
+
+.swiper-pagination.swiper-pagination-clickable.swiper-pagination-bullets.swiper-pagination-horizontal {
+  position: sticky;
+}
+
+.css-ptdwpq-MuiPaper-root-MuiAppBar-root {
+  border-radius: 40px;
+}

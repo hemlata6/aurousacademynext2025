@@ -1,0 +1,37 @@
+{
+  "name": "aurous-pragyan-nextjs",
+  "version": "1.0.0",
+  "private": true,
+  "scripts": {
+    "dev": "next dev -p 5000",
+    "build": "next build",
+    "start": "next start",
+    "lint": "next lint"
+  },
+  "dependencies": {
+    "@emotion/react": "^11.13.3",
+    "@emotion/styled": "^11.13.0",
+    "@mui/icons-material": "^6.1.5",
+    "@mui/material": "^6.1.5",
+    "axios": "^1.7.7",
+    "dayjs": "^1.11.13",
+    "html-react-parser": "^5.2.5",
+    "moment": "^2.30.1",
+    "next": "^15.0.0",
+    "notistack": "^3.0.2",
+    "react": "^19.0.0",
+    "react-dom": "^19.0.0",
+    "react-modal-image": "^2.6.0",
+    "react-slick": "^0.30.3",
+    "react-social-media-embed": "^2.5.17",
+    "slick-carousel": "^1.8.1",
+    "swiper": "^11.1.14"
+  },
+  "devDependencies": {
+    "@types/node": "25.2.3",
+    "@types/react": "19.2.14",
+    "eslint": "^9.13.0",
+    "eslint-config-next": "^15.0.0",
+    "typescript": "5.9.3"
+  }
+}
