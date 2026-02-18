@@ -6,7 +6,6 @@ import { Avatar, Dialog } from '@mui/material';
 import { PlayCircle, FileText, Clock, BookOpen, Music, Share2, ArrowLeft, ChevronRight } from 'lucide-react';
 import Network from '@/lib/Netwrok';
 import Endpoints from '@/constant/endpoints';
-import Footer from '@/components/CommonSections/Footer';
 
 const BlogDetailsClient = ({ id, slug }) => {
     const router = useRouter();
@@ -970,13 +969,7 @@ const BlogDetailsClient = ({ id, slug }) => {
                 </div>
             )}
 
-            {/* Footer */}
-            <div style={{
-                marginTop: '80px',
-                borderTop: '1px solid rgba(102, 126, 234, 0.15)'
-            }}>
-                <Footer />
-            </div>
+
         </div>
     );
 };

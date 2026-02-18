@@ -26,7 +26,6 @@ import ArrowBackIcon from '@mui/icons-material/ArrowBack';
 import CallIcon from '@mui/icons-material/Call';
 import Network from '@/lib/Netwrok';
 import Endpoints from '@/constant/endpoints';
-import Footer from '@/components/CommonSections/Footer';
 
 const BlogListClient = () => {
     const router = useRouter();
@@ -771,8 +770,6 @@ const BlogListClient = () => {
                             )}
                     </Container>
                 </Box>
-
-                <Footer />
             </Box>
 
             {/* Contact FABs */}
