@@ -7,8 +7,8 @@ import Endpoints from '@/constant/endpoints';
 
 export async function generateMetadata({ params }) {
     try {
-        const { id } = params;
-        
+        const { id, slug } = await params;
+
         // Fetch blog data
         const response = await Network.fetchBlogDetailApi(id);
         const blog = response?.content;
@@ -16,10 +16,9 @@ export async function generateMetadata({ params }) {
         if (blog?.id) {
             const title = blog.title || 'Blog | Aurous Academy';
             const description = blog.description || blog.blog?.blog || 'Read our latest blog from Aurous Academy';
-            
             // Build absolute image URL - prioritize thumb from blog.blog
             let imageUrl = `https://aurousacademy.com/og-image.jpg`; // fallback
-            
+
             if (blog.blog?.thumb) {
                 const thumbUrl = blog.blog.thumb;
                 if (thumbUrl.startsWith('http')) {
@@ -36,8 +35,10 @@ export async function generateMetadata({ params }) {
                     imageUrl = `${Endpoints.mediaBaseUrl}${imageUrlValue}`;
                 }
             }
-            
-            const url = `https://aurousacademy.com/blog/${id}/${params.slug}`;
+
+            console.log('Final imageUrl:', imageUrl);
+
+            const url = `https://aurousacademy.com/blog/${id}/${slug}`;
 
             return {
                 title: `${title} | Aurous Academy`,
@@ -72,7 +73,7 @@ export async function generateMetadata({ params }) {
     };
 }
 
-function BlogDetailsPage({ params }) {
+async function BlogDetailsPage({ params }) {
     const instId = 120;
 
     const getInstituteDetail = async () => {
@@ -85,9 +86,10 @@ function BlogDetailsPage({ params }) {
     };
 
     // Setup institute detail
-    getInstituteDetail();
+    await getInstituteDetail();
 
-    const cid = params?.id;
+    const { id } = await params;
+    const cid = id;
 
     return (
         <div id="homePageCss">

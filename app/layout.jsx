@@ -4,6 +4,10 @@ import ScriptsAndTracking from '@/components/ScriptsAndTracking';
 import RootLayoutClient from './RootLayoutClient';
 import '@/styles/globals.css';
 
+export const viewport = {
+  themeColor: '#F59E0B',
+};
+
 export const metadata = {
   title: 'Aurous Academy | Best IIT JEE & NEET Coaching Institute in Bhopal | Foundation Courses',
   description: 'Aurous Academy is the best IIT JEE & NEET coaching institute in Bhopal offering expert faculty, personalized mentoring, highest selection ratio, and foundation courses for students.',
@@ -24,7 +28,6 @@ export const metadata = {
     shortcut: '/roundedLogo.svg',
     apple: '/roundedLogo.svg',
   },
-  themeColor: '#F59E0B',
   openGraph: {
     type: 'website',
     url: 'https://aurousacademy.com/',
