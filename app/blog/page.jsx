@@ -1,6 +1,4 @@
-import Network from '@/lib/Netwrok';
-import Endpoints from '@/constant/endpoints';
-import BlogPageClient from './BlogPageClient';
+import BlogListClient from '@/components/BlogSection/BlogListClient';
 
 export const metadata = {
   title: 'Blog | Aurous Academy - Educational Articles & Tips',
@@ -10,7 +8,7 @@ export const metadata = {
     title: 'Blog | Aurous Academy',
     description: 'Read the latest educational articles and exam preparation tips from Aurous Academy',
     image: '/og-image.jpg',
-    url: 'https://aurous.vercel.app/blog',
+    url: 'https://aurousacademy.com/blog',
     type: 'website',
   },
   twitter: {
@@ -20,32 +18,14 @@ export const metadata = {
     image: '/og-image.jpg',
   },
   alternates: {
-    canonical: 'https://aurous.vercel.app/blog',
+    canonical: 'https://aurousacademy.com/blog',
   },
 };
 
-async function BlogPage() {
-  const instId = 120;
-
-  const getInstituteDetail = async () => {
-    try {
-      let response = await Network.fetchInstituteDetail(instId);
-      Endpoints.mediaBaseUrl = response.instituteTechSetting.mediaUrl;
-    } catch (err) {
-      console.log(err);
-    }
-  };
-
-  // Setup institute detail
-  await getInstituteDetail();
-
+export default function BlogPage() {
   return (
     <div id="homePageCss">
-      <div>
-        <BlogPageClient />
-      </div>
+      <BlogListClient />
     </div>
   );
 }
-
-export default BlogPage;

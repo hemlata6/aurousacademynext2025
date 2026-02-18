@@ -1,7 +1,7 @@
 import React from 'react';
 import { Fab, Tooltip } from '@mui/material';
 import CallIcon from '@mui/icons-material/Call';
-import BlogDetailsClient from './BlogDetailsClient';
+import BlogDetailsClient from '@/components/BlogSection/BlogDetailsClient';
 import Network from '@/lib/Netwrok';
 import Endpoints from '@/constant/endpoints';
 
@@ -88,13 +88,12 @@ async function BlogDetailsPage({ params }) {
     // Setup institute detail
     await getInstituteDetail();
 
-    const { id } = await params;
-    const cid = id;
+    const { id, slug } = await params;
 
     return (
         <div id="homePageCss">
             <div>
-                <BlogDetailsClient cid={cid} />
+                <BlogDetailsClient id={id} slug={slug} />
             </div>
         </div>
     );

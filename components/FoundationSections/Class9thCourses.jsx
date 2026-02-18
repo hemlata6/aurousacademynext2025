@@ -24,10 +24,13 @@ import TrendingUpIcon from '@mui/icons-material/TrendingUp';
 import VerifiedIcon from '@mui/icons-material/Verified';
 import ArrowForwardIcon from '@mui/icons-material/ArrowForward';
 import AutoStoriesIcon from '@mui/icons-material/AutoStories';
+import { useRouter } from 'next/navigation';
+import { useCourse } from '@/context/CourseContext';
 
 const Class9thFoundationCourses = () => {
 
-    const navigate = useNavigate();
+    const router = useRouter();
+    const { setSelectedCourse } = useCourse();
     const isMobile = useMediaQuery("(max-width:768px)");
     const [isVisible, setIsVisible] = useState(false);
 
