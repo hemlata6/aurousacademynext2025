@@ -764,7 +764,7 @@ const NavBarTwo = () => {
                         }}
                     >
                         <Typography
-                            onClick={() => router.push('/freeResources')}
+                            onClick={() => router.push('/freeresources')}
                             variant="body1" sx={{
                                 fontSize: '16px',
                                 fontWeight: '500',
@@ -793,7 +793,7 @@ const NavBarTwo = () => {
                         }}
                     >
                         <Typography
-                            onClick={() => router.push('/previousYearPaper')}
+                            onClick={() => router.push('/previousyearpaper')}
                             variant="body1" sx={{
                                 fontSize: '16px',
                                 fontWeight: '500',
@@ -1157,7 +1157,7 @@ const NavBarTwo = () => {
                         Timetable
                     </Typography>
                     {/* <Typography
-                        onClick={() => router.push('/previousYearPaper')}
+                        onClick={() => router.push('/previousyearpaper')}
                         color='#fff'
                         display={'flex'}
                         justifyContent={'start'}
@@ -1180,7 +1180,7 @@ const NavBarTwo = () => {
                         Download
                     </Typography> */}
                     {/* <Typography
-                        onClick={() => router.push('/freeResources')}
+                        onClick={() => router.push('/freeresources')}
                         color='#fff'
                         display={'flex'}
                         justifyContent={'start'}

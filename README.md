@@ -29,8 +29,8 @@ This is the converted Next.js version of the Aurous Academy React project. The m
   - `/result` → Results
   - `/timetable` → Time Table
   - `/methodologies` → Methodologies
-  - `/freeResources` → Free Resources
-  - `/previousYearPaper` → Previous Year Papers
+  - `/freeresources` → Free Resources
+  - `/previousyearpaper` → Previous Year Papers
   - `/banner` → Banner/Gallery by Course
 
 ### 3. **API Integration**

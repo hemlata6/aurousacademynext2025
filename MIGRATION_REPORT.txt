@@ -109,8 +109,8 @@ CORE APPLICATION:
   ✅ app/timetable/page.jsx
   ✅ app/banner/page.jsx
   ✅ app/methodologies/page.jsx
-  ✅ app/freeResources/page.jsx
-  ✅ app/previousYearPaper/page.jsx
+  ✅ app/freeresources/page.jsx
+  ✅ app/previousyearpaper/page.jsx
   ✅ app/privacyPolicy/page.jsx
   ✅ app/termConditions/page.jsx
   ✅ app/disclaimer/page.jsx

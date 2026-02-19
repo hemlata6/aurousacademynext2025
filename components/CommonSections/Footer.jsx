@@ -403,9 +403,9 @@ const Footer = () => {
                                     <Stack spacing={1}>
                                         {[
                                             { text: 'Privacy Policy', href: '/privacyPolicy' },
-                                            { text: 'Refund Policy', href: '/privacyPolicy' },
+                                            { text: 'Refund Policy', href: '/refundPolicy' },
                                             { text: 'Download Brochure', action: handleDownloadBrochure },
-                                            { text: 'Download', href: '/previousYearPaper' },
+                                            { text: 'Download', href: '/previousyearpaper' },
                                             { text: 'Blog', href: '/blog' }
                                         ].map((item, index) => (
                                             <Box key={index}>
