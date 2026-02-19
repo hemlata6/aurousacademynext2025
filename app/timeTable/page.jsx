@@ -20,6 +20,7 @@ export default function TimeTablePage() {
       console.log(err);
     }
   };
+  
 
   useEffect(() => {
     getInstituteDetail();
