@@ -106,7 +106,7 @@ CORE APPLICATION:
   ✅ app/ourTeam/page.jsx
   ✅ app/result/page.jsx
   ✅ app/course/page.jsx
-  ✅ app/timeTable/page.jsx
+  ✅ app/timetable/page.jsx
   ✅ app/banner/page.jsx
   ✅ app/methodologies/page.jsx
   ✅ app/freeResources/page.jsx

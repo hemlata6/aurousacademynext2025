@@ -27,7 +27,7 @@ This is the converted Next.js version of the Aurous Academy React project. The m
   - `/termConditions` → Terms & Conditions
   - `/disclaimer` → Disclaimer
   - `/result` → Results
-  - `/timeTable` → Time Table
+  - `/timetable` → Time Table
   - `/methodologies` → Methodologies
   - `/freeResources` → Free Resources
   - `/previousYearPaper` → Previous Year Papers

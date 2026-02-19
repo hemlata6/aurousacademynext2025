@@ -706,7 +706,7 @@ const NavBarTwo = () => {
                         }}
                     >
                         <Typography
-                            onClick={() => router.push('/timeTable')}
+                            onClick={() => router.push('/timetable')}
                             variant="body1" sx={{
                                 fontSize: '16px',
                                 fontWeight: '500',
@@ -1134,7 +1134,7 @@ const NavBarTwo = () => {
                         </Typography>
                     </a>
                     <Typography
-                        onClick={() => router.push('/timeTable')}
+                        onClick={() => router.push('/timetable')}
                         color='#fff'
                         display={'flex'}
                         justifyContent={'start'}
