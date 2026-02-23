@@ -580,7 +580,7 @@ const PreviousYearPaperPage = () => {
                                                         </Box>
                                                     )}
 
-                                                    <Box
+                                                    {/* <Box
                                                         sx={{
                                                             position: 'absolute',
                                                             left: 0,
@@ -605,7 +605,7 @@ const PreviousYearPaperPage = () => {
                                                         >
                                                             {item?.title}
                                                         </Typography>
-                                                    </Box>
+                                                    </Box> */}
 
                                                     {/* Shine Effect */}
                                                     <Box

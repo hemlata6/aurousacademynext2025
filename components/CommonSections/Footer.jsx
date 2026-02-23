@@ -30,7 +30,7 @@ const Footer = () => {
     const router = useRouter();
     const isMobile = useMediaQuery("(min-width:600px)");
     const [message, setMessage] = useState('Aurous Academy');
-    
+
     // Brochure PDF path from public folder
     const BrochurePDF = '/Updated Brochure.pdf';
 
@@ -140,7 +140,7 @@ const Footer = () => {
                                             { text: 'About Us', href: '/about' },
                                             { text: "Direct from Director's", href: '/ourTeam' },
                                             { text: 'Our Methodologies', href: '/methodologies' },
-                                            { text: 'Success Stories', href: '/gallery' },
+                                            { text: 'Success Stories', href: '/banner' },
                                         ].map((item, index) => (
                                             <a key={index} href={item.href} style={{ textDecoration: 'none' }}>
                                                 <Box
