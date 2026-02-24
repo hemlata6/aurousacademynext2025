@@ -295,6 +295,7 @@ const BlogDetailsClient = ({ id, slug }) => {
                         <ArrowLeft size={18} />
                         Back to Blogs
                     </button>
+
                 </div>
             </div>
         );
@@ -318,75 +319,30 @@ const BlogDetailsClient = ({ id, slug }) => {
                     position: 'relative',
                     zIndex: 2
                 }}>
-                    <button
-                        onClick={() => router.push('/blog')}
-                        style={{
-                            display: 'inline-flex',
-                            alignItems: 'center',
-                            gap: '8px',
-                            background: 'rgba(255, 255, 255, 0.2)',
-                            color: '#ffffff',
-                            border: 'none',
-                            padding: '10px 20px',
-                            borderRadius: '8px',
-                            fontSize: '14px',
-                            fontWeight: '700',
-                            cursor: 'pointer',
-                            marginBottom: '24px',
-                            transition: 'all 0.3s ease'
-                        }}
-                        onMouseEnter={(e) => e.currentTarget.style.background = 'rgba(255, 255, 255, 0.3)'}
-                        onMouseLeave={(e) => e.currentTarget.style.background = 'rgba(255, 255, 255, 0.2)'}
-                    >
-                        <ArrowLeft size={18} />
-                        Back to Blogs
-                    </button>
-
-                    <h1 style={{
-                        fontSize: 'clamp(28px, 5vw, 48px)',
-                        fontWeight: '700',
-                        color: '#ffffff',
-                        marginBottom: '20px',
-                        lineHeight: '1.2'
-                    }}>
-                        {blog.title}
-                    </h1>
-
-                    <div style={{
-                        display: 'flex',
-                        flexWrap: 'wrap',
-                        alignItems: 'center',
-                        gap: '20px',
-                        paddingTop: '20px',
-                        borderTop: '1px solid rgba(255, 255, 255, 0.2)'
-                    }}>
-                        <div style={{ display: 'flex', alignItems: 'center', gap: '12px' }}>
-                            <Avatar
-                                src={blog?.blog?.thumb ? Endpoints.mediaBaseUrl + blog.blog.thumb : ''}
-                                alt={blog?.blog?.author || 'Author'}
-                                sx={{ width: 48, height: 48, bgcolor: 'rgba(255, 255, 255, 0.3)' }}
-                            >
-                                {(blog?.blog?.author || 'A').charAt(0).toUpperCase()}
-                            </Avatar>
-                            <div>
-                                <div style={{
-                                    fontSize: '15px',
-                                    fontWeight: '700',
-                                    color: '#ffffff'
-                                }}>
-                                    {blog?.blog?.author || 'Aurous Academy'}
-                                </div>
-                                <div style={{
-                                    fontSize: '13px',
-                                    color: 'rgba(255, 255, 255, 0.8)',
-                                    marginTop: '2px'
-                                }}>
-                                    {formatDate(blog?.blog?.updatedAt)}
-                                    {blog?.blog?.readTime && <span> • {blog?.blog?.readTime}</span>}
-                                </div>
-                            </div>
-                        </div>
-
+                    <div style={{display: "flex", alignItems: "baseline"}}>
+                        <button
+                            onClick={() => router.push('/blog')}
+                            style={{
+                                display: 'inline-flex',
+                                alignItems: 'center',
+                                gap: '8px',
+                                background: 'rgba(255, 255, 255, 0.2)',
+                                color: '#ffffff',
+                                border: 'none',
+                                padding: '10px 20px',
+                                borderRadius: '8px',
+                                fontSize: '14px',
+                                fontWeight: '700',
+                                cursor: 'pointer',
+                                marginBottom: '24px',
+                                transition: 'all 0.3s ease'
+                            }}
+                            onMouseEnter={(e) => e.currentTarget.style.background = 'rgba(255, 255, 255, 0.3)'}
+                            onMouseLeave={(e) => e.currentTarget.style.background = 'rgba(255, 255, 255, 0.2)'}
+                        >
+                            <ArrowLeft size={18} />
+                            Back to Blogs
+                        </button>
                         <button
                             onClick={handleShare}
                             style={{
@@ -411,6 +367,16 @@ const BlogDetailsClient = ({ id, slug }) => {
                             Share
                         </button>
                     </div>
+
+                    <h1 style={{
+                        fontSize: 'clamp(28px, 5vw, 48px)',
+                        fontWeight: '700',
+                        color: '#ffffff',
+                        // marginBottom: '20px',
+                        lineHeight: '1.2'
+                    }}>
+                        {blog.title}
+                    </h1>
                 </div>
             </div>
 
@@ -453,21 +419,22 @@ const BlogDetailsClient = ({ id, slug }) => {
                             <div style={{
                                 background: '#ffffff',
                                 borderRadius: '16px',
-                                padding: '40px',
+                                paddingLeft: '40px',
+                                paddingRight: '40px',
                                 boxShadow: '0 4px 20px rgba(0, 0, 0, 0.08)',
                                 marginBottom: '40px'
                             }}>
                                 <div
-                                    className="blog-content"
+                                    // className="blog-content"
                                     dangerouslySetInnerHTML={{ __html: blog?.blog?.blog || '' }}
                                     style={{
-                                        color: '#374151',
-                                        fontSize: '17px',
-                                        lineHeight: '1.8',
-                                        fontFamily: 'system-ui, -apple-system, sans-serif'
+                                        // color: '#374151',
+                                        // fontSize: '17px',
+                                        // lineHeight: '1.8',
+                                        // fontFamily: 'system-ui, -apple-system, sans-serif'
                                     }}
                                 />
-                                <style jsx>{`
+                                {/* <style jsx>{`
                                     .blog-content :global(h1),
                                     .blog-content :global(h2),
                                     .blog-content :global(h3),
@@ -580,7 +547,7 @@ const BlogDetailsClient = ({ id, slug }) => {
                                         font-weight: 700;
                                         color: #1f2937;
                                     }
-                                `}</style>
+                                `}</style> */}
                             </div>
                         ) : (
                             <div style={{
