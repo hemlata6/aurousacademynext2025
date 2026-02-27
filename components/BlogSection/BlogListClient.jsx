@@ -336,6 +336,9 @@ const BlogListClient = () => {
         );
     }
 
+    // console.log('selectedScheduleList', selectedScheduleList);
+    
+
     return (
         <>
             <Box 
@@ -595,7 +598,7 @@ const BlogListClient = () => {
                                             </Box>
 
                                             {/* Content Section */}
-                                            <CardContent sx={{ p: 5, bgcolor: '#ffffff' }}>
+                                            <CardContent sx={{ bgcolor: '#ffffff' }}>
                                                 {/* Date and Author */}
                                                 <Box
                                                     sx={{
@@ -604,7 +607,7 @@ const BlogListClient = () => {
                                                         gap: 2,
                                                         fontSize: '0.75rem',
                                                         color: '#9ca3af',
-                                                        mb: 3,
+                                                        mb: 1,
                                                         fontWeight: 700,
                                                         textTransform: 'uppercase',
                                                         letterSpacing: '0.05em',
@@ -646,10 +649,10 @@ const BlogListClient = () => {
                                                 {/* Title */}
                                                 <Typography
                                                     sx={{
-                                                        fontWeight: 700,
-                                                        fontSize: '1.125rem',
+                                                        fontWeight: 800,
+                                                        fontSize: '1.100rem',
                                                         color: '#111827',
-                                                        mb: 2,
+                                                        mb: 1,
                                                         lineHeight: 1.4,
                                                         display: '-webkit-box',
                                                         WebkitLineClamp: 2,
@@ -670,7 +673,7 @@ const BlogListClient = () => {
                                                         fontSize: '0.875rem',
                                                         color: '#6b7280',
                                                         lineHeight: 1.5,
-                                                        mb: 4,
+                                                        mb: 2,
                                                         display: '-webkit-box',
                                                         WebkitLineClamp: 2,
                                                         WebkitBoxOrient: 'vertical',
@@ -686,7 +689,7 @@ const BlogListClient = () => {
 
                                                 {/* CTA Button */}
                                                 <Button
-                                                    endIcon={<ArrowForwardIcon sx={{ fontSize: '0.875rem' }} />}
+                                                    endIcon={<ArrowForwardIcon sx={{ fontSize: '0.850rem' }} />}
                                                     sx={{
                                                         color: '#667eea',
                                                         fontWeight: 700,

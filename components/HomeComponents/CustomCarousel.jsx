@@ -8,6 +8,7 @@ const CustomCarousel = () => {
     const isMobile = useMediaQuery("(min-width:600px)");
     const [currentIndex, setCurrentIndex] = useState(0);
     const [banners, setBanners] = useState([]);
+    const [isPaused, setIsPaused] = useState(false);
     const instId = 120;
 
     // Fetch banners and apply repeat/unique logic
@@ -42,12 +43,16 @@ const CustomCarousel = () => {
 
     // Auto-scroll only if more than 1 unique banner
     useEffect(() => {
-        if (banners.length <= 1) return;
+        if (banners.length <= 1 || isPaused) return;
+
         const interval = setInterval(() => {
-            setCurrentIndex((prevIndex) => (prevIndex + 1) % banners.length);
-        }, 4000);
+            setCurrentIndex(
+                (prevIndex) => (prevIndex + 1) % banners.length
+            );
+        }, 5000);
+
         return () => clearInterval(interval);
-    }, [banners]);
+    }, [banners, isPaused]);
 
     // Listen for external arrow events
     useEffect(() => {
@@ -78,7 +83,10 @@ const CustomCarousel = () => {
                 borderRadius: '16px',
                 minHeight: { xs: '200px', sm: '250px', md: '300px' },
                 maxHeight: { xs: '350px', sm: '400px', md: '450px' },
-            }}>
+            }}
+                onMouseEnter={() => setIsPaused(true)}
+                onMouseLeave={() => setIsPaused(false)}
+            >
                 {/* Carousel Images */}
                 <Box
                     sx={{
