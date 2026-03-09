@@ -80,7 +80,7 @@ const Class7thFoundationCourses = () => {
                 },
                 {
                     id: 30,
-                    des: 'Chapter wise Assisted Problem Solving Sessions (APSS)',
+                    des: 'Chapter-wise Assisted Problem Solving Sessions (APSS)',
                     img: '/Images/chapterSolving.png',
                 },
             ],

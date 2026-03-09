@@ -116,8 +116,8 @@ const OurMethodologies = () => {
         },
         {
             id: 'exercise-sheets',
-            title: 'Chapter wise EXERCISE Sheets',
-            description: 'Exercise Sheets are developed chapter wise and created by taking care of the syllabus of the JEE. Questions involved in the booklet are of various kinds that vary in conceptual, tricky, multi-chapter and brainstorming.',
+            title: 'Chapter-wise EXERCISE Sheets',
+            description: 'Exercise Sheets are developed Chapter-wise and created by taking care of the syllabus of the JEE. Questions involved in the booklet are of various kinds that vary in conceptual, tricky, multi-chapter and brainstorming.',
             image: image12,
             category: 'Study Material'
         },

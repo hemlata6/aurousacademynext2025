@@ -103,7 +103,7 @@ foundation for achieving NEET UG success.
                 },
                 {
                     id: 30,
-                    des: 'Chapter wise Assisted Problem Solving Sessions (APSS)',
+                    des: 'Chapter-wise Assisted Problem Solving Sessions (APSS)',
                     img: chapterSolving,
                 },
             ],
@@ -178,7 +178,7 @@ foundation for a fulfilling medical career.`,
                 },
                 {
                     id: 30,
-                    des: 'Chapter wise Assisted Problem Solving Sessions (APSS)',
+                    des: 'Chapter-wise Assisted Problem Solving Sessions (APSS)',
                     img: chapterSolving,
                 },
             ],

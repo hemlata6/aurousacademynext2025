@@ -72,7 +72,7 @@ decisive step toward academic achievement and future success.
                 },
                 {
                     id: 30,
-                    des: 'Chapter wise Assisted Problem Solving Sessions (APSS)',
+                    des: 'Chapter-wise Assisted Problem Solving Sessions (APSS)',
                     img: '/Images/chapterSolving.png',
                 },
             ],
@@ -145,7 +145,7 @@ promising academic journey. Your success starts here!`,
                 },
                 {
                     id: 30,
-                    des: 'Chapter wise Assisted Problem Solving Sessions (APSS)',
+                    des: 'Chapter-wise Assisted Problem Solving Sessions (APSS)',
                     img: '/Images/chapterSolving.png',
                 },
             ],

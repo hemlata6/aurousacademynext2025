@@ -397,7 +397,7 @@ const NavBarTwo = () => {
                             }}
                             onClick={(e) => handleDownloadPdf(e, 'ourTeam')}
                         >
-                            Director's Message
+                            Directors' Message
                         </ListItemButton>
                     </List>
                 </Collapse>
@@ -1469,7 +1469,7 @@ const NavBarTwo = () => {
                     }}
                     onClick={(e) => handleNavigateOurTeam(e)}
                 >
-                    Director's Message
+                    Directors' Message
                 </MenuItem>
             </Menu>
             <Menu

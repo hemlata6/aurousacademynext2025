@@ -86,7 +86,7 @@ const OurTeamSection1 = () => {
                                         letterSpacing: '1px'
                                     }}
                                 >
-                                    Director's Message
+                                    Directors' Message
                                 </Typography>
 
                                 <Box
@@ -172,8 +172,7 @@ const OurTeamSection1 = () => {
                                                 }
                                             }}
                                         >
-                                            We firmly believe that there is no substitute for hard work. Success in highly competitive examinations such as JEE Main, JEE Advanced, NEET, and various Olympiads demands consistent effort, discipline, and a strong commitment to excellence. Our experienced faculty and visionary leadership are dedicated to providing quality education, personalized guidance, and continuous mentorship to help students confidently face these challenges.
-
+                                            We firmly believe that there is no substitute for hard work. Success in highly competitive examinations such as JEE Main, JEE Advanced, NEET, and various Olympiads demands consistent effort, discipline, and a strong commitment to excellence. Our experienced faculty and visionary leadership are dedicated to providing quality education, personalized guidance, and to help students confidently face these challenges.
                                         </Typography>
 
                                         <Typography
@@ -199,7 +198,7 @@ const OurTeamSection1 = () => {
                                                 textAlign: 'justify'
                                             }}
                                         >
-                                            At Aurous Academy, we emphasize the perfect blend of hard work and smart work. Through systematic teaching, in-depth discussions, and regular assessments, we empower students with strong fundamentals, problem-solving skills, and strategic thinking, enabling them to perform at their best and achieve their academic goals.
+                                            At Aurous Academy, we emphasize the perfect blend of hard work and smart work. Through systematic teaching, in-depth discussions, and regular assessments, we empower students with strong fundamentals, problem-solving skills, and strategic thinking, enabling them to perform their best and achieve their academic goals.
                                         </Typography>
 
                                         {/* Highlighted Conclusion */}
@@ -236,7 +235,7 @@ const OurTeamSection1 = () => {
                                                 "We are not just educators—we are partners in our students' success.
                                                 Your success is our success, and we are committed to doing everything
                                                 possible to help you reach the pinnacle of achievement. At Aurous
-                                                Academy, we don't just teach, we inspire, mentor, and empower you to
+                                                Academy, we don't just teach, we mentor, inspire, and empower you to
                                                 achieve the extraordinary."
                                             </Typography>
                                         </Box>
