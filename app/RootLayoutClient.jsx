@@ -16,7 +16,7 @@ export default function RootLayoutClient({ children }) {
           top: 0, 
           left: 0, 
           right: 0, 
-          zIndex: 1300, 
+          zIndex: 100, 
           width: '100%',
           background: '#fff'
         }}>

@@ -343,15 +343,19 @@ const BlogListClient = () => {
         <>
             <Box 
                 sx={{ 
-                    minHeight: '100vh',
-                    background: 'linear-gradient(to bottom, #f0f4ff 0%, #ffffff 50%)',
+                    // minHeight: '100vh',
+                    background: 'linear-gradient(135deg, #667eea 0%, #764ba2 100%)',
                 }}
             >
-                {/* Header Section */}
+              
+
+                {/* Content Section */}
+                <Box sx={{ py: 4, px: { xs: 2, md: 4 } }}>
+                  {/* Header Section */}
                 <Box
                     sx={{
                         width: '100%',
-                        background: 'linear-gradient(135deg, #667eea 0%, #764ba2 100%)',
+                        // background: 'linear-gradient(135deg, #667eea 0%, #764ba2 100%)',
                         position: 'relative',
                         overflow: 'hidden',
                         py: { xs: 8, md: 12 },
@@ -362,11 +366,11 @@ const BlogListClient = () => {
                             left: 0,
                             right: 0,
                             bottom: 0,
-                            background: `
-                                radial-gradient(circle at 20% 80%, rgba(120, 119, 198, 0.3) 0%, transparent 50%),
-                                radial-gradient(circle at 80% 20%, rgba(255, 177, 153, 0.3) 0%, transparent 50%),
-                                radial-gradient(circle at 40% 40%, rgba(120, 119, 198, 0.2) 0%, transparent 50%)
-                            `,
+                            // background: `
+                            //     radial-gradient(circle at 20% 80%, rgba(120, 119, 198, 0.3) 0%, transparent 50%),
+                            //     radial-gradient(circle at 80% 20%, rgba(255, 177, 153, 0.3) 0%, transparent 50%),
+                            //     radial-gradient(circle at 40% 40%, rgba(120, 119, 198, 0.2) 0%, transparent 50%)
+                            // `,
                             zIndex: 1,
                         },
                     }}
@@ -391,19 +395,20 @@ const BlogListClient = () => {
                                     fontWeight: 700,
                                     color: '#ffffff',
                                     mb: 2,
+                                    background: 'linear-gradient(135deg, #FFD700 0%, #FFA500 100%)',
+                            backgroundClip: 'text',
+                            WebkitBackgroundClip: 'text',
+                            WebkitTextFillColor: 'transparent',
                                 }}
                             >
                                 Insights & Educational Content
                             </Typography>
-                            <Typography sx={{ color: 'rgba(255, 255, 255, 0.85)', fontSize: '1rem', lineHeight: 1.6 }}>
+                            <Typography sx={{ color: 'rgba(255, 255, 255, 0.85)', fontSize: '1rem', lineHeight: 1.6 ,}}>
                                 Explore blogs, tutorials, and resources to enhance your exam preparation with Aurous Academy experts.
                             </Typography>
                         </Box>
                     </Container>
                 </Box>
-
-                {/* Content Section */}
-                <Box sx={{ py: 8, px: { xs: 2, md: 4 } }}>
                     <Container maxWidth="lg">
                         {/* Back Button */}
                         {(selectedFolder || navigationHistory.length > 0) && (
@@ -635,7 +640,7 @@ const BlogListClient = () => {
                                                         </Box>
                                                     ) : null}
 
-                                                    {item?.blog?.author && typeof item?.blog?.author === 'string' && (
+                                                    {/* {item?.blog?.author && typeof item?.blog?.author === 'string' && (
                                                         <>
                                                             <Typography component="span">•</Typography>
                                                             <Box sx={{ display: 'flex', alignItems: 'center', gap: 0.5 }}>
@@ -643,7 +648,7 @@ const BlogListClient = () => {
                                                                 {item?.blog?.author}
                                                             </Box>
                                                         </>
-                                                    )}
+                                                    )} */}
                                                 </Box>
 
                                                 {/* Title */}

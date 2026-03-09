@@ -302,12 +302,20 @@ const BlogDetailsClient = ({ id, slug }) => {
     }
 
     return (
-        <div style={{ minHeight: '100vh', background: 'linear-gradient(to bottom, #f0f4ff 0%, #ffffff 50%)' }}>
-            {/* Header Section */}
+        <div style={{ minHeight: '', background: 'linear-gradient(135deg, #667eea 0%, #764ba2 100%)' }}>
+        
+
+            {/* Content Section */}
+            <div style={{
+                maxWidth: '1200px',
+                margin: '0 auto',
+                padding: '40px 20px'
+            }}>
+                {/* Header Section */}
             <div
                 style={{
                     width: '100%',
-                    background: 'linear-gradient(135deg, #667eea 0%, #764ba2 100%)',
+                    // background: 'linear-gradient(135deg, #667eea 0%, #764ba2 100%)',
                     padding: '60px 20px',
                     position: 'relative',
                     overflow: 'hidden'
@@ -379,13 +387,6 @@ const BlogDetailsClient = ({ id, slug }) => {
                     </h1>
                 </div>
             </div>
-
-            {/* Content Section */}
-            <div style={{
-                maxWidth: '1200px',
-                margin: '0 auto',
-                padding: '40px 20px'
-            }}>
                 <div style={{
                     display: 'grid',
                     gridTemplateColumns: slides.length > 0 ? '1fr 350px' : '1fr',

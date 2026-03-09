@@ -86,6 +86,7 @@ const NavBarOne = () => {
                 boxShadow: scrolled
                     ? '0 8px 32px rgba(183, 14, 14, 0.15)'
                     : '0 2px 12px rgba(0, 0, 0, 0.08)',
+                    margin:'0px',
             }}
         >
             <Container maxWidth="xl">
