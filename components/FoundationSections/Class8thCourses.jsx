@@ -141,7 +141,7 @@ preparation, equipping students for success in both board and
 competitive examinations.`,
             targetYear: '2028',
             admissionOpen: true,
-            img: '/Images/8TH 3-Year Classroom Program for Class 8th, 9th & 10th.jpg',
+            img: '/Images/8TH_3_Year_Classroom_Program_for_Class_8th_9th_&_10th.jpg',
             programPlanner: [
                 {
                     id: 33,
