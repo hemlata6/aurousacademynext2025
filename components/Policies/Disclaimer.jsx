@@ -53,7 +53,7 @@ const Disclaimer = () => {
                             textAlign={'start'}
                             color='#666d81'
                         >
-                            Users accessing the website or enrolling in programs are advised to carefully review the <a href='/privacyPolicy' style={{ textDecoration: 'none' }}> Privacy Policy</a>,<a href='/termConditions' style={{ textDecoration: 'none' }}> Terms and Conditions</a>, and Refund Policy before proceeding. By engaging with our services, you acknowledge and accept these policies in their entirety.
+                            Users accessing the website or enrolling in programs are advised to carefully review the <a href='/privacyPolicy' style={{ textDecoration: 'none' }}> Privacy Policy</a>, <a href='/termConditions' style={{ textDecoration: 'none' }}>Terms and Conditions</a>, and <a href='/privacyPolicy' style={{ textDecoration: 'none' }}>Refund Policy</a> before proceeding. By engaging with our services, you acknowledge and accept these policies in their entirety.
                         </Typography>
                         <Typography
                             fontSize={'16px'}

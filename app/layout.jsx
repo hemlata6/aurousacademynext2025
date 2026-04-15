@@ -35,7 +35,7 @@ export const metadata = {
     description: 'Join Aurous Academy – the top IIT JEE & NEET coaching institute in Bhopal with expert mentors and proven results.',
     images: [
       {
-        url: 'https://aurousacademy.com/assets/logo-DUJINxlD.svg',
+        url: 'https://aurousacademy.com/logo.svg',
         width: 1200,
         height: 630,
         alt: 'Aurous Academy Logo',
@@ -46,7 +46,7 @@ export const metadata = {
     card: 'summary_large_image',
     title: 'Aurous Academy | Best IIT JEE & NEET Coaching Institute in Bhopal',
     description: 'Aurous Academy provides the best IIT JEE, NEET & Foundation coaching in Bhopal.',
-    images: ['https://aurousacademy.com/assets/logo-DUJINxlD.svg'],
+    images: ['https://aurousacademy.com/logo.svg'],
   },
 };
 
@@ -70,7 +70,7 @@ export default function RootLayout({ children }) {
                   '@id': 'https://aurousacademy.com/#organization',
                   name: 'Aurous Academy',
                   url: 'https://aurousacademy.com/',
-                  logo: 'https://aurousacademy.com/assets/logo-DUJINxlD.svg',
+                  logo: 'https://aurousacademy.com/logo.svg',
                   description: 'Best IIT JEE & NEET coaching institute in Bhopal offering foundation and competitive exam preparation.',
                   address: {
                     '@type': 'PostalAddress',
@@ -98,7 +98,7 @@ export default function RootLayout({ children }) {
                   '@type': 'LocalBusiness',
                   '@id': 'https://aurousacademy.com/#localbusiness',
                   name: 'Aurous Academy',
-                  image: 'https://aurousacademy.com/assets/logo-DUJINxlD.svg',
+                  image: 'https://aurousacademy.com/logo.svg',
                   telephone: '+91-95225-12624',
                   priceRange: '₹₹',
                   openingHours: 'Mo-Su 08:00-22:30',

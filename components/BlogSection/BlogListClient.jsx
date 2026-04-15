@@ -337,78 +337,79 @@ const BlogListClient = () => {
     }
 
     // console.log('selectedScheduleList', selectedScheduleList);
-    
+
 
     return (
         <>
-            <Box 
-                sx={{ 
+            <Box
+                sx={{
                     // minHeight: '100vh',
                     background: 'linear-gradient(135deg, #667eea 0%, #764ba2 100%)',
                 }}
             >
-              
+
 
                 {/* Content Section */}
                 <Box sx={{ py: 4, px: { xs: 2, md: 4 } }}>
-                  {/* Header Section */}
-                <Box
-                    sx={{
-                        width: '100%',
-                        // background: 'linear-gradient(135deg, #667eea 0%, #764ba2 100%)',
-                        position: 'relative',
-                        overflow: 'hidden',
-                        py: { xs: 8, md: 12 },
-                        '&::before': {
-                            content: '""',
-                            position: 'absolute',
-                            top: 0,
-                            left: 0,
-                            right: 0,
-                            bottom: 0,
-                            // background: `
-                            //     radial-gradient(circle at 20% 80%, rgba(120, 119, 198, 0.3) 0%, transparent 50%),
-                            //     radial-gradient(circle at 80% 20%, rgba(255, 177, 153, 0.3) 0%, transparent 50%),
-                            //     radial-gradient(circle at 40% 40%, rgba(120, 119, 198, 0.2) 0%, transparent 50%)
-                            // `,
-                            zIndex: 1,
-                        },
-                    }}
-                >
-                    <Container maxWidth="lg" sx={{ position: 'relative', zIndex: 2 }}>
-                        <Box sx={{ textAlign: 'center', maxWidth: '700px', mx: 'auto' }}>
-                            <Typography
-                                sx={{
-                                    color: 'rgba(255, 255, 255, 0.9)',
-                                    fontWeight: 700,
-                                    letterSpacing: '0.1em',
-                                    fontSize: '0.75rem',
-                                    mb: 2,
-                                    textTransform: 'uppercase',
-                                }}
-                            >
-                                Knowledge Hub
-                            </Typography>
-                            <Typography
-                                sx={{
-                                    fontSize: { xs: '2rem', md: '2.75rem' },
-                                    fontWeight: 700,
-                                    color: '#ffffff',
-                                    mb: 2,
-                                    background: 'linear-gradient(135deg, #FFD700 0%, #FFA500 100%)',
-                            backgroundClip: 'text',
-                            WebkitBackgroundClip: 'text',
-                            WebkitTextFillColor: 'transparent',
-                                }}
-                            >
-                                Insights & Educational Content
-                            </Typography>
-                            <Typography sx={{ color: 'rgba(255, 255, 255, 0.85)', fontSize: '1rem', lineHeight: 1.6 ,}}>
-                                Explore blogs, tutorials, and resources to enhance your exam preparation with Aurous Academy experts.
-                            </Typography>
-                        </Box>
-                    </Container>
-                </Box>
+                    {/* Header Section */}
+                    <Box
+                        sx={{
+                            width: '100%',
+                            // background: 'linear-gradient(135deg, #667eea 0%, #764ba2 100%)',
+                            position: 'relative',
+                            overflow: 'hidden',
+                            py: { xs: 8, md: 12 },
+                            '&::before': {
+                                content: '""',
+                                position: 'absolute',
+                                top: 0,
+                                left: 0,
+                                right: 0,
+                                bottom: 0,
+                                // background: `
+                                //     radial-gradient(circle at 20% 80%, rgba(120, 119, 198, 0.3) 0%, transparent 50%),
+                                //     radial-gradient(circle at 80% 20%, rgba(255, 177, 153, 0.3) 0%, transparent 50%),
+                                //     radial-gradient(circle at 40% 40%, rgba(120, 119, 198, 0.2) 0%, transparent 50%)
+                                // `,
+                                zIndex: 1,
+                            },
+                        }}
+                    >
+                        <Container maxWidth="lg" sx={{ position: 'relative', zIndex: 2 }}>
+                            <Box sx={{ textAlign: 'center', maxWidth: '700px', mx: 'auto' }}>
+                                <Typography
+                                    sx={{
+                                        color: 'rgba(255, 255, 255, 0.9)',
+                                        fontWeight: 700,
+                                        letterSpacing: '0.1em',
+                                        fontSize: '0.75rem',
+                                        mb: 2,
+                                        textTransform: 'uppercase',
+                                    }}
+                                >
+                                    Knowledge Hub
+                                </Typography>
+                                <Typography
+                                    variant='h1'
+                                    sx={{
+                                        // fontSize: { xs: '2rem', md: '2.75rem' },
+                                        fontWeight: 700,
+                                        color: '#ffffff',
+                                        mb: 2,
+                                        background: 'linear-gradient(135deg, #FFD700 0%, #FFA500 100%)',
+                                        backgroundClip: 'text',
+                                        WebkitBackgroundClip: 'text',
+                                        WebkitTextFillColor: 'transparent',
+                                    }}
+                                >
+                                    Insights & Educational Content
+                                </Typography>
+                                <Typography sx={{ color: 'rgba(255, 255, 255, 0.85)', fontSize: '1rem', lineHeight: 1.6, }}>
+                                    Explore blogs, tutorials, and resources to enhance your exam preparation with Aurous Academy experts.
+                                </Typography>
+                            </Box>
+                        </Container>
+                    </Box>
                     <Container maxWidth="lg">
                         {/* Back Button */}
                         {(selectedFolder || navigationHistory.length > 0) && (

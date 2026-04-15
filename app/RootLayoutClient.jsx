@@ -1,13 +1,21 @@
 'use client';
 
+import { useState, useEffect } from 'react';
 import NavBarOne from '@/components/CommonSections/NavBarOne';
 import NavBarTwo from '@/components/CommonSections/NavBarTwo';
 import { useEffect, useState } from 'react';
 import { useMediaQuery } from '@mui/material';
 
 export default function RootLayoutClient({ children }) {
+  const isMobileQuery = useMediaQuery('(max-width:600px)');
   const [mounted, setMounted] = useState(false);
-  const isMobile = useMediaQuery('(max-width:600px)');
+
+  useEffect(() => {
+    setMounted(true);
+  }, []);
+
+  // Use false until mounted so SSR and initial client render match exactly
+  const isMobile = mounted ? isMobileQuery : false;
 
   useEffect(() => {
     setMounted(true);

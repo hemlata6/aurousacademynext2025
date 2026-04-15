@@ -7,7 +7,7 @@ export const metadata = {
   openGraph: {
     title: 'Blog | Aurous Academy',
     description: 'Read the latest educational articles and exam preparation tips from Aurous Academy',
-    image: '/og-image.jpg',
+    images: ['https://aurousacademy.com/roundedLogo.svg'],
     url: 'https://aurousacademy.com/blog',
     type: 'website',
   },
@@ -15,7 +15,7 @@ export const metadata = {
     card: 'summary_large_image',
     title: 'Blog | Aurous Academy',
     description: 'Educational blog with exam preparation tips and strategies',
-    image: '/og-image.jpg',
+    images: ['https://aurousacademy.com/roundedLogo.svg'],
   },
   alternates: {
     canonical: 'https://aurousacademy.com/blog',

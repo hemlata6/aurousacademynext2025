@@ -71,7 +71,7 @@ students with the knowledge and confidence required to excel in both
 board and competitive exams.`,
             targetYear: '2027',
             admissionOpen: true,
-            img: '/Images/9TH 2-Year Classroom Program for Class 9th & 10th.jpg',
+            img: '/Images/9TH_2_Year_Classroom_Program_for_Class_9th_10th.jpg',
             programPlanner: [
                 {
                     id: 33,
@@ -140,7 +140,7 @@ manage their academic workload while excelling in both school and
 competitive exams.`,
             targetYear: '2027',
             admissionOpen: true,
-            img: '/Images/9TH 2-Year School Integrated Program for Class 9th & 10th.jpg',
+            img: '/Images/9TH_2_Year_School_Integrated_Program_for_Class_9th_&_10th.jpg',
             programPlanner: [
                 {
                     id: 33,
