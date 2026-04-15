@@ -307,7 +307,7 @@ const ResultSection1 = () => {
                 }}
             >
                 <Typography
-                    variant="h2"
+                    variant="h1"
                     sx={{
                         background: 'linear-gradient(45deg, #FFD700, #FFA500, #FF8C00)',
                         backgroundClip: 'text',

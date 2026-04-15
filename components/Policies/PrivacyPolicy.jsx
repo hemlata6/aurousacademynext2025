@@ -84,7 +84,7 @@ const PrivacyPolicy = () => {
                 <Fade in={isVisible} timeout={1000}>
                     <Box sx={{ textAlign: 'center', mb: 6 }}>
                         <Typography
-                            variant="h2"
+                            variant="h1"
                             sx={{
                                 fontWeight: 700,
                                 background: 'linear-gradient(135deg, #FFD700 0%, #FFA500 100%)',
@@ -229,6 +229,7 @@ const PrivacyPolicy = () => {
                                     <Box sx={{ display: 'flex', alignItems: 'center', mb: 3 }}>
                                         <MonetizationOnIcon sx={{ color: '#FF9800', fontSize: 32, mr: 2 }} />
                                         <Typography
+                                            id="refund-policy"
                                             variant="h4"
                                             sx={{
                                                 color: '#FF9800',

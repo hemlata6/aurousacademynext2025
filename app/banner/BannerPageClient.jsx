@@ -1,6 +1,6 @@
 'use client';
 
-import React, { useEffect } from 'react';
+import React, { useEffect, useState } from 'react';
 import NewGalleryCourseWise from '@/components/NewGallerySectionDomainWise/NewGalleryCourseWise';
 import Network from '@/lib/Netwrok';
 import Endpoints from '@/constant/endpoints';
@@ -9,7 +9,10 @@ import CallIcon from '@mui/icons-material/Call';
 
 export default function BannerPageClient() {
   const instId = 120;
-  const isMobile = useMediaQuery('(min-width:600px)');
+  const isMobileQuery = useMediaQuery('(min-width:600px)');
+  const [mounted, setMounted] = useState(false);
+  // Use false until mounted so SSR and initial client render match
+  const isMobile = mounted ? isMobileQuery : false;
   const [message, setMessage] = React.useState('Aurous Academy');
 
   const getInstituteDetail = async () => {
@@ -22,6 +25,7 @@ export default function BannerPageClient() {
   };
 
   useEffect(() => {
+    setMounted(true);
     getInstituteDetail();
   }, []);
 

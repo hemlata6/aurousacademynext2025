@@ -197,7 +197,7 @@ const TimeTableSection1 = () => {
                     </Box>
 
                     <Typography
-                        variant="h2"
+                        variant="h1"
                         sx={{
                             fontWeight: 700,
                             background: 'linear-gradient(135deg, #FFD700 0%, #FFA500 100%)',

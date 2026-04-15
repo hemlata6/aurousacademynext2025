@@ -52,7 +52,12 @@ const AnnouncementDialog = ({ handleClose, data, from }) => {
                     justifyContent={'center'}
                     p={2}
                   >
-                    <img width={['40%', '40%']} height={'100%'} alt='' src={Endpoints.mediaBaseUrl + data?.image} />
+                    <img
+                      width={['40%', '40%']}
+                      height={'100%'}
+                      alt={data?.title || 'Aurous Academy announcement'}
+                      src={Endpoints.mediaBaseUrl + data?.image}
+                    />
                   </Box>
                   <Typography
                     fontSize={'16px'}

@@ -51,7 +51,7 @@ const AboutSection1 = () => {
                         <Zoom in timeout={1000}>
                             <Box textAlign="center" mb={{ xs: 4, md: 6 }}>
                                 <Typography
-                                    variant="h2"
+                                    variant="h1"
                                     sx={{
                                         fontSize: { xs: '2.5rem', md: '3.5rem', lg: '4rem' },
                                         fontWeight: 700,

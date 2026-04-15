@@ -9,6 +9,7 @@ import HomeSection3 from '@/components/HomeComponents/HomeSection3';
 import HomeSection4 from '@/components/HomeComponents/HomeSection4';
 import HomeSection5 from '@/components/HomeComponents/HomeSection5';
 import HomeSection6 from '@/components/HomeComponents/HomeSection6';
+import HomeLocationMap from '@/components/HomeComponents/HomeLocationMap';
 import Network from '@/lib/Netwrok';
 import Endpoints from '@/constant/endpoints';
 
@@ -54,6 +55,21 @@ export default function HomePage() {
   return (
     <div id='homePageCss'>
       <div>
+        <h1
+          style={{
+            position: 'absolute',
+            width: '1px',
+            height: '1px',
+            padding: 0,
+            margin: '-1px',
+            overflow: 'hidden',
+            clip: 'rect(0, 0, 0, 0)',
+            whiteSpace: 'nowrap',
+            border: 0,
+          }}
+        >
+          Best IIT JEE and NEET Coaching Institute in Bhopal
+        </h1>
         <HomeSection1 />
         <div ref={homeSection2Ref}>
           <HomeSection3 />
@@ -61,6 +77,7 @@ export default function HomePage() {
         <HomeSection2 />
         <HomeSection4 />
         <HomeSection6 />
+        <HomeLocationMap />
         <HomeSection5 />
 
       <Tooltip title="Call Us Now" placement="top-start">
