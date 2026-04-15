@@ -87,7 +87,7 @@ const NEETSection1 = () => {
                 },
                 {
                     id: 30,
-                    des: 'Chapter wise Assisted Problem Solving Sessions (APSS)'
+                    des: 'Chapter-wise Assisted Problem Solving Sessions (APSS)'
                 },
             ],
             mocktest: [
@@ -141,7 +141,7 @@ const NEETSection1 = () => {
                 },
                 {
                     id: 30,
-                    des: 'Chapter wise Assisted Problem Solving Sessions (APSS)'
+                    des: 'Chapter-wise Assisted Problem Solving Sessions (APSS)'
                 },
             ],
             mocktest: [
@@ -202,7 +202,7 @@ const NEETSection1 = () => {
                 },
                 {
                     id: 30,
-                    des: 'Chapter wise Assisted Problem Solving Sessions (APSS)'
+                    des: 'Chapter-wise Assisted Problem Solving Sessions (APSS)'
                 },
             ],
             mocktest: [
@@ -256,7 +256,7 @@ const NEETSection1 = () => {
                 },
                 {
                     id: 30,
-                    des: 'Chapter wise Assisted Problem Solving Sessions (APSS)'
+                    des: 'Chapter-wise Assisted Problem Solving Sessions (APSS)'
                 },
             ],
             mocktest: [

@@ -138,7 +138,7 @@ const Footer = () => {
                                     <Stack spacing={1}>
                                         {[
                                             { text: 'About Us', href: '/about' },
-                                            { text: "Direct from Director's", href: '/ourTeam' },
+                                            { text: "Direct from the Director's", href: '/ourTeam' },
                                             { text: 'Our Methodologies', href: '/methodologies' },
                                             { text: 'Success Stories', href: '/banner' },
                                         ].map((item, index) => (

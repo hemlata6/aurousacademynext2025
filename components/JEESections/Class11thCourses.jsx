@@ -96,7 +96,7 @@ paving the way for success in JEE and other competitive examinations.
                 },
                 {
                     id: 30,
-                    des: 'Chapter wise Assisted Problem Solving Sessions (APSS)',
+                    des: 'Chapter-wise Assisted Problem Solving Sessions (APSS)',
                     img: chapterSolving,
                 },
             ],
@@ -175,7 +175,7 @@ for a successful engineering career.`,
                 },
                 {
                     id: 30,
-                    des: 'Chapter wise Assisted Problem Solving Sessions (APSS)',
+                    des: 'Chapter-wise Assisted Problem Solving Sessions (APSS)',
                     img: chapterSolving,
                 },
             ],
