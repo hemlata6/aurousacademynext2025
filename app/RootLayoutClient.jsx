@@ -2,15 +2,21 @@
 
 import NavBarOne from '@/components/CommonSections/NavBarOne';
 import NavBarTwo from '@/components/CommonSections/NavBarTwo';
+import { useEffect, useState } from 'react';
 import { useMediaQuery } from '@mui/material';
 
 export default function RootLayoutClient({ children }) {
+  const [mounted, setMounted] = useState(false);
   const isMobile = useMediaQuery('(max-width:600px)');
+
+  useEffect(() => {
+    setMounted(true);
+  }, []);
 
   return (
     <div style={{ paddingTop: '90px' }}>
       {/* NavBarOne - Fixed at top for entire scroll on desktop */}
-      {!isMobile && (
+      {mounted && !isMobile && (
         <div style={{ 
           position: 'fixed', 
           top: 0, 
@@ -25,7 +31,7 @@ export default function RootLayoutClient({ children }) {
       )}
       
       {/* NavBarTwo - Fixed at top for entire scroll on mobile, normal on desktop */}
-      <div style={isMobile ? { 
+      <div style={mounted && isMobile ? { 
         position: 'fixed', 
         top: 0, 
         left: 0, 
