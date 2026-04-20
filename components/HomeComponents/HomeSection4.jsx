@@ -3,13 +3,14 @@ import { Button, Typography, useMediaQuery, Box, Stack, Chip } from '@mui/materi
 import Grid from '@mui/material/Grid2';
 import Network from '@/lib/Netwrok';
 import Endpoints from '@/constant/endpoints';
+import instId from '@/constant/instId';
 
 const HomeSection4 = () => {
     const isMobile = useMediaQuery("(min-width:768px)");
     const [isButtonHovered, setIsButtonHovered] = useState(false);
     const [hoveredChip, setHoveredChip] = useState(null);
     const [banners, setBanners] = useState([]);
-    const instId = 120;
+    // const instId = 120;
 
     useEffect(() => {
         getBanners();
@@ -23,7 +24,7 @@ const HomeSection4 = () => {
 
     const getBanners = async () => {
         try {
-            const response = await Network.fetchBannerss(instId);
+            const response = await Network.fetchBannerss(instId.instId);
             const fetchedBanners = response.banners || [];
             // Filter banners with group === 'scholarship'
             const newBanners = fetchedBanners.filter(item => item?.group === 'scholarship');

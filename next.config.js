@@ -3,27 +3,70 @@ const nextConfig = {
   reactStrictMode: true,
   compress: true,
   poweredByHeader: false,
-  images: {
-    // Enable image optimization for better SEO and performance
-    unoptimized: false,
-    // Enable AVIF format for modern browsers (better compression)
-    formats: ['image/avif', 'image/webp'],
-    // Remote patterns for API images
-    remotePatterns: [
+  
+  // Enable HTTPS redirect and security headers
+  async headers() {
+    return [
+      // Security headers
       {
-        protocol: 'https',
-        hostname: '**',
+        source: '/:path*',
+        headers: [
+          {
+            key: 'X-Content-Type-Options',
+            value: 'nosniff',
+          },
+          {
+            key: 'X-Frame-Options',
+            value: 'SAMEORIGIN',
+          },
+          {
+            key: 'X-XSS-Protection',
+            value: '1; mode=block',
+          },
+          {
+            key: 'Referrer-Policy',
+            value: 'strict-origin-when-cross-origin',
+          },
+        ],
       },
+      // Cache static assets
       {
-        protocol: 'http',
-        hostname: '**',
+        source: '/_next/static/:path*',
+        headers: [
+          {
+            key: 'Cache-Control',
+            value: 'public, max-age=31536000, immutable',
+          },
+        ],
       },
-    ],
-    // Cache optimized images for 365 days
-    minimumCacheTTL: 31536000,
+      // Cache public images
+      {
+        source: '/Images/:path*',
+        headers: [
+          {
+            key: 'Cache-Control',
+            value: 'public, max-age=31536000, immutable',
+          },
+        ],
+      },
+      // Cache SVGs and favicon
+      {
+        source: '/:path*.(svg|ico|webmanifest)',
+        headers: [
+          {
+            key: 'Cache-Control',
+            value: 'public, max-age=31536000, immutable',
+          },
+        ],
+      },
+    ];
   },
+
+  // Global 301 redirects
   async redirects() {
     return [
+      // HTTPS redirect is handled at the server/CDN level for better performance
+      // These are URL redirects for page structure improvements
       {
         source: '/refundPolicy',
         destination: '/privacyPolicy#refund-policy',
@@ -51,31 +94,35 @@ const nextConfig = {
       },
     ];
   },
-  async headers() {
-    return [
+  
+  images: {
+    // Enable image optimization for better SEO and performance
+    unoptimized: false,
+    // Enable AVIF and WebP formats for modern browsers (better compression)
+    formats: ['image/avif', 'image/webp'],
+    // Remote patterns for API images
+    remotePatterns: [
       {
-        source: '/_next/static/:path*',
-        headers: [
-          {
-            key: 'Cache-Control',
-            value: 'public, max-age=31536000, immutable',
-          },
-        ],
+        protocol: 'https',
+        hostname: '**',
       },
       {
-        source: '/Images/:path*',
-        headers: [
-          {
-            key: 'Cache-Control',
-            value: 'public, max-age=31536000, immutable',
-          },
-        ],
+        protocol: 'http',
+        hostname: '**',
       },
-    ];
+    ],
+    // Cache optimized images for 365 days
+    minimumCacheTTL: 31536000,
+    // Device sizes for responsive images
+    deviceSizes: [640, 750, 828, 1080, 1200, 1920, 2048, 3840],
+    // Image sizes for srcset
+    imageSizes: [16, 32, 48, 64, 96, 128, 256, 384],
   },
+  
   env: {
     NEXT_PUBLIC_API_BASE_URL: process.env.NEXT_PUBLIC_API_BASE_URL || 'https://prodapi.classiolabs.com/',
   },
+  
   webpack: (config, { isServer }) => {
     if (isServer) {
       // Suppress url.parse deprecation warning from follow-redirects (axios dependency)

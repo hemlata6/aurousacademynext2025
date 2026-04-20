@@ -40,7 +40,7 @@ import NavigateNextIcon from '@mui/icons-material/NavigateNext';
 
 const NewGalleryCourseWise = () => {
 
-    const instId = 120;
+    // const instId = 120;
     const isMobile = useMediaQuery("(min-width:600px)");
     // const [Endpoints, setEndpoints] = useState('');
     const [coursesList, setCoursesList] = useState([]);

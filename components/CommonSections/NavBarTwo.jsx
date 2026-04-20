@@ -18,6 +18,7 @@ import Grid from '@mui/material/Grid2';
 import ContactUs from './ContactUs';
 import moment from 'moment';
 import AnnouncementDialog from './AnnouncementDialog';
+import instId from '@/constant/instId';
 
 const Logo = images.logo;
 const PolygonDown = images.polygonDown;
@@ -69,7 +70,7 @@ if (typeof document !== 'undefined') {
 
 const NavBarTwo = () => {
 
-    const instId = 120;
+    // const instId = 120;
     const isMobile = useMediaQuery("(min-width:600px)");
     const router = useRouter();
     const [selectedCourse, setSelectedCourse] = useState('Home');
@@ -123,7 +124,7 @@ const NavBarTwo = () => {
 
     const getAllAnnouncement = async () => {
         try {
-            const response = await Network.fetchAnnouncementUrl(instId);
+            const response = await Network.fetchAnnouncementUrl(instId.instId);
             setAnncouncementData(response?.announcement);
         } catch (error) {
             console.log(error);
@@ -135,7 +136,7 @@ const NavBarTwo = () => {
     }, []);
 
     const getAllCourses = async () => {
-        const response = await Network.fetchCourses(instId);
+        const response = await Network.fetchCourses(instId.instId);
         // setCourses(response.courses);
         let activeCourses = [];
         let testSeriesCourses = [];

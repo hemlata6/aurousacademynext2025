@@ -26,10 +26,11 @@ import PlayCircleOutlineIcon from '@mui/icons-material/PlayCircleOutline';
 import ArticleIcon from '@mui/icons-material/Article';
 import LaunchIcon from '@mui/icons-material/Launch';
 import CalendarTodayIcon from '@mui/icons-material/CalendarToday';
+import instId from "@/constant/instId";
 
 const TimeTableSection1 = () => {
 
-    const instId = 120;
+    // const instId = 120;
     const isMobile = useMediaQuery("(min-width:600px)");
     const [Endpoints, setEndpoints] = useState('');
     const [coursesList, setCoursesList] = useState([]);
@@ -55,7 +56,7 @@ const TimeTableSection1 = () => {
                 withCredentials: false,
             };
             const response = await axios.get(
-                BASE_URL + "/getMetaData/fetch-institute/" + instId,
+                BASE_URL + "/getMetaData/fetch-institute/" + instId.instId,
                 requestOptions
             );
             if (response?.data?.errorCode === 0) {
@@ -68,7 +69,7 @@ const TimeTableSection1 = () => {
     };
 
     const getAllCourses = async () => {
-        const response = await Network.fetchCourses(instId);
+        const response = await Network.fetchCourses(instId.instId);
         const course = response?.courses || [];
 
 

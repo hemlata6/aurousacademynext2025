@@ -35,7 +35,7 @@ export const metadata = {
     description: 'Join Aurous Academy – the top IIT JEE & NEET coaching institute in Bhopal with expert mentors and proven results.',
     images: [
       {
-        url: 'https://aurousacademy.com/logo.svg',
+        url: 'https://aurousacademy.com/roundedLogo.svg',
         width: 1200,
         height: 630,
         alt: 'Aurous Academy Logo',
@@ -46,7 +46,7 @@ export const metadata = {
     card: 'summary_large_image',
     title: 'Aurous Academy | Best IIT JEE & NEET Coaching Institute in Bhopal',
     description: 'Aurous Academy provides the best IIT JEE, NEET & Foundation coaching in Bhopal.',
-    images: ['https://aurousacademy.com/logo.svg'],
+    images: ['https://aurousacademy.com/roundedLogo.svg'],
   },
 };
 
@@ -70,7 +70,7 @@ export default function RootLayout({ children }) {
                   '@id': 'https://aurousacademy.com/#organization',
                   name: 'Aurous Academy',
                   url: 'https://aurousacademy.com/',
-                  logo: 'https://aurousacademy.com/logo.svg',
+                  logo: 'https://aurousacademy.com/roundedLogo.svg',
                   description: 'Best IIT JEE & NEET coaching institute in Bhopal offering foundation and competitive exam preparation.',
                   address: {
                     '@type': 'PostalAddress',
@@ -90,15 +90,15 @@ export default function RootLayout({ children }) {
                   sameAs: [
                     'https://www.facebook.com/aurousacademy',
                     'https://www.instagram.com/aurousacademy',
-                    'https://www.youtube.com/@aurousacademy8912',
-                    'https://www.linkedin.com/company/aurous-academy',
+                    'https://youtube.com/@aurousacademy8912?si=Eh3ykFIQDBLBKzb5',
+                    'https://in.linkedin.com/company/aurous-academy',
                   ],
                 },
                 {
                   '@type': 'LocalBusiness',
                   '@id': 'https://aurousacademy.com/#localbusiness',
                   name: 'Aurous Academy',
-                  image: 'https://aurousacademy.com/logo.svg',
+                  image: 'https://aurousacademy.com/roundedLogo.svg',
                   telephone: '+91-95225-12624',
                   priceRange: '₹₹',
                   openingHours: 'Mo-Su 08:00-22:30',

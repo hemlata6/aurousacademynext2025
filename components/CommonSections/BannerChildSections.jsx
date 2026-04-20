@@ -11,6 +11,7 @@ import ArrowCircleLeftIcon from '@mui/icons-material/ArrowCircleLeft';
 import PhotoLibraryIcon from '@mui/icons-material/PhotoLibrary';
 import ImageIcon from '@mui/icons-material/Image';
 import ZoomInIcon from '@mui/icons-material/ZoomIn';
+import instId from '@/constant/instId';
 
 // Add custom styles for modal
 const modalStyles = `
@@ -85,7 +86,7 @@ if (typeof document !== 'undefined') {
 
 const BannerChildSections = () => {
 
-    const instId = 120;
+    // const instId = 120;
     const isMobile = useMediaQuery("(min-width:600px)");
     const pathname = usePathname();
     const domainData = (typeof window !== 'undefined' && window.location.state?.domainData) || [];
@@ -123,7 +124,7 @@ const BannerChildSections = () => {
         }
         try {
             setLoading(true);
-            const response = await Network.fetchGallery(body, instId);
+            const response = await Network.fetchGallery(body, instId.instId);
             const fetchedBanners = response || [];
             setGalleryImage(fetchedBanners);
         } catch (error) {

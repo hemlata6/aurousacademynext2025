@@ -6,15 +6,16 @@ import Network from '@/lib/Netwrok';
 import Endpoints from '@/constant/endpoints';
 import { Fab, Tooltip, useMediaQuery } from '@mui/material';
 import CallIcon from '@mui/icons-material/Call';
+import instId from '@/constant/instId';
 
 export default function PreviousYearPaperPageClient() {
-  const instId = 120;
+  // const instId = 120;
   const isMobile = useMediaQuery('(min-width:600px)');
   const [message, setMessage] = React.useState('Aurous Academy');
 
   const getInstituteDetail = async () => {
     try {
-      let response = await Network.fetchInstituteDetail(instId);
+      let response = await Network.fetchInstituteDetail(instId.instId);
       Endpoints.mediaBaseUrl = response.instituteTechSetting.mediaUrl;
     } catch (err) {
       console.log(err);

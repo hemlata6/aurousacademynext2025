@@ -6,6 +6,7 @@ import Grid from '@mui/material/Grid2';
 import images from '@/lib/images';
 import { useRouter } from 'next/navigation';
 import Network from '@/lib/Netwrok';
+import instId from '@/constant/instId';
 
 const Logo = images.logo;
 const Cellphone = images.cellphoneIcon;
@@ -17,7 +18,7 @@ const NavBarOne = () => {
     const router = useRouter();
     const [scrolled, setScrolled] = useState(false);
     const [banners, setBanners] = useState([]);
-    const instId = 120;
+    // const instId = 120;
 
     useEffect(() => {
         getBanners();
@@ -61,7 +62,7 @@ const NavBarOne = () => {
 
     const getBanners = async () => {
         try {
-            const response = await Network.fetchBannerss(instId);
+            const response = await Network.fetchBannerss(instId.instId);
             const fetchedBanners = response.banners || [];
 
             const newBanners = fetchedBanners.filter(item => item?.group === 'scholarship');

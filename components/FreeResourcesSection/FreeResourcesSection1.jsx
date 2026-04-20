@@ -32,10 +32,11 @@ import AudiotrackIcon from '@mui/icons-material/Audiotrack';
 import PictureAsPdfIcon from '@mui/icons-material/PictureAsPdf';
 import PlayCircleIcon from '@mui/icons-material/PlayCircle';
 import ContentPreview from './ContentPreview';
+import instId from "@/constant/instId";
 
 const FreeResourcesSection1 = () => {
 
-    const instId = 120;
+    // const instId = 120;
     const isMobile = useMediaQuery("(min-width:600px)");
     // const [Endpoints, setEndpoints] = useState('');
     const [coursesList, setCoursesList] = useState([]);
@@ -56,7 +57,7 @@ const FreeResourcesSection1 = () => {
     const getAllCourses = async () => {
         try {
             setLoading(true);
-            const response = await Network.fetchCourses(instId);
+            const response = await Network.fetchCourses(instId.instId);
             const course = response?.courses || [];
 
             const filteredCourses = course.filter(course =>

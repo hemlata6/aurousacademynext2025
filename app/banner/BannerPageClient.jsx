@@ -6,9 +6,10 @@ import Network from '@/lib/Netwrok';
 import Endpoints from '@/constant/endpoints';
 import { Fab, Tooltip, useMediaQuery } from '@mui/material';
 import CallIcon from '@mui/icons-material/Call';
+import instId from '@/constant/instId';
 
 export default function BannerPageClient() {
-  const instId = 120;
+  // const instId = 120;
   const isMobileQuery = useMediaQuery('(min-width:600px)');
   const [mounted, setMounted] = useState(false);
   // Use false until mounted so SSR and initial client render match
@@ -17,7 +18,7 @@ export default function BannerPageClient() {
 
   const getInstituteDetail = async () => {
     try {
-      let response = await Network.fetchInstituteDetail(instId);
+      let response = await Network.fetchInstituteDetail(instId.instId);
       Endpoints.mediaBaseUrl = response.instituteTechSetting.mediaUrl;
     } catch (err) {
       console.log(err);

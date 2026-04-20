@@ -28,13 +28,14 @@ import {
 import Network from '@/lib/Netwrok';
 import ThankYouPage from './Thankyou';
 import { useSearchParams } from 'next/navigation';
+import instId from '@/constant/instId';
 
 const ContactUsContent = ({ setApiResponse, selectedAction, handleClose }) => {
 
     const searchParams = useSearchParams();
     const queryParam = new URLSearchParams(searchParams?.toString() || '');
     const isMobile = useMediaQuery("(min-width:600px)");
-    const instId = 120;
+    // const instId = 120;
     const campaignId = queryParam.get("campaignid");
     const metaCampaignId = queryParam.get("campaign_id");
     const mobile = useMediaQuery("(min-width:600px)");
@@ -108,7 +109,7 @@ const ContactUsContent = ({ setApiResponse, selectedAction, handleClose }) => {
 
     const getAllCourses = async () => {
         try {
-            const response = await Network.fetchCourses(instId);
+            const response = await Network.fetchCourses(instId.instId);
             let templist = response.courses.filter(course =>
                 course.active === true &&
                 course.tags && course.tags.some(tag => tag.tag === "Enquiry From Course")
@@ -120,7 +121,7 @@ const ContactUsContent = ({ setApiResponse, selectedAction, handleClose }) => {
     };
     const getTestSeries = async () => {
         try {
-            const response = await Network.fetchTestSeries(instId);
+            const response = await Network.fetchTestSeries(instId.instId);
             let templist = [];
             response.testSeriesList.forEach((course) => {
                 if (course.active == true) {
@@ -144,7 +145,7 @@ const ContactUsContent = ({ setApiResponse, selectedAction, handleClose }) => {
                 "contact": number,
                 "enquiryType": "course",
                 "contentId": Number(course),
-                "instId": instId,
+                "instId": instId.instId,
                 "domain": selectedCourse,
                 "campaignId": campaignId ? campaignId : metaCampaignId ? metaCampaignId : null
             }

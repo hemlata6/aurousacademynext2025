@@ -4,10 +4,11 @@ import CustomCarousel from './CustomCarousel';
 import Grid from '@mui/material/Grid2';
 import Network from '@/lib/Netwrok';
 import AnnouncementDialog from '@/components/CommonSections/AnnouncementDialog';
+import instId from '@/constant/instId';
 
 const HomeSection1 = () => {
 
-    const instId = 120;
+    // const instId = 120;
     const isMobile = useMediaQuery("(min-width:600px)");
     const [anncouncementData, setAnncouncementData] = useState([]);
     const [selectedData, setSelectedData] = useState([]);
@@ -28,7 +29,7 @@ const HomeSection1 = () => {
 
     const getAllAnnouncement = async () => {
         try {
-            const response = await Network.fetchAnnouncementUrl(instId);
+            const response = await Network.fetchAnnouncementUrl(instId.instId);
             setAnncouncementData(response?.announcement);
         } catch (error) {
             console.log(error);

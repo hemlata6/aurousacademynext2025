@@ -11,10 +11,11 @@ import ArrowForwardIcon from '@mui/icons-material/ArrowForward';
 import ArticleRoundedIcon from '@mui/icons-material/ArticleRounded';
 import FolderOpenIcon from '@mui/icons-material/FolderOpen';
 import { useRouter } from 'next/navigation';
+import instId from '@/constant/instId';
 
 const ResultSection1 = () => {
 
-    const instId = 120;
+    // const instId = 120;
     const { enqueueSnackbar } = useSnackbar();
     const router = useRouter();
     const isMobile = useMediaQuery("(min-width:600px)");
@@ -36,7 +37,7 @@ const ResultSection1 = () => {
 
     const fetchDomainList = async () => {
         try {
-            let response = await Network.fetchDomain(instId);
+            let response = await Network.fetchDomain(instId.instId);
             const domains = response?.domains || [];
             const filterDomain = domains.filter(domain => domain?.name === 'Result');
             setDomainList(filterDomain[0]?.child);
@@ -53,7 +54,7 @@ const ResultSection1 = () => {
 
     const getFetchCourseList = async () => {
         try {
-            let response = await Network.fetchCourses(instId);
+            let response = await Network.fetchCourses(instId.instId);
             const course = response?.courses || [];
             const filteredCourses = course.filter(course =>
                 course?.active === true &&

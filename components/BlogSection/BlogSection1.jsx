@@ -32,10 +32,11 @@ import FolderIcon from '@mui/icons-material/Folder';
 import AudiotrackIcon from '@mui/icons-material/Audiotrack';
 import PictureAsPdfIcon from '@mui/icons-material/PictureAsPdf';
 import PlayCircleIcon from '@mui/icons-material/PlayCircle';
+import instId from "@/constant/instId";
 
 const BlogSection1 = () => {
     const router = useRouter();
-    const instId = 120;
+    // const instId = 120;
     const isMobile = useMediaQuery("(min-width:600px)");
     // const [Endpoints, setEndpoints] = useState('');
     const [coursesList, setCoursesList] = useState([]);
@@ -54,7 +55,7 @@ const BlogSection1 = () => {
     const getAllCourses = async () => {
         try {
             setLoading(true);
-            const response = await Network.fetchCourses(instId);
+            const response = await Network.fetchCourses(instId.instId);
             const courses = response?.courses || [];
 
             const filteredCourses = courses.filter(course =>

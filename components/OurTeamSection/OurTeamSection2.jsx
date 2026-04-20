@@ -7,10 +7,11 @@ import "slick-carousel/slick/slick-theme.css";
 import Slider from "react-slick";
 import dayjs from 'dayjs';
 import Endpoints from '@/constant/endpoints';
+import instId from '@/constant/instId';
 
 const OurTeamSection2 = () => {
 
-    const instId = 120;
+    // const instId = 120;
     const isMobile = useMediaQuery("(min-width:600px)");
     const [employees, setEmployees] = useState([]);
     const [activeIndex, setActiveIndex] = useState(0); // State to track the active index
@@ -62,7 +63,7 @@ const OurTeamSection2 = () => {
 
     const getEmployeeApi = async () => {
         try {
-            const response = await Network.fetchEmployee(instId);
+            const response = await Network.fetchEmployee(instId.instId);
             let filterEmployee = response?.employees?.filter(employee => employee?.showInApp === true);
             setEmployees(filterEmployee || []);
         } catch (error) {

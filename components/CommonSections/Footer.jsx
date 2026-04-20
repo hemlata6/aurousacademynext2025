@@ -28,11 +28,15 @@ import LinkedInIcon from '@mui/icons-material/LinkedIn';
 const Footer = () => {
 
     const router = useRouter();
-    const isMobile = useMediaQuery("(min-width:600px)");
     const [message, setMessage] = useState('Aurous Academy');
+    const [isHydrated, setIsHydrated] = useState(false);
 
     // Brochure PDF path from public folder
     const BrochurePDF = '/Updated Brochure.pdf';
+
+    React.useEffect(() => {
+        setIsHydrated(true);
+    }, []);
 
     const handleRedirectToCall = () => {
         window.location.href = "tel:+919522512624";
@@ -63,7 +67,7 @@ const Footer = () => {
     const handleDownloadBrochure = () => {
         const link = document.createElement('a');
         link.href = BrochurePDF;
-        link.download = 'Aurous Academy Brochure.pdf';
+        link.download = 'Updated Brochure.pdf';
         document.body.appendChild(link);
         link.click();
         document.body.removeChild(link);

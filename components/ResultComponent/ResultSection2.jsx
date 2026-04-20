@@ -17,10 +17,11 @@ import ImageIcon from '@mui/icons-material/Image';
 import CloseIcon from '@mui/icons-material/Close';
 import TrophyIcon from '@mui/icons-material/EmojiEvents';
 import ArrowForwardIcon from '@mui/icons-material/ArrowForward';
+import instId from "@/constant/instId";
 
 const ResultSection2 = () => {
 
-    const instId = 120;
+    // const instId = 120;
     const isMobile = useMediaQuery("(min-width:600px)");
     const [coursesList, setCoursesList] = useState([]);
     const [selectedSceduleList, setSelectedSceduleList] = useState([]);
@@ -55,7 +56,7 @@ const ResultSection2 = () => {
     const getAllCourses = async () => {
         try {
             setLoading(true);
-            const response = await Network.fetchCourses(instId);
+            const response = await Network.fetchCourses(instId.instId);
             const course = response?.courses || [];
 
             const filteredCourses = course.filter(course =>

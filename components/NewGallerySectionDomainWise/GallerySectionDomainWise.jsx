@@ -15,10 +15,11 @@ import CloseIcon from '@mui/icons-material/Close';
 import NavigateBeforeIcon from '@mui/icons-material/NavigateBefore';
 import NavigateNextIcon from '@mui/icons-material/NavigateNext';
 import { useRouter } from 'next/navigation';
+import instId from '@/constant/instId';
 
 const NewGallerySectionDomainWise = () => {
 
-    const instId = 120;
+    // const instId = 120;
     const { enqueueSnackbar } = useSnackbar();
     const router = useRouter();
     const isMobile = useMediaQuery("(min-width:600px)");
@@ -44,7 +45,7 @@ const NewGallerySectionDomainWise = () => {
 
     const fetchDomainList = async () => {
         try {
-            let response = await Network.fetchDomain(instId);
+            let response = await Network.fetchDomain(instId.instId);
             const domains = response?.domains || [];
 
 
@@ -63,7 +64,7 @@ const NewGallerySectionDomainWise = () => {
 
     const getFetchCourseList = async () => {
         try {
-            let response = await Network.fetchCourses(instId);
+            let response = await Network.fetchCourses(instId.instId);
             const course = response?.courses || [];
             const filteredCourses = course.filter(course =>
                 course?.active === true &&

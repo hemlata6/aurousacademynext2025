@@ -10,22 +10,26 @@ import HomeSection4 from '@/components/HomeComponents/HomeSection4';
 import HomeSection5 from '@/components/HomeComponents/HomeSection5';
 import HomeSection6 from '@/components/HomeComponents/HomeSection6';
 import HomeLocationMap from '@/components/HomeComponents/HomeLocationMap';
+import GoogleMapComponent from '@/components/SEO/GoogleMap';
 import Network from '@/lib/Netwrok';
 import Endpoints from '@/constant/endpoints';
+import instId from '@/constant/instId';
 
 export default function HomePage() {
-  const instId = 120;
+  // const instId = 120;
   const isMobile = useMediaQuery('(max-width:600px)');
   const [message, setMessage] = React.useState('Aurous Academy');
+  const [isHydrated, setIsHydrated] = React.useState(false);
   const homeSection2Ref = useRef(null);
 
   useEffect(() => {
+    setIsHydrated(true);
     getInstituteDetail();
   }, []);
 
   const getInstituteDetail = async () => {
     try {
-      let response = await Network.fetchInstituteDetail(instId);
+      let response = await Network.fetchInstituteDetail(instId.instId);
 
       Endpoints.mediaBaseUrl = response.instituteTechSetting.mediaUrl
       // setGalleryList(response?.institute?.gallery);
@@ -55,6 +59,7 @@ export default function HomePage() {
   return (
     <div id='homePageCss'>
       <div>
+        {/* SEO: Hidden H1 for accessibility and search engines */}
         <h1
           style={{
             position: 'absolute',
@@ -77,50 +82,56 @@ export default function HomePage() {
         <HomeSection2 />
         <HomeSection4 />
         <HomeSection6 />
+        
+        {/* Google Maps Component */}
+        <GoogleMapComponent />
+        
         <HomeLocationMap />
         <HomeSection5 />
 
-      <Tooltip title="Call Us Now" placement="top-start">
-        <Fab
-          onClick={handleRedirectToCall}
-          color="primary"
-          size="medium"
-          sx={{
-            position: 'fixed',
-            bottom: '80px',
-            right: '20px',
-            background: '#ffc700',
-            ':hover': {
+        <Tooltip title="Call Us Now" placement="top-start">
+          <Fab
+            onClick={handleRedirectToCall}
+            color="primary"
+            size="medium"
+            sx={{
+              position: 'fixed',
+              bottom: '80px',
+              right: '20px',
               background: '#ffc700',
-            },
-          }}
-        >
-          <CallIcon sx={{ cursor: 'pointer', fontSize: '18px' }} />
-        </Fab>
-      </Tooltip>
+              ':hover': {
+                background: '#ffc700',
+              },
+            }}
+            aria-label="Call Us Now"
+          >
+            <CallIcon sx={{ cursor: 'pointer', fontSize: '18px' }} />
+          </Fab>
+        </Tooltip>
 
-      <Tooltip title="WhatsApp us" placement="bottom-start">
-        <Fab
-          onClick={handleWhatsapp}
-          color="primary"
-          size="medium"
-          sx={{
-            position: 'fixed',
-            bottom: '20px',
-            right: '20px',
-            background: '#28B71D',
-            ':hover': {
+        <Tooltip title="WhatsApp us" placement="bottom-start">
+          <Fab
+            onClick={handleWhatsapp}
+            color="primary"
+            size="medium"
+            sx={{
+              position: 'fixed',
+              bottom: '20px',
+              right: '20px',
               background: '#28B71D',
-            },
-          }}
-        >
-          <img
-            alt="WhatsApp"
-            style={{ width: isMobile ? '60%' : '100%' }}
-            src="/whatsAppSvg.svg"
-          />
-        </Fab>
-      </Tooltip>
+              ':hover': {
+                background: '#28B71D',
+              },
+            }}
+            aria-label="WhatsApp us"
+          >
+            <img
+              alt="WhatsApp"
+              style={{ width: isHydrated && isMobile ? '60%' : '100%' }}
+              src="/whatsAppSvg.svg"
+            />
+          </Fab>
+        </Tooltip>
       </div>
     </div>
   );

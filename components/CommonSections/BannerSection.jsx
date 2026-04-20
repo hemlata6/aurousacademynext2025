@@ -14,10 +14,11 @@ import { useRouter } from 'next/navigation';
 const FolderImage = images.gallery;
 import PhotoLibraryIcon from '@mui/icons-material/PhotoLibrary';
 import ArrowForwardIcon from '@mui/icons-material/ArrowForward';
+import instId from '@/constant/instId';
 
 const BannerSection = () => {
 
-    const instId = 120;
+    // const instId = 120;
     const router = useRouter();
     const isMobile = useMediaQuery("(min-width:600px)");
     const [banners, setBanners] = useState([]);
@@ -75,7 +76,7 @@ const BannerSection = () => {
 
     const getDomainList = async () => {
         try {
-            const response = await Network.fetchDomain(instId);
+            const response = await Network.fetchDomain(instId.instId);
             const domain = response?.domains;
             const galleryChildArray = (domain.find(item => item.name === 'Gallery') || {}).child || [];
             setDomainData(galleryChildArray);

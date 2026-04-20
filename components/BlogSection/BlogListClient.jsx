@@ -26,10 +26,11 @@ import ArrowBackIcon from '@mui/icons-material/ArrowBack';
 import CallIcon from '@mui/icons-material/Call';
 import Network from '@/lib/Netwrok';
 import Endpoints from '@/constant/endpoints';
+import instId from '@/constant/instId';
 
 const BlogListClient = () => {
     const router = useRouter();
-    const instId = 120;
+    // const instId = 120;
     const isMobile = useMediaQuery('(min-width:600px)');
 
     const [coursesList, setCoursesList] = useState([]);
@@ -52,7 +53,7 @@ const BlogListClient = () => {
         getAllCourses();
     }, []);
 
-    console.log('coursesList', coursesList);
+    // console.log('coursesList', coursesList);
 
 
     useEffect(() => {
@@ -87,7 +88,7 @@ const BlogListClient = () => {
             }
             const response = await Network.fetchAllContentFromCourse(body);
 
-            console.log('responseresponse', response);
+            // console.log('responseresponse', response);
 
             if (response?.errorCode === 0 && response?.contentList) {
                 // Display all blogs from this API
@@ -126,7 +127,7 @@ const BlogListClient = () => {
 
     const getAllCourses = async () => {
         try {
-            const response = await Network.fetchCourses(instId);
+            const response = await Network.fetchCourses(instId.instId);
             const courses = response?.courses || [];
             const filteredCourses = courses.filter(
                 (course) =>

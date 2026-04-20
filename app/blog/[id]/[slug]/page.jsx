@@ -4,6 +4,7 @@ import CallIcon from '@mui/icons-material/Call';
 import BlogDetailsClient from '@/components/BlogSection/BlogDetailsClient';
 import Network from '@/lib/Netwrok';
 import Endpoints from '@/constant/endpoints';
+import instId from '@/constant/instId';
 
 export async function generateMetadata({ params }) {
     try {
@@ -74,11 +75,11 @@ export async function generateMetadata({ params }) {
 }
 
 async function BlogDetailsPage({ params }) {
-    const instId = 120;
+    // const instId = 120;
 
     const getInstituteDetail = async () => {
         try {
-            let response = await Network.fetchInstituteDetail(instId);
+            let response = await Network.fetchInstituteDetail(instId.instId);
             Endpoints.mediaBaseUrl = response.instituteTechSetting.mediaUrl;
         } catch (err) {
             console.log(err);

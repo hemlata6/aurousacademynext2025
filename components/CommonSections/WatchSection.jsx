@@ -9,10 +9,11 @@ import Link from 'next/link';
 import Network from '@/lib/Netwrok';
 import Endpoints from '@/constant/endpoints';
 import images from '@/lib/images';
+import instId from '@/constant/instId';
 
 const WatchVideoSection = () => {
 
-    const instId = 120;
+    // const instId = 120;
     const theme = useTheme();
     const [gallerData, setGallerData] = useState([]);
     const isMobile = useMediaQuery(theme.breakpoints.down('sm'));
@@ -25,7 +26,7 @@ const WatchVideoSection = () => {
 
     const fetchGallerAPI = async () => {
         try {
-            const response = await Network.fetchInstituteDetail(instId);
+            const response = await Network.fetchInstituteDetail(instId.instId);
             setGallerData(response?.institute?.gallery);
         } catch (error) {
             console.log(error);

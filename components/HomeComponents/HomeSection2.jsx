@@ -3,17 +3,18 @@ import React, { useEffect, useState, useRef } from 'react';
 import Network from '@/lib/Netwrok';
 import Endpoints from '@/constant/endpoints';
 import ContactUs from '@/components/CommonSections/ContactUs';
+import instId from '@/constant/instId';
 
 const HomeSection2 = () => {
 
     const scrollContainerRef = useRef(null);
     const [currentIndex, setCurrentIndex] = useState(0);
     const [banners, setBanners] = useState([]);
-    const instId = 120;
+    // const instId = 120;
 
     const getBanners = async () => {
         try {
-            const response = await Network.fetchBannerss(instId);
+            const response = await Network.fetchBannerss(instId.instId);
             const fetchedBanners = response.banners || [];
 
             // Filter only the banners with group === 'ENQUIRY FORM BANNER 16:9'

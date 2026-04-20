@@ -7,10 +7,11 @@ import Slider from 'react-slick';
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
 import { useRouter } from 'next/navigation';
+import instId from '@/constant/instId';
 
 const AboutSection3 = () => {
 
-    const instId = 120;
+    // const instId = 120;
     const isMobile = useMediaQuery("(min-width:600px)");
     const [gallerData, setGallerData] = useState([]);
     const router = useRouter();
@@ -54,7 +55,7 @@ const AboutSection3 = () => {
 
     const fetchGallerAPI = async () => {
         try {
-            const response = await Network.fetchInstituteDetail(instId);
+            const response = await Network.fetchInstituteDetail(instId.instId);
             setGallerData(response?.institute?.gallery);
             // Endpoints.mediaBaseUrl = response.instituteTechSettingModals.mediaUrl;
         } catch (error) {

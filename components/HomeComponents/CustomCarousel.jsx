@@ -2,6 +2,7 @@
 import { Box, useMediaQuery } from '@mui/material';
 import Endpoints from '@/constant/endpoints';
 import Network from '@/lib/Netwrok';
+import instId from '@/constant/instId';
 
 
 const CustomCarousel = () => {
@@ -9,12 +10,12 @@ const CustomCarousel = () => {
     const [currentIndex, setCurrentIndex] = useState(0);
     const [banners, setBanners] = useState([]);
     const [isPaused, setIsPaused] = useState(false);
-    const instId = 120;
+    // const instId = 120;
 
     // Fetch banners and apply repeat/unique logic
     const getBanners = async () => {
         try {
-            const response = await Network.fetchBannerss(instId);
+            const response = await Network.fetchBannerss(instId.instId);
             const fetchedBanners = response.banners || [];
             let resultBanner = [];
             fetchedBanners.forEach((item) => {

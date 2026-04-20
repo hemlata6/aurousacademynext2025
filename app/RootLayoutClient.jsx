@@ -3,7 +3,7 @@
 import { useState, useEffect } from 'react';
 import NavBarOne from '@/components/CommonSections/NavBarOne';
 import NavBarTwo from '@/components/CommonSections/NavBarTwo';
-import { useEffect, useState } from 'react';
+// import { useEffect, useState } from 'react';
 import { useMediaQuery } from '@mui/material';
 
 export default function RootLayoutClient({ children }) {
