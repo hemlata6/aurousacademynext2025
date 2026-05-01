@@ -96,7 +96,7 @@ const BlogDetails = ({ blogItem, loading }) => {
                 return (
                     <img
                         src={domNode.attribs.src}
-                        alt={domNode.attribs.alt || ''}
+                        alt={domNode.attribs.alt || 'Blog content illustration'}
                         style={{
                             width: '100%',
                             height: '400px',

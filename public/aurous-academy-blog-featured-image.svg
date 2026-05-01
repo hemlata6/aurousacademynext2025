@@ -1,0 +1,19 @@
+<svg width="1200" height="630" viewBox="0 0 1200 630" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <rect width="1200" height="630" rx="32" fill="url(#bg)"/>
+  <circle cx="1024" cy="128" r="148" fill="rgba(255,255,255,0.12)"/>
+  <circle cx="180" cy="520" r="170" fill="rgba(255,255,255,0.08)"/>
+  <rect x="84" y="76" width="132" height="132" rx="28" fill="rgba(255,255,255,0.16)"/>
+  <path d="M150 116C173.196 116 192 134.804 192 158C192 181.196 173.196 200 150 200C126.804 200 108 181.196 108 158C108 134.804 126.804 116 150 116Z" fill="white"/>
+  <path d="M144.316 135.375H156.421L177.579 180H165.105L161.053 171.316H139.421L135.316 180H123L144.316 135.375ZM150.289 148.342L143.895 162.184H156.737L150.289 148.342Z" fill="#1E3A8A"/>
+  <text x="84" y="298" fill="white" font-family="Arial, sans-serif" font-size="64" font-weight="700">Aurous Academy Blog</text>
+  <text x="84" y="376" fill="rgba(255,255,255,0.92)" font-family="Arial, sans-serif" font-size="34">IIT JEE, NEET and Foundation preparation insights from Bhopal experts</text>
+  <text x="84" y="506" fill="white" font-family="Arial, sans-serif" font-size="26" font-weight="700">Featured educational articles and study resources</text>
+  <text x="84" y="548" fill="rgba(255,255,255,0.88)" font-family="Arial, sans-serif" font-size="24">aurousacademy.com</text>
+  <defs>
+    <linearGradient id="bg" x1="102.5" y1="47.5" x2="1114" y2="594.5" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#0F172A"/>
+      <stop offset="0.52" stop-color="#1D4ED8"/>
+      <stop offset="1" stop-color="#F59E0B"/>
+    </linearGradient>
+  </defs>
+</svg>

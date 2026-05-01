@@ -1,26 +1,43 @@
+import { Poppins, Roboto_Condensed } from 'next/font/google';
 import Footer from '@/components/CommonSections/Footer';
 import Providers from '@/components/Providers';
 import ScriptsAndTracking from '@/components/ScriptsAndTracking';
+import { DEFAULT_OG_IMAGE_URL, SITE_NAME, SITE_URL, SOCIAL_URLS } from '@/lib/site';
 import RootLayoutClient from './RootLayoutClient';
 import '@/styles/globals.css';
+
+const poppins = Poppins({
+  subsets: ['latin'],
+  variable: '--font-poppins',
+  display: 'swap',
+  weight: ['400', '500', '600', '700', '800'],
+});
+
+const robotoCondensed = Roboto_Condensed({
+  subsets: ['latin'],
+  variable: '--font-roboto-condensed',
+  display: 'swap',
+  weight: ['400', '500', '600', '700'],
+});
 
 export const viewport = {
   themeColor: '#F59E0B',
 };
 
 export const metadata = {
+  metadataBase: new URL(SITE_URL),
+  applicationName: SITE_NAME,
   title: 'Aurous Academy | Best IIT JEE & NEET Coaching Institute in Bhopal | Foundation Courses',
   description: 'Aurous Academy is the best IIT JEE & NEET coaching institute in Bhopal offering expert faculty, personalized mentoring, highest selection ratio, and foundation courses for students.',
   keywords: 'Best IIT Coaching in Bhopal, Best JEE Coaching in Bhopal, Best NEET Coaching in Bhopal, Top IIT Coaching in Bhopal, Top JEE Coaching in Bhopal, Top NEET Coaching in Bhopal, Best IIT JEE Coaching in Bhopal, IIT Coaching in Bhopal, IIT coaching classes Bhopal, IIT JEE coaching classes in Bhopal, JEE coaching in Bhopal, IIT coaching Bhopal, IIT coaching center in Bhopal, Coaching institutes in Bhopal for IIT JEE, IIT institute in Bhopal, IIT JEE coaching classes, JEE Mains coaching in Bhopal',
   robots: 'index, follow',
   authors: [{ name: 'Aurous Academy' }],
   publisher: 'Aurous Academy',
-  canonical: 'https://aurousacademy.com/',
   alternates: {
-    canonical: 'https://aurousacademy.com/',
+    canonical: SITE_URL,
     languages: {
-      'en-IN': 'https://aurousacademy.com/',
-      'x-default': 'https://aurousacademy.com/',
+      'en-IN': SITE_URL,
+      'x-default': SITE_URL,
     },
   },
   icons: {
@@ -30,15 +47,15 @@ export const metadata = {
   },
   openGraph: {
     type: 'website',
-    url: 'https://aurousacademy.com/',
+    url: SITE_URL,
     title: 'Aurous Academy | Best IIT JEE & NEET Coaching Institute in Bhopal',
     description: 'Join Aurous Academy – the top IIT JEE & NEET coaching institute in Bhopal with expert mentors and proven results.',
     images: [
       {
-        url: 'https://aurousacademy.com/roundedLogo.svg',
+        url: DEFAULT_OG_IMAGE_URL,
         width: 1200,
         height: 630,
-        alt: 'Aurous Academy Logo',
+        alt: 'Aurous Academy coaching institute in Bhopal',
       },
     ],
   },
@@ -46,13 +63,13 @@ export const metadata = {
     card: 'summary_large_image',
     title: 'Aurous Academy | Best IIT JEE & NEET Coaching Institute in Bhopal',
     description: 'Aurous Academy provides the best IIT JEE, NEET & Foundation coaching in Bhopal.',
-    images: ['https://aurousacademy.com/roundedLogo.svg'],
+    images: [DEFAULT_OG_IMAGE_URL],
   },
 };
 
 export default function RootLayout({ children }) {
   return (
-    <html lang="en">
+    <html lang="en" className={`${poppins.variable} ${robotoCondensed.variable}`}>
       <head>
         {/* Preconnect for performance */}
         <link rel="preconnect" href="https://www.googletagmanager.com" />
@@ -67,10 +84,10 @@ export default function RootLayout({ children }) {
               '@graph': [
                 {
                   '@type': 'EducationalOrganization',
-                  '@id': 'https://aurousacademy.com/#organization',
+                  '@id': `${SITE_URL}/#organization`,
                   name: 'Aurous Academy',
-                  url: 'https://aurousacademy.com/',
-                  logo: 'https://aurousacademy.com/roundedLogo.svg',
+                  url: SITE_URL,
+                  logo: `${SITE_URL}/roundedLogo.svg`,
                   description: 'Best IIT JEE & NEET coaching institute in Bhopal offering foundation and competitive exam preparation.',
                   address: {
                     '@type': 'PostalAddress',
@@ -88,21 +105,21 @@ export default function RootLayout({ children }) {
                     availableLanguage: ['en', 'hi'],
                   },
                   sameAs: [
-                    'https://www.facebook.com/aurousacademy',
-                    'https://www.instagram.com/aurousacademy',
-                    'https://youtube.com/@aurousacademy8912?si=Eh3ykFIQDBLBKzb5',
-                    'https://in.linkedin.com/company/aurous-academy',
+                    SOCIAL_URLS.facebook,
+                    SOCIAL_URLS.instagram,
+                    SOCIAL_URLS.youtube,
+                    SOCIAL_URLS.linkedin,
                   ],
                 },
                 {
                   '@type': 'LocalBusiness',
-                  '@id': 'https://aurousacademy.com/#localbusiness',
+                  '@id': `${SITE_URL}/#localbusiness`,
                   name: 'Aurous Academy',
-                  image: 'https://aurousacademy.com/roundedLogo.svg',
+                  image: `${SITE_URL}/roundedLogo.svg`,
                   telephone: '+91-95225-12624',
                   priceRange: '₹₹',
                   openingHours: 'Mo-Su 08:00-22:30',
-                  url: 'https://aurousacademy.com/',
+                  url: SITE_URL,
                   geo: {
                     '@type': 'GeoCoordinates',
                     latitude: 23.23273157338026,
@@ -119,11 +136,11 @@ export default function RootLayout({ children }) {
                 },
                 {
                   '@type': 'WebSite',
-                  '@id': 'https://aurousacademy.com/#website',
-                  url: 'https://aurousacademy.com/',
+                  '@id': `${SITE_URL}/#website`,
+                  url: SITE_URL,
                   name: 'Aurous Academy',
                   publisher: {
-                    '@id': 'https://aurousacademy.com/#organization',
+                    '@id': `${SITE_URL}/#organization`,
                   },
                   inLanguage: 'en',
                 },

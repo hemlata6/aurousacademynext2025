@@ -1,11 +1,45 @@
 'use client';
 
-import React, { useEffect, useState } from 'react';
+import Image from 'next/image';
+import React, { useEffect, useMemo, useState } from 'react';
 import { useRouter } from 'next/navigation';
 import { Avatar, Dialog } from '@mui/material';
 import { PlayCircle, FileText, Clock, BookOpen, Music, Share2, ArrowLeft, ChevronRight } from 'lucide-react';
 import Network from '@/lib/Netwrok';
 import Endpoints from '@/constant/endpoints';
+import { DEFAULT_BLOG_IMAGE_PATH, resolveMediaUrl } from '@/lib/site';
+
+const optimizeBlogHtml = (html, title) => {
+    if (!html || typeof window === 'undefined') {
+        return html;
+    }
+
+    try {
+        const parser = new DOMParser();
+        const documentFragment = parser.parseFromString(html, 'text/html');
+
+        documentFragment.querySelectorAll('img').forEach((img, index) => {
+            img.setAttribute('loading', 'lazy');
+            img.setAttribute('decoding', 'async');
+            if (!img.getAttribute('alt')) {
+                img.setAttribute('alt', `${title || 'Aurous Academy blog'} illustration ${index + 1}`);
+            }
+        });
+
+        documentFragment.querySelectorAll('h1').forEach((heading) => {
+            const replacement = documentFragment.createElement('h2');
+            replacement.innerHTML = heading.innerHTML;
+            Array.from(heading.attributes).forEach((attribute) => {
+                replacement.setAttribute(attribute.name, attribute.value);
+            });
+            heading.replaceWith(replacement);
+        });
+
+        return documentFragment.body.innerHTML;
+    } catch {
+        return html;
+    }
+};
 
 const BlogDetailsClient = ({ id, slug }) => {
     const router = useRouter();
@@ -27,6 +61,14 @@ const BlogDetailsClient = ({ id, slug }) => {
             .replace(/[^a-z0-9]+/g, '-')
             .replace(/^-|-$/g, '');
     };
+
+    const getImageUrl = (path, fallback = DEFAULT_BLOG_IMAGE_PATH) =>
+        resolveMediaUrl(path, Endpoints.mediaBaseUrl, fallback);
+
+    const sanitizedBlogHtml = useMemo(
+        () => optimizeBlogHtml(blog?.blog?.blog || '', blog?.title || 'Aurous Academy blog'),
+        [blog?.blog?.blog, blog?.title]
+    );
 
     useEffect(() => {
         if (id) {
@@ -401,14 +443,19 @@ const BlogDetailsClient = ({ id, slug }) => {
                                 borderRadius: '16px',
                                 overflow: 'hidden',
                                 marginBottom: '40px',
-                                boxShadow: '0 10px 40px rgba(0, 0, 0, 0.1)'
+                                boxShadow: '0 10px 40px rgba(0, 0, 0, 0.1)',
+                                position: 'relative',
+                                width: '100%',
+                                paddingTop: '56.25%'
                             }}>
-                                <img
-                                    src={Endpoints.mediaBaseUrl + blog.blog.thumb}
-                                    alt={blog.title}
+                                <Image
+                                    src={getImageUrl(blog.blog.thumb)}
+                                    alt={`${blog.title} featured image`}
+                                    fill
+                                    priority
+                                    sizes="(max-width: 1200px) 100vw, 900px"
                                     style={{
-                                        width: '100%',
-                                        height: 'auto',
+                                        objectFit: 'cover',
                                         display: 'block'
                                     }}
                                 />
@@ -427,7 +474,7 @@ const BlogDetailsClient = ({ id, slug }) => {
                             }}>
                                 <div
                                     // className="blog-content"
-                                    dangerouslySetInnerHTML={{ __html: blog?.blog?.blog || '' }}
+                                    dangerouslySetInnerHTML={{ __html: sanitizedBlogHtml }}
                                     style={{
                                         // color: '#374151',
                                         // fontSize: '17px',
@@ -618,11 +665,15 @@ const BlogDetailsClient = ({ id, slug }) => {
                                             e.currentTarget.style.boxShadow = '0 2px 10px rgba(0, 0, 0, 0.08)';
                                         }}
                                     >
-                                        <img
-                                            src={slide.url}
-                                            alt={slide.title || `Slide ${index + 1}`}
-                                            style={{ width: '100%', height: 'auto', display: 'block' }}
-                                        />
+                                        <div style={{ position: 'relative', width: '100%', paddingTop: '56.25%' }}>
+                                            <Image
+                                                src={getImageUrl(slide.url, DEFAULT_BLOG_IMAGE_PATH)}
+                                                alt={slide.title || `Aurous Academy slide ${index + 1}`}
+                                                fill
+                                                sizes="350px"
+                                                style={{ objectFit: 'cover', display: 'block' }}
+                                            />
+                                        </div>
                                         {slide.title && (
                                             <div style={{
                                                 padding: '12px 16px',
@@ -706,17 +757,15 @@ const BlogDetailsClient = ({ id, slug }) => {
                                         overflow: 'hidden'
                                     }}>
                                         {item?.thumb ? (
-                                            <img
-                                                src={Endpoints.mediaBaseUrl + item.thumb}
-                                                alt={item?.title}
+                                            <Image
+                                                src={getImageUrl(item.thumb)}
+                                                alt={`${item?.title || 'Aurous Academy resource'} featured image`}
+                                                fill
+                                                sizes="(max-width: 1200px) 100vw, 280px"
                                                 style={{
-                                                    width: '100%',
-                                                    height: '100%',
                                                     objectFit: 'cover',
                                                     transition: 'transform 0.3s ease'
                                                 }}
-                                                onMouseEnter={(e) => e.currentTarget.style.transform = 'scale(1.05)'}
-                                                onMouseLeave={(e) => e.currentTarget.style.transform = 'scale(1)'}
                                             />
                                         ) : (
                                             <>

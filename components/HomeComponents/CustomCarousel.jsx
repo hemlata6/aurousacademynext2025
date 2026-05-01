@@ -1,4 +1,5 @@
 ﻿import React, { useState, useEffect } from 'react';
+import Image from 'next/image';
 import { Box, useMediaQuery } from '@mui/material';
 import Endpoints from '@/constant/endpoints';
 import Network from '@/lib/Netwrok';
@@ -120,25 +121,34 @@ const CustomCarousel = () => {
                                     alignItems: 'center',
                                     position: 'relative',
                                     overflow: 'visible',
+                                    minHeight: { xs: '200px', sm: '250px', md: '300px' },
                                 }}
                             >
-                                <img
-                                    src={Endpoints?.mediaBaseUrl + img?.banner}
-                                    alt={img?.banner || `Banner ${index + 1}`}
+                                <Box
                                     className={index === currentIndex ? 'carousel-img-center' : 'carousel-img'}
-                                    style={{
-                                        width: 'auto',
-                                        height: '90%',
-                                        maxHeight: '100%',
-                                        maxWidth: '100%',
-                                        objectFit: 'contain',
-                                        borderRadius: 0,
-                                        transition: 'all 0.4s cubic-bezier(.4,2,.6,1)',
-                                        boxShadow: '0 4px 20px rgba(0, 0, 0, 0.1)',
-                                        backgroundColor: '#f5f5f5',
-                                        display: 'block'
+                                    sx={{
+                                        position: 'relative',
+                                        width: '100%',
+                                        height: '100%',
+                                        minHeight: { xs: '200px', sm: '250px', md: '300px' },
                                     }}
-                                />
+                                >
+                                    <Image
+                                        src={Endpoints?.mediaBaseUrl + img?.banner}
+                                        alt={img?.title || `Aurous Academy banner ${index + 1}`}
+                                        fill
+                                        sizes="100vw"
+                                        loading={index === 0 ? 'eager' : 'lazy'}
+                                        priority={index === 0}
+                                        style={{
+                                            objectFit: 'contain',
+                                            borderRadius: 0,
+                                            transition: 'all 0.4s cubic-bezier(.4,2,.6,1)',
+                                            boxShadow: '0 4px 20px rgba(0, 0, 0, 0.1)',
+                                            backgroundColor: '#f5f5f5',
+                                        }}
+                                    />
+                                </Box>
                             </Box>
                         ))}
                     </Box>

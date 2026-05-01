@@ -294,7 +294,7 @@ const WatchVideoSection = () => {
                                                 filter: 'brightness(0.9) contrast(1.1)',
                                                 transition: 'all 0.3s cubic-bezier(0.4, 0, 0.2, 1)',
                                             }}
-                                            alt={`Star ${item.id}`}
+                                            alt={`Student success highlight ${item.id}`}
                                             src={item.image}
                                             onMouseEnter={(e) => {
                                                 e.target.style.filter = 'brightness(1.1) contrast(1.2) saturate(1.2)';

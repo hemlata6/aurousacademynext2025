@@ -1,4 +1,5 @@
 ﻿import { Box, Paper, Stack, Tooltip, Typography, useMediaQuery } from '@mui/material';
+import Image from 'next/image';
 import React from 'react'
 import Grid from '@mui/material/Grid2';
 
@@ -82,8 +83,13 @@ const HomeSection5 = () => {
                                 transition: 'all 0.4s cubic-bezier(0.4, 0, 0.2, 1)',
                             }}
                         >
-                            <img 
-                                style={{ 
+                            <Image
+                                alt='Aurous Academy learning app preview across devices'
+                                src='/Images/Group1000001779.svg'
+                                width={520}
+                                height={860}
+                                sizes='(max-width: 900px) 85vw, 520px'
+                                style={{
                                     width: '100%',
                                     height: 'auto',
                                     maxHeight: 'calc(100vh - 120px)',
@@ -91,9 +97,7 @@ const HomeSection5 = () => {
                                     objectFit: 'contain',
                                     filter: 'drop-shadow(0 10px 20px rgba(0, 0, 0, 0.15))',
                                     display: 'block',
-                                }} 
-                                alt='Aurous Academy App' 
-                                src='/Images/Group1000001779.svg' 
+                                }}
                             />
                         </Box>
                     </Grid>
@@ -201,15 +205,18 @@ const HomeSection5 = () => {
                                         }}
                                     >
                                         <Box sx={{ mb: 1 }}>
-                                            <img
+                                            <Image
                                                 style={{
                                                     width: '32px',
                                                     height: '32px',
                                                     objectFit: 'contain',
                                                     filter: 'drop-shadow(0 2px 4px rgba(0, 0, 0, 0.13))'
                                                 }}
-                                                alt='Mobile App'
+                                                alt='Aurous Academy mobile app screenshot'
                                                 src='/Images/Screenshot 2025-01-31 120523-portrait.png'
+                                                width={32}
+                                                height={32}
+                                                loading='lazy'
                                             />
                                         </Box>
                                         <Typography
@@ -258,15 +265,18 @@ const HomeSection5 = () => {
                                         }}
                                     >
                                         <Box sx={{ mb: 1 }}>
-                                            <img
+                                            <Image
                                                 style={{
-                                            width: '32px',
-                                            height: '32px',
-                                            objectFit: 'contain',
-                                            filter: 'drop-shadow(0 2px 4px rgba(0, 0, 0, 0.13))'
+                                                    width: '32px',
+                                                    height: '32px',
+                                                    objectFit: 'contain',
+                                                    filter: 'drop-shadow(0 2px 4px rgba(0, 0, 0, 0.13))'
                                                 }}
-                                                alt='Tablet App'
+                                                alt='Aurous Academy tablet app screenshot'
                                                 src='/Images/Screenshot 2025-01-31 120905-portrait.png'
+                                                width={32}
+                                                height={32}
+                                                loading='lazy'
                                             />
                                         </Box>
                                         <Typography
@@ -315,15 +325,18 @@ const HomeSection5 = () => {
                                         }}
                                     >
                                         <Box sx={{ mb: 1 }}>
-                                            <img
+                                            <Image
                                                 style={{
-                                            width: '32px',
-                                            height: '32px',
-                                            objectFit: 'contain',
-                                            filter: 'drop-shadow(0 2px 4px rgba(0, 0, 0, 0.13))'
+                                                    width: '32px',
+                                                    height: '32px',
+                                                    objectFit: 'contain',
+                                                    filter: 'drop-shadow(0 2px 4px rgba(0, 0, 0, 0.13))'
                                                 }}
-                                                alt='Desktop App'
+                                                alt='Aurous Academy desktop app screenshot'
                                                 src='/Images/Screenshot 2025-01-31 121149-front.png'
+                                                width={32}
+                                                height={32}
+                                                loading='lazy'
                                             />
                                         </Box>
                                         <Typography
@@ -394,7 +407,7 @@ const HomeSection5 = () => {
                                                 }
                                             }}
                                         >
-                                            <img
+                                            <Image
                                                 style={{
                                                     height: '100%',
                                                     width: '100%',
@@ -403,8 +416,11 @@ const HomeSection5 = () => {
                                                     maxHeight: '70px',
                                                     maxWidth: '100%'
                                                 }}
-                                                alt='Google Play Store'
+                                                alt='Download Aurous Academy app from Google Play'
                                                 src='/Images/playStore1.svg'
+                                                width={180}
+                                                height={70}
+                                                loading='lazy'
                                             />
                                         </Box>
                                         <Box
@@ -426,7 +442,7 @@ const HomeSection5 = () => {
                                                 }
                                             }}
                                         >
-                                            <img
+                                            <Image
                                                 style={{
                                                     height: '100%',
                                                     width: '100%',
@@ -435,8 +451,11 @@ const HomeSection5 = () => {
                                                     maxHeight: '70px',
                                                     maxWidth: '100%'
                                                 }}
-                                                alt='App Store'
+                                                alt='Download Aurous Academy app from the App Store'
                                                 src='/Images/appStore.svg'
+                                                width={180}
+                                                height={70}
+                                                loading='lazy'
                                             />
                                         </Box>
                                         <Box
@@ -458,7 +477,7 @@ const HomeSection5 = () => {
                                                 }
                                             }}
                                         >
-                                            <img
+                                            <Image
                                                 style={{
                                                     height: '100%',
                                                     width: '100%',
@@ -467,8 +486,11 @@ const HomeSection5 = () => {
                                                     maxHeight: '70px',
                                                     maxWidth: '100%'
                                                 }}
-                                               alt='Windows Store'
+                                                alt='Aurous Academy desktop learning access option'
                                                 src='/Images/af9f2ac981440bd20c7c159c1ab9c376.jpg'
+                                                width={180}
+                                                height={70}
+                                                loading='lazy'
                                             />
                                         </Box>
                                     </Stack>

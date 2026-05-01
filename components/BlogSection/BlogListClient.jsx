@@ -1,5 +1,6 @@
 'use client';
 
+import Image from 'next/image';
 import React, { useState, useEffect } from 'react';
 import { useRouter } from 'next/navigation';
 import {
@@ -27,6 +28,7 @@ import CallIcon from '@mui/icons-material/Call';
 import Network from '@/lib/Netwrok';
 import Endpoints from '@/constant/endpoints';
 import instId from '@/constant/instId';
+import { DEFAULT_BLOG_IMAGE_PATH, resolveMediaUrl } from '@/lib/site';
 
 const BlogListClient = () => {
     const router = useRouter();
@@ -47,6 +49,82 @@ const BlogListClient = () => {
     const [hasMoreBlogs, setHasMoreBlogs] = useState(true);
     const [isLoadingMore, setIsLoadingMore] = useState(false);
     const [message] = useState('Aurous Academy');
+    const [defaultPoster, setDefaultPoster] = useState('');
+    const [failedCardImages, setFailedCardImages] = useState({});
+
+    const getInstituteDetail = async () => {
+        try {
+            let response = await Network.fetchInstituteDetail(instId.instId);
+            setDefaultPoster(response.instituteAppSetting?.defaultPoster || '');
+        } catch (err) {
+            console.log(err);
+        }
+    };
+
+    useEffect(() => {
+        getInstituteDetail();
+    }, []);
+
+    const getDefaultPosterImage = () => resolveMediaUrl(
+        defaultPoster,
+        Endpoints?.mediaBaseUrl,
+        DEFAULT_BLOG_IMAGE_PATH
+    );
+
+    const isValidImageSource = (value) => {
+        if (typeof value !== 'string') {
+            return false;
+        }
+
+        const normalizedValue = value.trim();
+
+        if (!normalizedValue || normalizedValue.toLowerCase() === 'string') {
+            return false;
+        }
+
+        return true;
+    };
+
+    const getBlogCardImage = (item) => {
+        const imageKey = item?.id || item?.entityId || item?.blog?.id;
+
+        if (imageKey && failedCardImages[imageKey]) {
+            return getDefaultPosterImage();
+        }
+
+        const primarySource = isValidImageSource(item?.blog?.thumb)
+            ? item.blog.thumb
+            : isValidImageSource(item?.img)
+                ? item.img
+                : isValidImageSource(item?.logo)
+                    ? item.logo
+                    : defaultPoster;
+
+        return resolveMediaUrl(
+            primarySource,
+            Endpoints?.mediaBaseUrl,
+            getDefaultPosterImage()
+        );
+    };
+
+    const handleCardImageError = (item) => {
+        const imageKey = item?.id || item?.entityId || item?.blog?.id;
+
+        if (!imageKey) {
+            return;
+        }
+
+        setFailedCardImages((prev) => {
+            if (prev[imageKey]) {
+                return prev;
+            }
+
+            return {
+                ...prev,
+                [imageKey]: true,
+            };
+        });
+    };
 
     useEffect(() => {
         window.scrollTo(0, 0);
@@ -516,76 +594,65 @@ const BlogListClient = () => {
                             </Box>
                         ) : (
                             <Grid2 container spacing={4}>
-                                {selectedScheduleList.map((item, idx) => (
-                                    <Grid2 key={item.id || idx} size={{ xs: 12, md: 6, lg: 4 }}>
-                                        <Card
-                                            onClick={() => handleCardClick(item)}
-                                            sx={{
-                                                borderRadius: '16px',
-                                                overflow: 'hidden',
-                                                background: '#ffffff',
-                                                border: '1px solid rgba(102, 126, 234, 0.1)',
-                                                boxShadow: '0 4px 12px rgba(102, 126, 234, 0.08)',
-                                                cursor: 'pointer',
-                                                transition: 'all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275)',
-                                                '&:hover': {
-                                                    transform: 'translateY(-8px) scale(1.01)',
-                                                    boxShadow: '0 12px 28px rgba(102, 126, 234, 0.18)',
-                                                    borderColor: 'rgba(102, 126, 234, 0.3)',
-                                                },
-                                            }}
-                                        >
-                                            {/* Image Section */}
-                                            <Box
+                                {selectedScheduleList.map((item, idx) => {
+                                    console.log('Rendering item:', item);
+                                    return (
+                                        <Grid2 key={item.id || idx} size={{ xs: 12, md: 6, lg: 4 }}>
+                                            <Card
+                                                onClick={() => handleCardClick(item)}
                                                 sx={{
-                                                    height: '200px',
+                                                    borderRadius: '16px',
                                                     overflow: 'hidden',
-                                                    bgcolor: 'linear-gradient(135deg, #f3f4f6 0%, #e5e7eb 100%)',
-                                                    position: 'relative',
-                                                    display: 'flex',
-                                                    alignItems: 'center',
-                                                    justifyContent: 'center',
+                                                    background: '#ffffff',
+                                                    border: '1px solid rgba(102, 126, 234, 0.1)',
+                                                    boxShadow: '0 4px 12px rgba(102, 126, 234, 0.08)',
+                                                    cursor: 'pointer',
+                                                    transition: 'all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275)',
+                                                    '&:hover': {
+                                                        transform: 'translateY(-8px) scale(1.01)',
+                                                        boxShadow: '0 12px 28px rgba(102, 126, 234, 0.18)',
+                                                        borderColor: 'rgba(102, 126, 234, 0.3)',
+                                                    },
                                                 }}
                                             >
-                                                {(typeof item.img === 'string' && item.img) ||
-                                                    (typeof item.blog?.thumb === 'string' && item.blog?.thumb) ||
-                                                    (typeof item.logo === 'string' && item.logo) ? (
-                                                    <img
-                                                        src={
-                                                            (typeof item.img === 'string'
-                                                                ? `${Endpoints?.mediaBaseUrl}${item.img}`
-                                                                : null) ||
-                                                            (typeof item.blog?.thumb === 'string'
-                                                                ? `${Endpoints?.mediaBaseUrl}${item.blog?.thumb}`
-                                                                : null) ||
-                                                            (typeof item.logo === 'string'
-                                                                ? `${Endpoints?.mediaBaseUrl}${item.logo}`
-                                                                : null)
-                                                        }
-                                                        alt={item.title || 'Content'}
-                                                        style={{
-                                                            width: '100%',
-                                                            height: '100%',
-                                                            objectFit: 'cover',
-                                                            transition: 'transform 0.5s ease',
-                                                        }}
-                                                        onLoad={(e) => {
-                                                            e.currentTarget.style.transform = 'scale(1)';
-                                                        }}
-                                                    />
-                                                ) : (
-                                                    <Box
-                                                        sx={{
-                                                            display: 'flex',
-                                                            alignItems: 'center',
-                                                            justifyContent: 'center',
-                                                            fontSize: '2.5rem',
-                                                        }}
-                                                    >
-                                                        {item.entityType === 'folder' ? '📁' : '📄'}
-                                                    </Box>
-                                                )}
-                                                {/* 
+                                                {/* Image Section */}
+                                                <Box
+                                                    sx={{
+                                                        height: '200px',
+                                                        overflow: 'hidden',
+                                                        bgcolor: 'linear-gradient(135deg, #f3f4f6 0%, #e5e7eb 100%)',
+                                                        position: 'relative',
+                                                        display: 'flex',
+                                                        alignItems: 'center',
+                                                        justifyContent: 'center',
+                                                    }}
+                                                >
+                                                    {
+                                                        (item?.blog?.thumb || item?.img || item?.logo || defaultPoster) ? (
+                                                            <Image
+                                                                src={getBlogCardImage(item)}
+                                                                alt={`${item.title || 'Aurous Academy blog'} featured image`}
+                                                                fill
+                                                                sizes="(max-width: 900px) 100vw, 33vw"
+                                                                onError={() => handleCardImageError(item)}
+                                                                style={{
+                                                                    objectFit: 'cover',
+                                                                    transition: 'transform 0.5s ease',
+                                                                }}
+                                                            />
+                                                        ) : (
+                                                            <Box
+                                                                sx={{
+                                                                    display: 'flex',
+                                                                    alignItems: 'center',
+                                                                    justifyContent: 'center',
+                                                                    fontSize: '2.5rem',
+                                                                }}
+                                                            >
+                                                                {item.entityType === 'folder' ? '📁' : '📄'}
+                                                            </Box>
+                                                        )}
+                                                    {/* 
                                                 <Chip
                                                     label={
                                                         item.entityType === 'folder' ? '📁 Folder' : '📄 Blog'
@@ -602,47 +669,47 @@ const BlogListClient = () => {
                                                         color: '#667eea',
                                                     }}
                                                 /> */}
-                                            </Box>
+                                                </Box>
 
-                                            {/* Content Section */}
-                                            <CardContent sx={{ bgcolor: '#ffffff' }}>
-                                                {/* Date and Author */}
-                                                <Box
-                                                    sx={{
-                                                        display: 'flex',
-                                                        alignItems: 'center',
-                                                        gap: 2,
-                                                        fontSize: '0.75rem',
-                                                        color: '#9ca3af',
-                                                        mb: 1,
-                                                        fontWeight: 700,
-                                                        textTransform: 'uppercase',
-                                                        letterSpacing: '0.05em',
-                                                        flexWrap: 'wrap',
-                                                    }}
-                                                >
-                                                    {item.date || item.blog?.updatedAt ? (
-                                                        <Box sx={{ display: 'flex', alignItems: 'center', gap: 0.5 }}>
-                                                            <CalendarTodayIcon sx={{ fontSize: '0.875rem' }} />
-                                                            {(() => {
-                                                                try {
-                                                                    const dateStr = item.blog?.updatedAt || item.date;
-                                                                    return new Date(dateStr).toLocaleDateString(
-                                                                        'en-US',
-                                                                        {
-                                                                            month: 'short',
-                                                                            day: 'numeric',
-                                                                            year: 'numeric',
-                                                                        }
-                                                                    );
-                                                                } catch {
-                                                                    return 'Recently Added';
-                                                                }
-                                                            })()}
-                                                        </Box>
-                                                    ) : null}
+                                                {/* Content Section */}
+                                                <CardContent sx={{ bgcolor: '#ffffff' }}>
+                                                    {/* Date and Author */}
+                                                    <Box
+                                                        sx={{
+                                                            display: 'flex',
+                                                            alignItems: 'center',
+                                                            gap: 2,
+                                                            fontSize: '0.75rem',
+                                                            color: '#9ca3af',
+                                                            mb: 1,
+                                                            fontWeight: 700,
+                                                            textTransform: 'uppercase',
+                                                            letterSpacing: '0.05em',
+                                                            flexWrap: 'wrap',
+                                                        }}
+                                                    >
+                                                        {item.date || item.blog?.updatedAt ? (
+                                                            <Box sx={{ display: 'flex', alignItems: 'center', gap: 0.5 }}>
+                                                                <CalendarTodayIcon sx={{ fontSize: '0.875rem' }} />
+                                                                {(() => {
+                                                                    try {
+                                                                        const dateStr = item.blog?.updatedAt || item.date;
+                                                                        return new Date(dateStr).toLocaleDateString(
+                                                                            'en-US',
+                                                                            {
+                                                                                month: 'short',
+                                                                                day: 'numeric',
+                                                                                year: 'numeric',
+                                                                            }
+                                                                        );
+                                                                    } catch {
+                                                                        return 'Recently Added';
+                                                                    }
+                                                                })()}
+                                                            </Box>
+                                                        ) : null}
 
-                                                    {/* {item?.blog?.author && typeof item?.blog?.author === 'string' && (
+                                                        {/* {item?.blog?.author && typeof item?.blog?.author === 'string' && (
                                                         <>
                                                             <Typography component="span">•</Typography>
                                                             <Box sx={{ display: 'flex', alignItems: 'center', gap: 0.5 }}>
@@ -651,72 +718,73 @@ const BlogListClient = () => {
                                                             </Box>
                                                         </>
                                                     )} */}
-                                                </Box>
+                                                    </Box>
 
-                                                {/* Title */}
-                                                <Typography
-                                                    sx={{
-                                                        fontWeight: 800,
-                                                        fontSize: '1.100rem',
-                                                        color: '#111827',
-                                                        mb: 1,
-                                                        lineHeight: 1.4,
-                                                        display: '-webkit-box',
-                                                        WebkitLineClamp: 2,
-                                                        WebkitBoxOrient: 'vertical',
-                                                        overflow: 'hidden',
-                                                        transition: 'color 0.3s ease',
-                                                        '&:group-hover': {
+                                                    {/* Title */}
+                                                    <Typography
+                                                        sx={{
+                                                            fontWeight: 800,
+                                                            fontSize: '1.100rem',
+                                                            color: '#111827',
+                                                            mb: 1,
+                                                            lineHeight: 1.4,
+                                                            display: '-webkit-box',
+                                                            WebkitLineClamp: 2,
+                                                            WebkitBoxOrient: 'vertical',
+                                                            overflow: 'hidden',
+                                                            transition: 'color 0.3s ease',
+                                                            '&:group-hover': {
+                                                                color: '#667eea',
+                                                            },
+                                                        }}
+                                                    >
+                                                        {String(item.title || item.name || 'Untitled')}
+                                                    </Typography>
+
+                                                    {/* Description */}
+                                                    <Typography
+                                                        sx={{
+                                                            fontSize: '0.875rem',
+                                                            color: '#6b7280',
+                                                            lineHeight: 1.5,
+                                                            mb: 2,
+                                                            display: '-webkit-box',
+                                                            WebkitLineClamp: 2,
+                                                            WebkitBoxOrient: 'vertical',
+                                                            overflow: 'hidden',
+                                                        }}
+                                                    >
+                                                        {typeof item.desc === 'string'
+                                                            ? item.desc
+                                                            : typeof item.description === 'string'
+                                                                ? item.description
+                                                                : 'Click to explore more...'}
+                                                    </Typography>
+
+                                                    {/* CTA Button */}
+                                                    <Button
+                                                        endIcon={<ArrowForwardIcon sx={{ fontSize: '0.850rem' }} />}
+                                                        sx={{
                                                             color: '#667eea',
-                                                        },
-                                                    }}
-                                                >
-                                                    {String(item.title || item.name || 'Untitled')}
-                                                </Typography>
-
-                                                {/* Description */}
-                                                <Typography
-                                                    sx={{
-                                                        fontSize: '0.875rem',
-                                                        color: '#6b7280',
-                                                        lineHeight: 1.5,
-                                                        mb: 2,
-                                                        display: '-webkit-box',
-                                                        WebkitLineClamp: 2,
-                                                        WebkitBoxOrient: 'vertical',
-                                                        overflow: 'hidden',
-                                                    }}
-                                                >
-                                                    {typeof item.desc === 'string'
-                                                        ? item.desc
-                                                        : typeof item.description === 'string'
-                                                            ? item.description
-                                                            : 'Click to explore more...'}
-                                                </Typography>
-
-                                                {/* CTA Button */}
-                                                <Button
-                                                    endIcon={<ArrowForwardIcon sx={{ fontSize: '0.850rem' }} />}
-                                                    sx={{
-                                                        color: '#667eea',
-                                                        fontWeight: 700,
-                                                        fontSize: '0.875rem',
-                                                        textTransform: 'none',
-                                                        p: 0,
-                                                        '&:hover': {
-                                                            bgcolor: 'transparent',
-                                                            transform: 'translateX(4px)',
-                                                        },
-                                                    }}
-                                                >
-                                                    {item.entityType === 'folder'
-                                                        ? 'Open Folder'
-                                                        : 'Read More'}
-                                                </Button>
-                                            </CardContent>
-                                        </Card>
-                                    </Grid2>
-                                ))}
+                                                            fontWeight: 700,
+                                                            fontSize: '0.875rem',
+                                                            textTransform: 'none',
+                                                            p: 0,
+                                                            '&:hover': {
+                                                                bgcolor: 'transparent',
+                                                                transform: 'translateX(4px)',
+                                                            },
+                                                        }}
+                                                    >
+                                                        {item.entityType === 'folder'
+                                                            ? 'Open Folder'
+                                                            : 'Read More'}
+                                                    </Button>
+                                                </CardContent>
+                                            </Card>
+                                        </Grid2>
+                                    )
+                                })}
                             </Grid2>
                         )}
 

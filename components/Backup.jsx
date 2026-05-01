@@ -513,7 +513,7 @@ const NEETSection1 = () => {
                                                     <Stack spacing={2} direction={'column'}>
                                                         <Stack spacing={2} p={1}>
                                                             <img
-                                                                alt=''
+                                                                alt={`${item?.name || 'Class 11 course'} course banner`}
                                                                 src={item?.img}
                                                                 style={{
                                                                     width: '100%',
@@ -621,7 +621,7 @@ const NEETSection1 = () => {
                                                     <Stack spacing={2} direction={'column'}>
                                                         <Stack spacing={2} p={1}>
                                                             <img
-                                                                alt=''
+                                                                alt={`${item?.name || 'Class 12 course'} course banner`}
                                                                 src={item?.img}
                                                                 style={{
                                                                     width: '100%',
@@ -729,7 +729,7 @@ const NEETSection1 = () => {
                                                     <Stack spacing={2} direction={'column'}>
                                                         <Stack spacing={2} p={1}>
                                                             <img
-                                                                alt=''
+                                                                alt={`${item?.name || 'Dropper course'} course banner`}
                                                                 src={item?.img}
                                                                 style={{
                                                                     width: '100%',
@@ -922,7 +922,7 @@ const NEETSection1 = () => {
                                             }}
                                         >
                                             <img
-                                                alt=''
+                                                alt='Program planner icon'
                                                 src={planner}
                                                 style={{
                                                     width: isMobile ? '12%' : '40%'
@@ -986,7 +986,7 @@ const NEETSection1 = () => {
                                             }}
                                         >
                                             <img
-                                                alt=''
+                                                alt='Mock tests and practice papers icon'
                                                 src={note}
                                                 style={{
                                                     width: isMobile ? '12%' : '40%'
@@ -1050,7 +1050,7 @@ const NEETSection1 = () => {
                                             }}
                                         >
                                             <img
-                                                alt=''
+                                                alt='Subjects icon'
                                                 src={booksImg}
                                                 style={{
                                                     width: isMobile ? '12%' : '40%'
@@ -1114,7 +1114,7 @@ const NEETSection1 = () => {
                                             }}
                                         >
                                             <img
-                                                alt=''
+                                                alt='Class schedule icon'
                                                 src={cumpus}
                                                 style={{
                                                     width: isMobile ? '12%' : '40%'

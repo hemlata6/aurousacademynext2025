@@ -17,10 +17,6 @@ export default function RootLayoutClient({ children }) {
   // Use false until mounted so SSR and initial client render match exactly
   const isMobile = mounted ? isMobileQuery : false;
 
-  useEffect(() => {
-    setMounted(true);
-  }, []);
-
   return (
     <div style={{ paddingTop: '90px' }}>
       {/* NavBarOne - Fixed at top for entire scroll on desktop */}

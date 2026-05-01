@@ -530,7 +530,7 @@ const PreviousYearPaperPage = () => {
                                                         >
                                                             <img
                                                                 src={`${Endpoints.mediaBaseUrl + (item?.thumb || item?.logo)}`}
-                                                                alt="Item thumbnail"
+                                                                alt={`${item?.title || item?.name || 'Previous year paper resource'} preview`}
                                                                 style={{
                                                                     width: '100%',
                                                                     height: '100%',
@@ -733,7 +733,7 @@ const PreviousYearPaperPage = () => {
                                                         <img
                                                             className="course-image"
                                                             src={`${Endpoints.mediaBaseUrl + item?.logo}`}
-                                                            alt="Course logo"
+                                                            alt={`${item?.title || item?.name || 'Previous year paper course'} cover`}
                                                             style={{
                                                                 width: '100%',
                                                                 height: '100%',

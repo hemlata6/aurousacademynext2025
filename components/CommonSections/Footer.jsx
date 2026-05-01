@@ -5,6 +5,7 @@ import React, { useState } from 'react'
 import Link from 'next/link';
 import Grid from '@mui/material/Grid2';
 import images from '@/lib/images';
+import { YOUTUBE_CHANNEL_URL } from '@/lib/site';
 
 const Logo = images.roundedLogo;
 const telegramLogo = images.telegramLogo;
@@ -407,14 +408,14 @@ const Footer = () => {
                                     <Stack spacing={1}>
                                         {[
                                             { text: 'Privacy Policy', href: '/privacyPolicy' },
-                                            { text: 'Refund Policy', href: '/privacyPolicy' },
+                                            { text: 'Refund Policy', href: '/privacyPolicy#refund-policy' },
                                             { text: 'Download Brochure', action: handleDownloadBrochure },
                                             { text: 'Download', href: '/previousyearpaper' },
                                             { text: 'Blog', href: '/blog' }
                                         ].map((item, index) => (
                                             <Box key={index}>
                                                 {item.href ? (
-                                                    <a href={item.href} style={{ textDecoration: 'none' }}>
+                                                    <Link href={item.href} style={{ textDecoration: 'none' }}>
                                                         <Box
                                                             sx={{
                                                                 display: 'flex',
@@ -453,7 +454,7 @@ const Footer = () => {
                                                                 {item.text}
                                                             </Typography>
                                                         </Box>
-                                                    </a>
+                                                    </Link>
                                                 ) : (
                                                     <Box
                                                         onClick={item.action}
@@ -829,7 +830,7 @@ const Footer = () => {
                                 { icon: LinkedInIcon, url: 'https://in.linkedin.com/company/aurous-academy', color: '#0077B5' },
                                 { icon: FacebookIcon, url: 'https://www.facebook.com/aurousacademy', color: '#1877F2' },
                                 { icon: InstagramIcon, url: 'https://www.instagram.com/aurousacademy/', color: '#E4405F' },
-                                { icon: YouTubeIcon, url: 'https://youtube.com/@aurousacademy8912?si=Eh3ykFIQDBLBKzb5', color: '#FF0000' },
+                                { icon: YouTubeIcon, url: 'https://youtube.com/@aurousdigital?si=MtASBh9jre_UyRx6', color: '#FF0000' },
                             ].map((social, index) => (
                                 <a key={index} href={social.url} target='_blank' rel='noopener noreferrer' style={{ textDecoration: 'none' }}>
                                     <Box sx={{

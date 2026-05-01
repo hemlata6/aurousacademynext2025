@@ -559,7 +559,7 @@ const CoursesSection = () => {
                       justifyContent: 'center',
                     }}
                   >
-                    <img alt='' style={{ width: '20px', height: '20px' }} src={planner} />
+                    <img alt='Program planner icon' style={{ width: '20px', height: '20px' }} src={planner} />
                   </Box>
                   <Typography
                     sx={{
@@ -604,7 +604,7 @@ const CoursesSection = () => {
                           }}
                         >
                           <img
-                            alt=''
+                            alt={`Program planner step: ${planItem?.des || 'Course milestone'}`}
                             style={{
                               width: planItem?.id === 32 ? '30px' : '35px',
                               height: planItem?.id === 32 ? '30px' : '35px',
@@ -666,7 +666,7 @@ const CoursesSection = () => {
                       justifyContent: 'center',
                     }}
                   >
-                    <img alt='' style={{ width: '20px', height: '20px' }} src={mockImg} />
+                    <img alt='Mock test icon' style={{ width: '20px', height: '20px' }} src={mockImg} />
                   </Box>
                   <Typography
                     sx={{
@@ -757,7 +757,7 @@ const CoursesSection = () => {
                       justifyContent: 'center',
                     }}
                   >
-                    <img alt='' style={{ width: '20px', height: '20px' }} src={subject} />
+                    <img alt='Subjects icon' style={{ width: '20px', height: '20px' }} src={subject} />
                   </Box>
                   <Typography
                     sx={{
@@ -849,7 +849,7 @@ const CoursesSection = () => {
                           justifyContent: 'center',
                         }}
                       >
-                        <img alt='' style={{ width: '20px', height: '20px' }} src={schedule} />
+                        <img alt='Class schedule icon' style={{ width: '20px', height: '20px' }} src={schedule} />
                       </Box>
                       <Typography
                         sx={{

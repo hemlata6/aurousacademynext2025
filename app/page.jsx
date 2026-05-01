@@ -1,5 +1,6 @@
 'use client';
 
+import dynamic from 'next/dynamic';
 import React, { useEffect, useRef } from 'react';
 import { Fab, Tooltip, useMediaQuery } from '@mui/material';
 import CallIcon from '@mui/icons-material/Call';
@@ -7,13 +8,13 @@ import HomeSection1 from '@/components/HomeComponents/HomeSection1';
 import HomeSection2 from '@/components/HomeComponents/HomeSection2';
 import HomeSection3 from '@/components/HomeComponents/HomeSection3';
 import HomeSection4 from '@/components/HomeComponents/HomeSection4';
-import HomeSection5 from '@/components/HomeComponents/HomeSection5';
-import HomeSection6 from '@/components/HomeComponents/HomeSection6';
-import HomeLocationMap from '@/components/HomeComponents/HomeLocationMap';
-import GoogleMapComponent from '@/components/SEO/GoogleMap';
 import Network from '@/lib/Netwrok';
 import Endpoints from '@/constant/endpoints';
 import instId from '@/constant/instId';
+
+const HomeSection5 = dynamic(() => import('@/components/HomeComponents/HomeSection5'));
+const HomeSection6 = dynamic(() => import('@/components/HomeComponents/HomeSection6'));
+const HomeLocationMap = dynamic(() => import('@/components/HomeComponents/HomeLocationMap'));
 
 export default function HomePage() {
   // const instId = 120;
@@ -82,10 +83,6 @@ export default function HomePage() {
         <HomeSection2 />
         <HomeSection4 />
         <HomeSection6 />
-        
-        {/* Google Maps Component */}
-        <GoogleMapComponent />
-        
         <HomeLocationMap />
         <HomeSection5 />
 
@@ -126,7 +123,7 @@ export default function HomePage() {
             aria-label="WhatsApp us"
           >
             <img
-              alt="WhatsApp"
+              alt="Open WhatsApp chat"
               style={{ width: isHydrated && isMobile ? '60%' : '100%' }}
               src="/whatsAppSvg.svg"
             />

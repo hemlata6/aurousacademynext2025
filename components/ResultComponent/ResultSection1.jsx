@@ -349,7 +349,7 @@ const ResultSection1 = () => {
                                 py={2}
                             >
                                 <img
-                                    alt=''
+                                    alt='Aurous Academy result banner'
                                     src={`${Endpoints.mediaBaseUrl}${item?.banner}`}
                                     className="zoom-fade-seesaw"
                                     style={{

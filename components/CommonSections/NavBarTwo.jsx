@@ -1322,7 +1322,7 @@ const NavBarTwo = () => {
                     alignItems={'center'}
                 >
                     <img
-                        alt=''
+                        alt='Aurous Academy logo'
                         onClick={(e) => handleNavBarClick(e, 'Home')}
                         style={{
                             cursor: 'pointer',

@@ -137,7 +137,7 @@ const OurTeamSection2 = () => {
                                             }}
                                         >
                                             <img
-                                                alt=""
+                                                alt={`${item?.firstName || ''} ${item?.lastName || ''}`.trim() || 'Aurous Academy faculty member'}
                                                 src={item.profile === null ? employee : Endpoints.mediaBaseUrl + item.image}
                                                 style={{
                                                     width: '100%',

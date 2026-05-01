@@ -94,7 +94,7 @@ const AboutSection3 = () => {
                                                 height: "auto",
                                                 objectFit: "cover",
                                             }}
-                                            alt={`Slide ${i}`}
+                                            alt={`Aurous Academy gallery slide ${i + 1}`}
                                             src={`${Endpoints.mediaBaseUrl}${item}`}
                                         />
                                     </Grid>

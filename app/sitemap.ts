@@ -54,7 +54,7 @@ async function fetchBlogRoutes(baseUrl: string): Promise<MetadataRoute.Sitemap> 
 
 export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
   const baseUrl = 'https://aurousacademy.com';
-  const today = new Date('2024-04-09').toISOString().split('T')[0];
+  const today = new Date().toISOString();
 
   // Main static pages
   const staticPages: MetadataRoute.Sitemap = [

@@ -463,7 +463,7 @@ const ResultSection2 = () => {
                                                         <img
                                                             className="item-thumbnail"
                                                             src={`${Endpoints.mediaBaseUrl + (item?.thumb || item?.logo)}`}
-                                                            alt="Item thumbnail"
+                                                            alt={`${item?.title || item?.name || 'Result resource'} preview`}
                                                             style={{
                                                                 width: '100%',
                                                                 height: '100%',
@@ -648,7 +648,7 @@ const ResultSection2 = () => {
                                                         <img
                                                             className="course-image"
                                                             src={`${Endpoints.mediaBaseUrl + item?.logo}`}
-                                                            alt="Course logo"
+                                                            alt={`${item?.title || item?.name || 'Result course'} cover`}
                                                             style={{
                                                                 width: '100%',
                                                                 height: '100%',

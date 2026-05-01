@@ -4,6 +4,7 @@ export default function robots() {
       userAgent: "*",
       allow: "/",
     },
+    host: 'https://aurousacademy.com',
     sitemap: "https://aurousacademy.com/sitemap.xml",
   };
 }
