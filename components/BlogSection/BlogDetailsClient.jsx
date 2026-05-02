@@ -52,6 +52,10 @@ const BlogDetailsClient = ({ id, slug }) => {
     const [selectedAudio, setSelectedAudio] = useState(null);
     const [showAudioModal, setShowAudioModal] = useState(false);
     const [slides, setSlides] = useState([]);
+    const [defaultPoster, setDefaultPoster] = useState('');
+    const [featuredImageFailed, setFeaturedImageFailed] = useState(false);
+    const [failedSlideImages, setFailedSlideImages] = useState({});
+    const [failedAttachmentImages, setFailedAttachmentImages] = useState({});
 
     const instId = 120;
 
@@ -62,8 +66,58 @@ const BlogDetailsClient = ({ id, slug }) => {
             .replace(/^-|-$/g, '');
     };
 
-    const getImageUrl = (path, fallback = DEFAULT_BLOG_IMAGE_PATH) =>
-        resolveMediaUrl(path, Endpoints.mediaBaseUrl, fallback);
+    const getDefaultPosterImage = () => resolveMediaUrl(
+        defaultPoster,
+        Endpoints.mediaBaseUrl,
+        DEFAULT_BLOG_IMAGE_PATH
+    );
+
+    const isValidImageSource = (value) => {
+        if (typeof value !== 'string') {
+            return false;
+        }
+
+        const normalizedValue = value.trim();
+
+        if (!normalizedValue || normalizedValue.toLowerCase() === 'string') {
+            return false;
+        }
+
+        return true;
+    };
+
+    const getImageUrl = (path, fallback = getDefaultPosterImage()) => {
+        const source = isValidImageSource(path) ? path : defaultPoster;
+        return resolveMediaUrl(source, Endpoints.mediaBaseUrl, fallback);
+    };
+
+    const handleSlideImageError = (index) => {
+        setFailedSlideImages((prev) => {
+            if (prev[index]) {
+                return prev;
+            }
+
+            return {
+                ...prev,
+                [index]: true,
+            };
+        });
+    };
+
+    const handleAttachmentImageError = (item, index) => {
+        const imageKey = item?.id || item?.entityId || index;
+
+        setFailedAttachmentImages((prev) => {
+            if (prev[imageKey]) {
+                return prev;
+            }
+
+            return {
+                ...prev,
+                [imageKey]: true,
+            };
+        });
+    };
 
     const sanitizedBlogHtml = useMemo(
         () => optimizeBlogHtml(blog?.blog?.blog || '', blog?.title || 'Aurous Academy blog'),
@@ -74,8 +128,22 @@ const BlogDetailsClient = ({ id, slug }) => {
         if (id) {
             fetchBlogDetail();
             fetchBanners();
+            getInstituteDetail();
         }
     }, [id, slug]);
+
+    useEffect(() => {
+        setFeaturedImageFailed(false);
+    }, [blog?.id]);
+
+    const getInstituteDetail = async () => {
+        try {
+            const response = await Network.fetchInstituteDetail(instId);
+            setDefaultPoster(response?.instituteAppSetting?.defaultPoster || '');
+        } catch (err) {
+            console.log(err);
+        }
+    };
 
     // useEffect(() => {
     //     if (blog?.id) {
@@ -127,7 +195,7 @@ const BlogDetailsClient = ({ id, slug }) => {
                     const bannerSlides = activeBanners.map(banner => ({
                         ...banner,
                         type: 'image',
-                        url: Endpoints.mediaBaseUrl + banner.banner,
+                        url: banner.banner,
                         title: banner.title || ''
                     }));
                     setSlides(bannerSlides);
@@ -438,7 +506,7 @@ const BlogDetailsClient = ({ id, slug }) => {
                     {/* Main Content */}
                     <div>
                         {/* Featured Image */}
-                        {blog?.blog?.thumb && (
+                        {(blog?.blog?.thumb || defaultPoster) && (
                             <div style={{
                                 borderRadius: '16px',
                                 overflow: 'hidden',
@@ -449,11 +517,12 @@ const BlogDetailsClient = ({ id, slug }) => {
                                 paddingTop: '56.25%'
                             }}>
                                 <Image
-                                    src={getImageUrl(blog.blog.thumb)}
+                                    src={featuredImageFailed ? getDefaultPosterImage() : getImageUrl(blog.blog.thumb)}
                                     alt={`${blog.title} featured image`}
                                     fill
                                     priority
                                     sizes="(max-width: 1200px) 100vw, 900px"
+                                    onError={() => setFeaturedImageFailed(true)}
                                     style={{
                                         objectFit: 'cover',
                                         display: 'block'
@@ -667,10 +736,11 @@ const BlogDetailsClient = ({ id, slug }) => {
                                     >
                                         <div style={{ position: 'relative', width: '100%', paddingTop: '56.25%' }}>
                                             <Image
-                                                src={getImageUrl(slide.url, DEFAULT_BLOG_IMAGE_PATH)}
+                                                src={failedSlideImages[index] ? getDefaultPosterImage() : getImageUrl(slide.url, getDefaultPosterImage())}
                                                 alt={slide.title || `Aurous Academy slide ${index + 1}`}
                                                 fill
                                                 sizes="350px"
+                                                onError={() => handleSlideImageError(index)}
                                                 style={{ objectFit: 'cover', display: 'block' }}
                                             />
                                         </div>
@@ -758,10 +828,11 @@ const BlogDetailsClient = ({ id, slug }) => {
                                     }}>
                                         {item?.thumb ? (
                                             <Image
-                                                src={getImageUrl(item.thumb)}
+                                                src={failedAttachmentImages[item?.id || item?.entityId || i] ? getDefaultPosterImage() : getImageUrl(item.thumb)}
                                                 alt={`${item?.title || 'Aurous Academy resource'} featured image`}
                                                 fill
                                                 sizes="(max-width: 1200px) 100vw, 280px"
+                                                onError={() => handleAttachmentImageError(item, i)}
                                                 style={{
                                                     objectFit: 'cover',
                                                     transition: 'transform 0.3s ease'
