@@ -641,23 +641,23 @@ const NavBarTwo = () => {
                             }
                         }}
                     >
-                    <a href="/result" style={{ textDecoration: "none", color: '#fff', width: '100%' }}>
-<Typography
-                            onClick={handleNavigateResult}
-                            variant="body1" sx={{
-                                fontSize: '16px',
-                                fontWeight: '500',
-                                color: '#fff',
-                                display: 'flex',
-                                justifyContent: 'space-between',
-                                alignItems: 'center',
-                                cursor: 'pointer',
-                                width: '100%'
-                            }} >
-                            Result
-                        </Typography>
-                    </a>
-                        
+                        <a href="/result" style={{ textDecoration: "none", color: '#fff', width: '100%' }}>
+                            <Typography
+                                onClick={handleNavigateResult}
+                                variant="body1" sx={{
+                                    fontSize: '16px',
+                                    fontWeight: '500',
+                                    color: '#fff',
+                                    display: 'flex',
+                                    justifyContent: 'space-between',
+                                    alignItems: 'center',
+                                    cursor: 'pointer',
+                                    width: '100%'
+                                }} >
+                                Result
+                            </Typography>
+                        </a>
+
                     </ListItemButton>
                 </ListItem>
                 <ListItem disablePadding>
@@ -1081,32 +1081,57 @@ const NavBarTwo = () => {
                             src={PolygonDown}
                         />
                     </Typography>
-                    <a href='/result'>
- <Typography
-                        onClick={handleNavigateResult}
-                        color='#fff'
-                        display={'flex'}
-                        justifyContent={'start'}
-                        alignItems={'center'}
-                        gap={0.5}
-                        fontSize={{ md: '11px', lg: '13px', xl: '15px' }}
-                        sx={{
-                            cursor: 'pointer',
-                            transition: 'all 0.3s ease',
-                            padding: { md: '4px 6px', lg: '6px 10px', xl: '8px 12px' },
-                            borderRadius: '8px',
-                            whiteSpace: 'nowrap',
-                            '&:hover': {
-                                color: '#E8410E',
-                                background: 'rgba(232, 65, 14, 0.1)',
-                                transform: 'translateY(-2px)'
-                            }
-                        }}
-                    >
-                        Result
-                    </Typography>
+                    <a href='https://aurousacademy.graphy.com' target="_blank" rel="noopener noreferrer">
+                        <Typography
+                            onClick={handleNavigateResult}
+                            color='#fff'
+                            display={'flex'}
+                            justifyContent={'start'}
+                            alignItems={'center'}
+                            gap={0.5}
+                            fontSize={{ md: '11px', lg: '13px', xl: '15px' }}
+                            sx={{
+                                cursor: 'pointer',
+                                transition: 'all 0.3s ease',
+                                padding: { md: '4px 6px', lg: '6px 10px', xl: '8px 12px' },
+                                borderRadius: '8px',
+                                whiteSpace: 'nowrap',
+                                '&:hover': {
+                                    color: '#E8410E',
+                                    background: 'rgba(232, 65, 14, 0.1)',
+                                    transform: 'translateY(-2px)'
+                                }
+                            }}
+                        >
+                            Online Courses
+                        </Typography>
                     </a>
-                   
+                    <a href='/result'>
+                        <Typography
+                            onClick={handleNavigateResult}
+                            color='#fff'
+                            display={'flex'}
+                            justifyContent={'start'}
+                            alignItems={'center'}
+                            gap={0.5}
+                            fontSize={{ md: '11px', lg: '13px', xl: '15px' }}
+                            sx={{
+                                cursor: 'pointer',
+                                transition: 'all 0.3s ease',
+                                padding: { md: '4px 6px', lg: '6px 10px', xl: '8px 12px' },
+                                borderRadius: '8px',
+                                whiteSpace: 'nowrap',
+                                '&:hover': {
+                                    color: '#E8410E',
+                                    background: 'rgba(232, 65, 14, 0.1)',
+                                    transform: 'translateY(-2px)'
+                                }
+                            }}
+                        >
+                            Result
+                        </Typography>
+                    </a>
+
                     <a
                         href="/banner"
                         style={{ textDecoration: "none" }}
