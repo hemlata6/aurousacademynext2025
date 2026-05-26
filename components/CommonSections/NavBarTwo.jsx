@@ -1083,7 +1083,7 @@ const NavBarTwo = () => {
                     </Typography>
                     <a href='https://aurousacademy.graphy.com' target="_blank" rel="noopener noreferrer">
                         <Typography
-                            onClick={handleNavigateResult}
+                            onClick={handleOnlineCourse}
                             color='#fff'
                             display={'flex'}
                             justifyContent={'start'}
