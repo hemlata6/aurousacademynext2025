@@ -67,7 +67,7 @@ to excel in both JEE and Board examinations.`,
 sessions, this program provides students with the necessary tools to
 achieve success in JEE and build a strong academic foundation for
 their engineering career.`,
-            targetYear: '2026',
+            targetYear: '2027',
             admissionOpen: true,
             img: class12thImg,
             programPlanner: [
@@ -145,7 +145,7 @@ problem-solving skills with ease. The SANKALP Program is an ideal
 choice for JEE aspirants seeking efficient preparation, expert
 mentorship, and a streamlined academic experience for a successful
 engineering career.`,
-            targetYear: '2026',
+            targetYear: '2027',
             admissionOpen: true,
             img: class12SANKALPthImg,
             programPlanner: [

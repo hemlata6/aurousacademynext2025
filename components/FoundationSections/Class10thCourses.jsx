@@ -51,7 +51,7 @@ knowledge, confidence, and skills needed to excel in board exams while
 laying a strong foundation for IIT-JEE and NEET. Join us to take a
 decisive step toward academic achievement and future success.
 `,
-            targetYear: '2026',
+            targetYear: '2027',
             admissionOpen: true,
             img: '/Images/10TH - 1-Year Classroom Program for Class 10th.jpg',
             programPlanner: [
@@ -124,7 +124,7 @@ but also equips them with valuable skills for future academic
 challenges, including IIT-JEE and NEET preparation. Enroll now to
 secure top grades, boost confidence, and lay the foundation for a
 promising academic journey. Your success starts here!`,
-            targetYear: '2026',
+            targetYear: '2027',
             admissionOpen: true,
             img: '/Images/10TH - 1-Year School Integrated Program for Class 10th.jpg',
             programPlanner: [

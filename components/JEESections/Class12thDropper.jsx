@@ -48,7 +48,7 @@ const Class12thDropperCourses = () => {
             description1: 'This program is ideal for students aiming to secure admission to top engineering colleges through the JEE Main and Advanced exams.',
             description2: 'This program by Aurous Academy is for IIT-JEE aspirants. NTA conducts JEE Main and JEE Advanced exams for admission into prestigious engineering colleges like IITs and NITs across India. For these exams students need targeted guidance by expert faculty. Aurous Academy offers a 1 year extended Classroom Program for JEE (Main + Advanced)',
             description3: 'The curriculum is specifically designed for the repeater JEE aspirants. To strengthen the foundation, conceptual knowledge and improve competition rank this course is the best option',
-            targetYear: '2026',
+            targetYear: '2027',
             admissionOpen: true,
             img: dropperImg,
             programPlanner: [

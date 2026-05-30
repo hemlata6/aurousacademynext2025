@@ -82,7 +82,7 @@ proven track record of successful candidates who have realized their
 medical career aspirations, this program serves as the ideal
 foundation for achieving NEET UG success.
 `,
-            targetYear: '2027',
+            targetYear: '2028',
             admissionOpen: true,
             img: class11th2YRCRPImg,
             programPlanner: [
@@ -157,7 +157,7 @@ NEET UG.`,
             description4: `With a proven track record of successful students who have made their
 mark in the medical field, the SANKALP Program serves as the ideal
 foundation for a fulfilling medical career.`,
-            targetYear: '2027',
+            targetYear: '2028',
             admissionOpen: true,
             img: class11th2YRSIPImg,
             programPlanner: [

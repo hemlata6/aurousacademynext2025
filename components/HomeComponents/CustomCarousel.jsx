@@ -190,17 +190,17 @@ const CustomCarousel = () => {
                     filter: none;
                 }
                 .carousel-img-center {
-                    box-shadow: 0 0 0 0 #1976d2, 0 8px 32px 0 #1976d233;
+                    {/* box-shadow: 0 0 0 0 #1976d2, 0 8px 32px 0 #1976d233; */}
                     border-radius: 18px;
                     transition: box-shadow 0.4s, transform 0.4s cubic-bezier(.4,2,.6,1);
                 }
                 .carousel-img-center:hover {
-                    box-shadow: 0 0 0 8px #42a5f5cc, 0 12px 36px 0 #1976d244;
+                    {/* box-shadow: 0 0 0 8px #42a5f5cc, 0 12px 36px 0 #1976d244; */}
                     transform: scale(1.08) perspective(900px) rotateY(-2deg) rotateX(0deg);
                     filter: brightness(1.08) drop-shadow(0 0 12px #42a5f5cc);
                 }
                 .carousel-img:hover {
-                    box-shadow: 0 0 0 4px #42a5f588, 0 8px 24px 0 #1976d233;
+                    {/* box-shadow: 0 0 0 4px #42a5f588, 0 8px 24px 0 #1976d233; */}
                     filter: brightness(1.04);
                     transform: scale(1.04);
                 }

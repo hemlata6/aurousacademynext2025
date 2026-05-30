@@ -69,7 +69,7 @@ toward academic excellence. By focusing on conceptual clarity,
 problem-solving skills, and strategic preparation, this program equips
 students with the knowledge and confidence required to excel in both
 board and competitive exams.`,
-            targetYear: '2027',
+            targetYear: '2028',
             admissionOpen: true,
             img: '/Images/9TH_2_Year_Classroom_Program_for_Class_9th_10th.jpg',
             programPlanner: [
@@ -138,7 +138,7 @@ IIT-JEE and NEET UG preparation. Integrated seamlessly within the
 school schedule, it allows students in Classes IX and X to efficiently
 manage their academic workload while excelling in both school and
 competitive exams.`,
-            targetYear: '2027',
+            targetYear: '2028',
             admissionOpen: true,
             img: '/Images/9TH_2_Year_School_Integrated_Program_for_Class_9th_&_10th.jpg',
             programPlanner: [

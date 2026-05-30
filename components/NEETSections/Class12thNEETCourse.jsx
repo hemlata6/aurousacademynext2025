@@ -82,7 +82,7 @@ proven track record of successful students who have achieved their
 medical aspirations, this program serves as the ideal foundation for
 NEET UG success, guiding you toward a fulfilling career in the medical
 field.`,
-            targetYear: '2026',
+            targetYear: '2027',
             admissionOpen: true,
             img: NEET12_1YRCRP,
             programPlanner: [
@@ -142,7 +142,7 @@ field.`,
             description1: 'This program is suitable for students who want to attend classes every morning at the coaching center and spend maximum time for self study.',
             description2: `Elevate your chances of securing a seat in esteemed medical colleges with our 1 year SANKALP program for NEET UG. Our experienced faculty, personalized learning approach, and comprehensive curriculum ensure that you're thoroughly prepared for this highly competitive exam. Benefit from our top-quality study materials, rigorous mock tests, and a track record of successful students who've made their mark in the medical field. Join us on your journey to a fulfilling medical career and NEET UG success.`,
             description3: 'Instead of attending school in morning plus coaching classes in evening, this course helps the aspirants by better time management. With more time spent on self study their success in the NEET UG exam is ensured with ease through a 2 year-long curriculum.',
-            targetYear: '2026',
+            targetYear: '2027',
             admissionOpen: true,
             img: NEET12_1YRSAN,
             programPlanner: [

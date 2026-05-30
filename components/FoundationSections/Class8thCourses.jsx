@@ -68,9 +68,9 @@ entrance tests, this program ensures a structured and strategic
 learning approach, equipping students with the skills and knowledge
 required to excel in competitive exams and secure a successful
 academic future.`,
-            targetYear: '2026',
+            targetYear: '2027',
             admissionOpen: true,
-            img: '/Images/WhatsApp Image 2025-10-15 at 13.20.51 (1).jpeg',
+            img: '/Images/8TH 1-Year Classroom Program for Class 8th.jpg',
             programPlanner: [
                 {
                     id: 33,
@@ -139,7 +139,7 @@ pedagogy, the 3-year Classroom Program is specifically structured to
 enhance conceptual clarity, problem-solving skills, and strategic
 preparation, equipping students for success in both board and
 competitive examinations.`,
-            targetYear: '2028',
+            targetYear: '2029',
             admissionOpen: true,
             img: '/Images/8TH_3_Year_Classroom_Program_for_Class_8th_9th_&_10th.jpg',
             programPlanner: [

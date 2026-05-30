@@ -454,9 +454,10 @@ const BlogListClient = () => {
                             },
                         }}
                     >
-                        <Container maxWidth="lg" sx={{ position: 'relative', zIndex: 2 }}>
-                            <Box sx={{ textAlign: 'center', maxWidth: '700px', mx: 'auto' }}>
-                                <Typography
+
+                        {/* <Container maxWidth="lg" sx={{ position: 'relative', zIndex: 2 }}>
+                            <Box sx={{ textAlign: 'center', maxWidth: '700px', mx: 'auto' }}> */}
+                                {/* <Typography
                                     sx={{
                                         color: 'rgba(255, 255, 255, 0.9)',
                                         fontWeight: 700,
@@ -467,27 +468,28 @@ const BlogListClient = () => {
                                     }}
                                 >
                                     Knowledge Hub
-                                </Typography>
+                                </Typography> */}
                                 <Typography
                                     variant='h1'
                                     sx={{
                                         // fontSize: { xs: '2rem', md: '2.75rem' },
                                         fontWeight: 700,
                                         color: '#ffffff',
-                                        mb: 2,
+                                        mb: 0,
+                                        textAlign:'center',
                                         background: 'linear-gradient(135deg, #FFD700 0%, #FFA500 100%)',
                                         backgroundClip: 'text',
                                         WebkitBackgroundClip: 'text',
                                         WebkitTextFillColor: 'transparent',
                                     }}
                                 >
-                                    Insights & Educational Content
+                                    Blogs
                                 </Typography>
-                                <Typography sx={{ color: 'rgba(255, 255, 255, 0.85)', fontSize: '1rem', lineHeight: 1.6, }}>
+                                {/* <Typography sx={{ color: 'rgba(255, 255, 255, 0.85)', fontSize: '1rem', lineHeight: 1.6, }}>
                                     Explore blogs, tutorials, and resources to enhance your exam preparation with Aurous Academy experts.
-                                </Typography>
-                            </Box>
-                        </Container>
+                                </Typography> */}
+                            {/* </Box>
+                        </Container> */}
                     </Box>
                     <Container maxWidth="lg">
                         {/* Back Button */}

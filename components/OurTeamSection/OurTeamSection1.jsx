@@ -246,7 +246,7 @@ const OurTeamSection1 = () => {
                     </Grid>
 
                     {/* Team Image Section */}
-                    <Grid size={12}>
+                    {/* <Grid size={12}>
                         <Fade in timeout={1500} style={{ transitionDelay: '600ms' }}>
                             <Box
                                 sx={{
@@ -275,7 +275,6 @@ const OurTeamSection1 = () => {
                                     }}
                                 />
 
-                                {/* Overlay */}
                                 <Box
                                     sx={{
                                         position: 'absolute',
@@ -310,7 +309,7 @@ const OurTeamSection1 = () => {
                                 </Box>
                             </Box>
                         </Fade>
-                    </Grid>
+                    </Grid> */}
                 </Grid>
             </Container>
         </Box>

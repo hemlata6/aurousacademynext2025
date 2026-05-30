@@ -62,7 +62,7 @@ const Class12thPassoutCourse = () => {
         {
             id: 6,
             name: `1-Year Extended Classroom Program for NEET-UG`,
-            description1: 'This program is suitable for students who want to attend their school in morning and then coaching classes in evening.',
+            description1: '',
             description2: `For repeater students seeking another opportunity to excel in the NEET
 UG examination, our 1-year Extended Classroom Program is meticulously
 designed to meet their specific needs. With the guidance of
@@ -76,7 +76,7 @@ their competitive rank. With a proven track record of successful
 candidates, this program is the ideal choice for students striving to
 achieve their dream of a fulfilling medical career and NEET UG success
 in their second attempt.`,
-            targetYear: '2026',
+            targetYear: '2027',
             admissionOpen: true,
             img: dropperImg,
             programPlanner: [

@@ -59,7 +59,7 @@ const Class7thFoundationCourses = () => {
             description1: 'This program is designed to provide students with comprehensive preparation for Olympiad exams, NSEJS, and senior-level competitive exams like JEE (Main + Advanced) and NEET UG. Serving as an ideal starting point for students in Classes 7th, 8th, 9th, and 10th, this program ensures a strong academic foundation while supporting school exam success.',
             description2: `Our Classroom Programs have consistently delivered high success rates in Class 10 Board Exams, reinforcing our commitment to academic excellence. With a team of expert faculty and Aurous Academy's tested pedagogy, the 4-year Classroom Program is specifically structured to enhance conceptual clarity, problem-solving skills, and strategic preparation, equipping students for success in both board and competitive examinations.`,
             description3: ``,
-            targetYear: '2029',
+            targetYear: '2030',
             admissionOpen: true,
             img: '/Images/WhatsApp Image 2025-10-15 at 13.20.51 (1).jpeg',
             programPlanner: [

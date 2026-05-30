@@ -75,7 +75,7 @@ structured study plans, and rigorous practice sessions that enhance
 their academic proficiency and problem-solving abilities, ultimately
 paving the way for success in JEE and other competitive examinations.
 `,
-            targetYear: '2027',
+            targetYear: '2028',
             admissionOpen: true,
             img: class11thImg,
             programPlanner: [
@@ -154,7 +154,7 @@ ease.`,
             description5: `This program is the ideal choice for JEE aspirants seeking efficient
 preparation, expert mentorship, and a streamlined academic experience
 for a successful engineering career.`,
-            targetYear: '2027',
+            targetYear: '2028',
             admissionOpen: true,
             img: class11thSANKALPImg,
             programPlanner: [
@@ -248,7 +248,7 @@ stress-free, and efficient preparation strategy for IIT JEE, allowing
 them to achieve academic excellence while maintaining a well-rounded
 lifestyle.
 `,
-            targetYear: '2027',
+            targetYear: '2028',
             admissionOpen: true,
             img: class11thSIPImg,
             programPlanner: [
