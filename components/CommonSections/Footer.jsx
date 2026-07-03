@@ -145,7 +145,7 @@ const Footer = () => {
                                             { text: 'About Us', href: '/about' },
                                             { text: "Direct from the Director's", href: '/ourTeam' },
                                             { text: 'Our Methodologies', href: '/methodologies' },
-                                            { text: 'Success Stories', href: '/banner' },
+                                            { text: 'Success Stories', href: '/gallery' },
                                         ].map((item, index) => (
                                             <a key={index} href={item.href} style={{ textDecoration: 'none' }}>
                                                 <Box
@@ -339,46 +339,48 @@ const Footer = () => {
                                             'Olympiad',
                                             'Boards',
                                         ].map((item, index) => (
-                                            <Box
-                                                onClick={handleResultClick}
-                                                key={index}
-                                                sx={{
-                                                    display: 'flex',
-                                                    alignItems: 'center',
-                                                    gap: 1,
-                                                    p: 1,
-                                                    borderRadius: '12px',
-                                                    transition: 'all 0.3s cubic-bezier(0.4, 0, 0.2, 1)',
-                                                    cursor: 'pointer',
-                                                    '&:hover': {
-                                                        background: 'rgba(59, 130, 246, 0.1)',
-                                                        transform: 'translateX(8px)',
-                                                        boxShadow: '0 4px 12px rgba(59, 130, 246, 0.2)',
-                                                    }
-                                                }}
-                                            >
+                                            <a href='/result' style={{ textDecoration: 'none' }} key={index}>
                                                 <Box
+                                                    // onClick={handleResultClick}
+                                                    key={index}
                                                     sx={{
-                                                        width: '6px',
-                                                        height: '6px',
-                                                        borderRadius: '50%',
-                                                        background: 'linear-gradient(135deg, #3b82f6, #60a5fa)',
-                                                    }}
-                                                />
-                                                <Typography
-                                                    sx={{
-                                                        fontSize: '0.875rem',
-                                                        color: 'rgba(255, 255, 255, 0.8)',
-                                                        fontWeight: 500,
-                                                        transition: 'color 0.3s ease',
+                                                        display: 'flex',
+                                                        alignItems: 'center',
+                                                        gap: 1,
+                                                        p: 1,
+                                                        borderRadius: '12px',
+                                                        transition: 'all 0.3s cubic-bezier(0.4, 0, 0.2, 1)',
+                                                        cursor: 'pointer',
                                                         '&:hover': {
-                                                            color: '#fff',
+                                                            background: 'rgba(59, 130, 246, 0.1)',
+                                                            transform: 'translateX(8px)',
+                                                            boxShadow: '0 4px 12px rgba(59, 130, 246, 0.2)',
                                                         }
                                                     }}
                                                 >
-                                                    {item}
-                                                </Typography>
-                                            </Box>
+                                                    <Box
+                                                        sx={{
+                                                            width: '6px',
+                                                            height: '6px',
+                                                            borderRadius: '50%',
+                                                            background: 'linear-gradient(135deg, #3b82f6, #60a5fa)',
+                                                        }}
+                                                    />
+                                                    <Typography
+                                                        sx={{
+                                                            fontSize: '0.875rem',
+                                                            color: 'rgba(255, 255, 255, 0.8)',
+                                                            fontWeight: 500,
+                                                            transition: 'color 0.3s ease',
+                                                            '&:hover': {
+                                                                color: '#fff',
+                                                            }
+                                                        }}
+                                                    >
+                                                        {item}
+                                                    </Typography>
+                                                </Box>
+                                            </a>
                                         ))}
                                     </Stack>
                                 </Grid>
