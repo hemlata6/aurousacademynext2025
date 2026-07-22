@@ -47,7 +47,7 @@ const Footer = () => {
         event.preventDefault();
 
         // Replace the phone number and construct the WhatsApp URL
-        const phoneNumber = '+919685099770';
+        const phoneNumber = '+919993936947';
         const encodedMessage = encodeURIComponent(message);
         const whatsappURL = `https://api.whatsapp.com/send/?phone=${phoneNumber}&text=Hey,+${encodedMessage}+%21&type=phone_number&app_absent=0`;
 
@@ -653,7 +653,7 @@ const Footer = () => {
                                             }
                                         }}
                                     >
-                                        +91 95225-12624
+                                        +91 99939-36947
                                     </Typography>
                                     <Typography
                                         sx={{

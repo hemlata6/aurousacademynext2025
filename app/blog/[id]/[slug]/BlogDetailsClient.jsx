@@ -39,7 +39,7 @@ export default function BlogDetailsClient({ cid }) {
 
   const handleWhatsapp = (event) => {
     event.preventDefault();
-    const phoneNumber = '+919685099770';
+    const phoneNumber = '+919993936947';
     const encodedMessage = encodeURIComponent(message);
     const whatsappURL = `https://api.whatsapp.com/send/?phone=${phoneNumber}&text=Hey,+${encodedMessage}+%21&type=phone_number&app_absent=0`;
     window.open(whatsappURL, '_blank');
