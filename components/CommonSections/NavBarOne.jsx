@@ -55,8 +55,8 @@ const NavBarOne = () => {
     };
 
     const handleNavigateAPRE = () => {
-        // const url = 'https://apre.aurousacademy.com'
-        const url = banners?.length > 0 ? banners[0]?.contentLink : "";
+        const url = 'https://pragyan.aurousacademy.com/'
+        // const url = banners?.length > 0 ? banners[0]?.contentLink : "";
         window.open(url, '_blank', 'noreferrer');
     };
 

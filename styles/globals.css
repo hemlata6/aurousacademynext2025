@@ -96,3 +96,142 @@ h1, h2, h3, h4, h5, h6 {
 .css-ptdwpq-MuiPaper-root-MuiAppBar-root {
   border-radius: 40px;
 }
+
+/* ============================================ */
+/* Image Popup Styles                           */
+/* ============================================ */
+
+.image-popup-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: rgba(0, 0, 0, 0.75);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 9999;
+  animation: popupFadeIn 0.3s ease-out;
+  backdrop-filter: blur(4px);
+  -webkit-backdrop-filter: blur(4px);
+}
+
+.image-popup-overlay.image-popup-closing {
+  animation: popupFadeOut 0.3s ease-in forwards;
+}
+
+.image-popup-container {
+  position: relative;
+  max-width: 90vw;
+  max-height: 90vh;
+  animation: popupScaleIn 0.3s ease-out;
+}
+
+.image-popup-container.image-popup-container-closing {
+  animation: popupScaleOut 0.3s ease-in forwards;
+}
+
+.image-popup-close-btn {
+  position: absolute !important;
+  top: -20px;
+  right: -20px;
+  background: rgba(0, 0, 0, 0.7) !important;
+  z-index: 10;
+  transition: transform 0.2s ease, background 0.2s ease !important;
+}
+
+.image-popup-close-btn:hover {
+  transform: scale(1.15);
+  background: rgba(220, 38, 38, 0.9) !important;
+}
+
+.image-popup-img {
+  display: block;
+  max-width: 90vw;
+  max-height: 85vh;
+  width: auto;
+  height: auto;
+  border-radius: 12px;
+  box-shadow: 0 20px 60px rgba(0, 0, 0, 0.5);
+  object-fit: contain;
+}
+
+.image-popup-clickable {
+  cursor: pointer;
+  transition: transform 0.2s ease;
+}
+
+.image-popup-clickable:hover {
+  transform: scale(1.02);
+}
+
+.image-popup-fallback {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-width: 300px;
+  min-height: 200px;
+  background: linear-gradient(135deg, #1a1a2e 0%, #16213e 100%);
+  border-radius: 12px;
+  box-shadow: 0 20px 60px rgba(0, 0, 0, 0.5);
+}
+
+/* Mobile responsiveness */
+@media (max-width: 600px) {
+  .image-popup-container {
+    max-width: 95vw;
+    max-height: 85vh;
+  }
+
+  .image-popup-img {
+    max-width: 95vw;
+    max-height: 80vh;
+    border-radius: 8px;
+  }
+
+  .image-popup-close-btn {
+    top: -16px;
+    right: -12px;
+  }
+}
+
+@keyframes popupFadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+@keyframes popupFadeOut {
+  from {
+    opacity: 1;
+  }
+  to {
+    opacity: 0;
+  }
+}
+
+@keyframes popupScaleIn {
+  from {
+    transform: scale(0.7);
+    opacity: 0;
+  }
+  to {
+    transform: scale(1);
+    opacity: 1;
+  }
+}
+
+@keyframes popupScaleOut {
+  from {
+    transform: scale(1);
+    opacity: 1;
+  }
+  to {
+    transform: scale(0.7);
+    opacity: 0;
+  }
+}
