@@ -251,7 +251,7 @@ const HomeSection3 = () => {
                                 }
                             }}
                         >
-                            <img alt={card.title} src={card.icon} />
+                            <img alt={card.title} src={card.icon} loading="lazy" />
                         </Box>
 
                         {/* Title */}

@@ -79,6 +79,7 @@ const CourseDetail = () => {
               <Zoom in={isVisible} timeout={1000}>
                 <Box
                   component="img"
+                  loading="lazy"
                   src={selectedCourse.img}
                   alt={selectedCourse.name}
                   sx={{
@@ -173,6 +174,7 @@ const CourseDetail = () => {
               <Card key={item.id} sx={{ display: 'flex', gap: 2, p: 2 }}>
                 <Box
                   component="img"
+                  loading="lazy"
                   src={item.img}
                   alt={item.des}
                   sx={{ width: 60, height: 60, borderRadius: '8px', objectFit: 'cover' }}

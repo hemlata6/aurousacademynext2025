@@ -1,13 +1,12 @@
 import OurTeamPageClient from './OurTeamPageClient';
+import { generatePageMetadata } from '@/lib/seoUtils';
 
-export const metadata = {
+export const metadata = generatePageMetadata({
   title: 'Our Team | Faculty & Staff | Aurous Academy',
   description: 'Meet the expert faculty and dedicated team at Aurous Academy. Experienced educators committed to student success in IIT-JEE and NEET.',
   keywords: 'faculty, teacher, expert instructors, coaching staff, experienced teachers',
-  alternates: {
-    canonical: 'https://aurousacademy.com/ourTeam',
-  },
-};
+  canonical: 'https://aurousacademy.com/ourTeam',
+});
 
 export default function OurTeamPage() {
   return <OurTeamPageClient />;

@@ -1,13 +1,12 @@
 import DisclaimerPageClient from './DisclaimerPageClient';
+import { generatePageMetadata } from '@/lib/seoUtils';
 
-export const metadata = {
+export const metadata = generatePageMetadata({
   title: 'Disclaimer | Aurous Academy',
   description: 'Aurous Academy Disclaimer - Important legal disclaimers and information about our services.',
-  robots: 'noindex, nofollow',
-  alternates: {
-    canonical: 'https://aurousacademy.com/disclaimer',
-  },
-};
+  canonical: 'https://aurousacademy.com/disclaimer',
+  noindex: true,
+});
 
 export default function DisclaimerPage() {
   return <DisclaimerPageClient />;

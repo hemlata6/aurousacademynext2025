@@ -81,16 +81,6 @@ const Footer = () => {
             overflow: 'hidden',
             px: { xs: 0.5, sm: 1, md: 1.5, lg: 2 }, // further reduced horizontal padding
             py: { xs: 0.5, md: 1 }, // further reduced vertical padding
-            '&::before': {
-                content: '""',
-                // position: 'absolute',
-                top: 0,
-                left: 0,
-                right: 0,
-                bottom: 0,
-                background: 'radial-gradient(circle at 20% 30%, rgba(59, 130, 246, 0.1) 0%, transparent 50%), radial-gradient(circle at 80% 70%, rgba(147, 197, 253, 0.05) 0%, transparent 60%)',
-                zIndex: 1,
-            }
         }}>
             <Box
             // sx={{ position: 'relative', zIndex: 2 }}
@@ -106,16 +96,6 @@ const Footer = () => {
                             boxShadow: '0 4px 10px rgba(0, 0, 0, 0.10), inset 0 1px 0 rgba(255, 255, 255, 0.06)', // lighter shadow
                             // position: 'relative',
                             overflow: 'hidden',
-                            '&::before': {
-                                content: '""',
-                                // position: 'absolute',
-                                top: 0,
-                                left: 0,
-                                right: 0,
-                                bottom: 0,
-                                background: 'linear-gradient(135deg, rgba(59, 130, 246, 0.02) 0%, transparent 50%, rgba(147, 197, 253, 0.01) 100%)',
-                                zIndex: -1,
-                            }
                         }}>
                             <Grid container spacing={{ xs: 1.2, md: 2 }}>
                                 {/* About Us Section */}
@@ -530,6 +510,7 @@ const Footer = () => {
                                 <Link href='/' style={{ display: 'flex', alignItems: 'center' }}>
                                     <Box
                                         component="img"
+                                        loading="lazy"
                                         src={Logo}
                                         alt="Aurous Academy Logo"
                                         sx={{
@@ -565,6 +546,7 @@ const Footer = () => {
                             }}>
                                 <Box
                                     component="img"
+                                    loading="lazy"
                                     src={addressIcon}
                                     alt="Address"
                                     sx={{
@@ -621,6 +603,7 @@ const Footer = () => {
                             >
                                 <Box
                                     component="img"
+                                    loading="lazy"
                                     src={phoneFooter}
                                     alt="Phone"
                                     sx={{
@@ -690,6 +673,7 @@ const Footer = () => {
                             >
                                 <Box
                                     component="img"
+                                    loading="lazy"
                                     src={earphones}
                                     alt="Support"
                                     sx={{
@@ -746,6 +730,7 @@ const Footer = () => {
                             }}>
                                 <Box
                                     component="img"
+                                    loading="lazy"
                                     src={email}
                                     alt="Email"
                                     sx={{
@@ -902,7 +887,7 @@ const Footer = () => {
                             },
                         }}
                     >
-                        2024 AUROUS ACADEMY PRIVATE LIMITED. All Rights Reserved | Design By
+                        2026 AUROUS ACADEMY PRIVATE LIMITED. All Rights Reserved | Design By
                         <a href="https://www.classiolabs.com" target="_blank" rel="noopener noreferrer" style={{ color: 'inherit', textDecoration: 'underline', fontWeight: 600, cursor: 'pointer' }}>
                             &nbsp; CLASSIO LABS
                         </a>

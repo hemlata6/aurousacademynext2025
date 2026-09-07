@@ -1,10 +1,10 @@
 'use client';
 
 import { useState, useEffect } from 'react';
+import { usePathname } from 'next/navigation';
 import NavBarOne from '@/components/CommonSections/NavBarOne';
 import NavBarTwo from '@/components/CommonSections/NavBarTwo';
-import ImagePopup from '@/components/CommonSections/ImagePopup';
-// import { useEffect, useState } from 'react';
+// import ImagePopup from '@/components/CommonSections/ImagePopup';
 import { useMediaQuery } from '@mui/material';
 import Network from '@/lib/Netwrok';
 import instId from '@/constant/instId';
@@ -12,31 +12,32 @@ import Endpoints from '@/constant/endpoints';
 
 export default function RootLayoutClient({ children }) {
   const isMobileQuery = useMediaQuery('(max-width:600px)');
+  const pathname = usePathname();
+  const isHomePage = pathname === '/';
   const [mounted, setMounted] = useState(false);
-   const [banner, setBanner] = useState([]);
+  const [banner, setBanner] = useState([]);
 
   useEffect(() => {
     setMounted(true);
   }, []);
 
-  const getBannerAPI = async () => {
-    try {
-      const response = await Network.fetchBannerss(instId.instId);
-      // if (response && response.data) {
-      let activeBanners = response.banners.filter(banner => banner.group === 'upperbanner' && banner.active === true);
-      // console.log("Active Banners:", activeBanners);
-      setBanner(activeBanners);
-      // }
-    } catch (error) {
-      console.log("Error fetching banner:", error);
-    };
-  };
-
-  // console.log("Banner:", banner);
-
   useEffect(() => {
+    if (!isHomePage) return;
+
+    const getBannerAPI = async () => {
+      try {
+        const response = await Network.fetchBannerss(instId.instId);
+        const activeBanners = (response?.banners || []).filter(
+          (banner) => banner.group === 'upperbanner' && banner.active === true
+        );
+        setBanner(activeBanners);
+      } catch (error) {
+        console.log('Error fetching banner:', error);
+      }
+    };
+
     getBannerAPI();
-  }, []);
+  }, [isHomePage]);
 
   // Use false until mounted so SSR and initial client render match exactly
   const isMobile = mounted ? isMobileQuery : false;
@@ -76,14 +77,14 @@ export default function RootLayoutClient({ children }) {
       {children}
 
       {/* Image Popup - Shows on home page, once per session */}
-      {banner.length > 0 && banner[0]?.banner && (
+      {/* {banner.length > 0 && banner[0]?.banner && (
         <ImagePopup
           imageSrc={Endpoints.mediaBaseUrl + banner[0].banner}
           imageAlt="Aurous Academy"
           linkUrl="https://pragyan.aurousacademy.com/"
           showOnPaths={['/']}
         />
-      )}
+      )} */}
     </div>
   );
 }

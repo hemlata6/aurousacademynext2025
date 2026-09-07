@@ -382,6 +382,7 @@ const OurMethodologies = () => {
                                                 >
                                                     <Box
                                                         component="img"
+                                                        loading="lazy"
                                                         src={methodology.image}
                                                         alt={methodology.title}
                                                         sx={{

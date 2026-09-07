@@ -198,6 +198,7 @@ in their second attempt.`,
                         >
                             <Box
                                 component="img"
+                                loading="lazy"
                                 src={item.img}
                                 alt={item.name}
                                 sx={{

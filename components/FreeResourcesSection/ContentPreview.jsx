@@ -82,6 +82,7 @@ const ContentPreview = ({ open, onClose, item }) => {
                         >
                             <Box
                                 component="img"
+                                loading="lazy"
                                 src={Endpoints.mediaBaseUrl + item.thumb}
                                 alt={item?.title}
                                 sx={{
@@ -316,6 +317,7 @@ const ContentPreview = ({ open, onClose, item }) => {
                         >
                             <Box
                                 component="img"
+                                loading="lazy"
                                 src={Endpoints.mediaBaseUrl + item.thumb}
                                 alt={item?.title}
                                 sx={{
@@ -404,6 +406,7 @@ const ContentPreview = ({ open, onClose, item }) => {
                             >
                                 <Box
                                     component="img"
+                                    loading="lazy"
                                     src={Endpoints.mediaBaseUrl + item.thumb}
                                     alt={item?.title}
                                     sx={{
@@ -438,6 +441,7 @@ const ContentPreview = ({ open, onClose, item }) => {
                                                 {audio?.thumb ? (
                                                     <Box
                                                         component="img"
+                                                        loading="lazy"
                                                         src={Endpoints.mediaBaseUrl + audio.thumb}
                                                         alt={audio?.title || item?.title}
                                                         sx={{

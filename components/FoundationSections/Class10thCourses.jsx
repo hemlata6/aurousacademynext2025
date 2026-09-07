@@ -242,6 +242,7 @@ promising academic journey. Your success starts here!`,
                         >
                             <Box
                                 component="img"
+                                loading="lazy"
                                 src={item.img}
                                 alt={item.name}
                                 sx={{
