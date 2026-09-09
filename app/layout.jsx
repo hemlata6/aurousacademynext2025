@@ -33,6 +33,9 @@ export const metadata = {
   robots: 'index, follow',
   authors: [{ name: 'Aurous Academy' }],
   publisher: 'Aurous Academy',
+  verification: {
+    google: 'WrSuzQDaKhVUdD9wz4tClnNA9tHhTaFe6178LYWAmaQ',
+  },
   alternates: {
     canonical: SITE_URL,
     languages: {

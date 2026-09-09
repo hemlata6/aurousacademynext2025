@@ -53,27 +53,27 @@ decisive step toward academic achievement and future success.
 `,
             targetYear: '2027',
             admissionOpen: true,
-            img: '/Images/10TH - 1-Year Classroom Program for Class 10th.jpg',
+            img: '/Images/10TH - 1-Year Classroom Program for Class 10th.webp',
             programPlanner: [
                 {
                     id: 33,
                     des: `400+ hours of Conceptual Classes for class 10th`,
-                    img: '/Images/palnner_icon1.png',
+                    img: '/Images/palnner_icon1.webp',
                 },
                 {
                     id: 32,
                     des: ' 50+ hours of Revision Classes',
-                    img: '/Images/palnner_icon1.png',
+                    img: '/Images/palnner_icon1.webp',
                 },
                 {
                     id: 31,
                     des: 'Additional classroom slots for Doubt Clearing Classes',
-                    img: '/Images/practice.png',
+                    img: '/Images/practice.webp',
                 },
                 {
                     id: 30,
                     des: 'Chapter-wise Assisted Problem Solving Sessions (APSS)',
-                    img: '/Images/chapterSolving.png',
+                    img: '/Images/chapterSolving.webp',
                 },
             ],
             mocktest: [
@@ -126,27 +126,27 @@ secure top grades, boost confidence, and lay the foundation for a
 promising academic journey. Your success starts here!`,
             targetYear: '2027',
             admissionOpen: true,
-            img: '/Images/10TH - 1-Year School Integrated Program for Class 10th.jpg',
+            img: '/Images/10TH - 1-Year School Integrated Program for Class 10th.webp',
             programPlanner: [
                 {
                     id: 33,
                     des: '500+ hours of Conceptual Classes for Class 10th',
-                    img: '/Images/palnner_icon1.png',
+                    img: '/Images/palnner_icon1.webp',
                 },
                 {
                     id: 32,
                     des: '80+ hours of Revision Classes',
-                    img: '/Images/palnner_icon1.png',
+                    img: '/Images/palnner_icon1.webp',
                 },
                 {
                     id: 31,
                     des: 'Additional classroom slots for Doubt Clearing Classes',
-                    img: '/Images/practice.png',
+                    img: '/Images/practice.webp',
                 },
                 {
                     id: 30,
                     des: 'Chapter-wise Assisted Problem Solving Sessions (APSS)',
-                    img: '/Images/chapterSolving.png',
+                    img: '/Images/chapterSolving.webp',
                 },
             ],
             mocktest: [

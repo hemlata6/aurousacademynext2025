@@ -40,39 +40,39 @@ const WatchVideoSection = () => {
     const imageData = [
         {
             id: 1,
-            image: "/PRAYAG VERMA.jpg",
+            image: "/PRAYAG VERMA.webp",
         },
         {
             id: 2,
-            image: "/KUSHAGRA BANSAL.jpg",
+            image: "/KUSHAGRA BANSAL.webp",
         },
         {
             id: 3,
-            image: "/ABHINAV BADEGAONKAR.jpg",
+            image: "/ABHINAV BADEGAONKAR.webp",
         },
         {
             id: 4,
-            image: "/SARTHAK JAIN.jpg",
+            image: "/SARTHAK JAIN.webp",
         },
         {
             id: 5,
-            image: "/DARSHIT SINGH.jpg",
+            image: "/DARSHIT SINGH.webp",
         },
         {
             id: 6,
-            image: "/HARSHIT SAHU.jpg",
+            image: "/HARSHIT SAHU.webp",
         },
         {
             id: 7,
-            image: "/SHREE PANDIT.jpg",
+            image: "/SHREE PANDIT.webp",
         },
         {
             id: 8,
-            image: "/NISHIL SETH GUPTA.jpg",
+            image: "/NISHIL SETH GUPTA.webp",
         },
         {
             id: 9,
-            image: "/RISHI TALREJA.jpg",
+            image: "/RISHI TALREJA.webp",
         },
     ];
 

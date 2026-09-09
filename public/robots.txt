@@ -33,7 +33,6 @@ Disallow: /
 
 # Sitemap location
 Sitemap: https://aurousacademy.com/sitemap.xml
-Sitemap: https://aurousacademy.com/sitemap-pages.xml
 
 # Cache rules
 Cache-control: max-age=86400

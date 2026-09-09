@@ -208,6 +208,7 @@ const ContactUsContent = ({ setApiResponse, selectedAction, handleClose }) => {
             </Box>
             {/* Student Name */}
             <TextField
+                id="student-name"
                 fullWidth
                 label="Student Name"
                 placeholder="Enter your name"
@@ -251,6 +252,7 @@ const ContactUsContent = ({ setApiResponse, selectedAction, handleClose }) => {
 
             {/* Mobile Number */}
             <TextField
+                id="mobile-number"
                 fullWidth
                 label="Mobile Number"
                 placeholder="Enter mobile number"
@@ -297,6 +299,7 @@ const ContactUsContent = ({ setApiResponse, selectedAction, handleClose }) => {
             {/* Course Select */}
             <FormControl fullWidth size="medium">
                 <Select
+                    id="course-select"
                     value={course}
                     onChange={handleChangeCourse}
                     displayEmpty
@@ -353,6 +356,7 @@ const ContactUsContent = ({ setApiResponse, selectedAction, handleClose }) => {
 
             {/* Message */}
             <TextField
+                id="message"
                 fullWidth
                 label="Any Questions? (Optional)"
                 placeholder="Tell us about your inquiry..."

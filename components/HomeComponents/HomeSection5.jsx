@@ -11,6 +11,11 @@ const HomeSection5 = () => {
         window.open(url, '_blank', 'noreferrer');
     };
 
+    const handleNavigateDesktop = () => {
+        const url = 'https://apps.microsoft.com/detail/9P9CXNXFZKFF?hl=en-us&gl=IN&ocid=pdpshare'
+        window.open(url, '_blank', 'noreferrer');
+    };
+
     return (
         <Box sx={{
             minHeight: { xs: 'auto', md: 'auto', lg: 'auto' },
@@ -213,7 +218,7 @@ const HomeSection5 = () => {
                                                     filter: 'drop-shadow(0 2px 4px rgba(0, 0, 0, 0.13))'
                                                 }}
                                                 alt='Aurous Academy mobile app screenshot'
-                                                src='/Images/Screenshot 2025-01-31 120523-portrait.png'
+                                                src='/Images/Screenshot 2025-01-31 120523-portrait.webp'
                                                 width={32}
                                                 height={32}
                                                 loading='lazy'
@@ -273,7 +278,7 @@ const HomeSection5 = () => {
                                                     filter: 'drop-shadow(0 2px 4px rgba(0, 0, 0, 0.13))'
                                                 }}
                                                 alt='Aurous Academy tablet app screenshot'
-                                                src='/Images/Screenshot 2025-01-31 120905-portrait.png'
+                                                src='/Images/Screenshot 2025-01-31 120905-portrait.webp'
                                                 width={32}
                                                 height={32}
                                                 loading='lazy'
@@ -333,7 +338,7 @@ const HomeSection5 = () => {
                                                     filter: 'drop-shadow(0 2px 4px rgba(0, 0, 0, 0.13))'
                                                 }}
                                                 alt='Aurous Academy desktop app screenshot'
-                                                src='/Images/Screenshot 2025-01-31 121149-front.png'
+                                                src='/Images/Screenshot 2025-01-31 121149-front.webp'
                                                 width={32}
                                                 height={32}
                                                 loading='lazy'
@@ -459,13 +464,14 @@ const HomeSection5 = () => {
                                             />
                                         </Box>
                                         <Box
+                                            onClick={handleNavigateDesktop}
                                             sx={{
                                                 marginLeft: "0px !important",
                                                 cursor: 'pointer',
                                                 transition: 'all 0.3s cubic-bezier(0.4, 0, 0.2, 1)',
                                                 borderRadius: '14px',
                                                 overflow: 'hidden',
-                                                opacity: 0.7,
+                                                // opacity: 0.7,
                                                 width: { xs: '90px', sm: '110px', md: '150px', lg: '180px' },
                                                 minWidth: { xs: '90px', sm: '110px', md: '150px', lg: '180px' },
                                                 maxWidth: { xs: '100%', md: '200px', lg: '220px' },
@@ -487,7 +493,7 @@ const HomeSection5 = () => {
                                                     maxWidth: '100%'
                                                 }}
                                                 alt='Aurous Academy desktop learning access option'
-                                                src='/Images/af9f2ac981440bd20c7c159c1ab9c376.jpg'
+                                                src='/Images/af9f2ac981440bd20c7c159c1ab9c376.webp'
                                                 width={180}
                                                 height={70}
                                                 loading='lazy'

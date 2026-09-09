@@ -1081,7 +1081,7 @@ const NavBarTwo = () => {
                             src={PolygonDown}
                         />
                     </Typography>
-                    <a href='https://aurousacademy.graphy.com' target="_blank" rel="noopener noreferrer">
+                    <a href='https://aurousacademy.graphy.com' target="_blank" rel="noopener noreferrer" style={{ textDecoration: 'none' }}>
                         <Typography
                             onClick={handleOnlineCourse}
                             color='#fff'
@@ -1106,7 +1106,7 @@ const NavBarTwo = () => {
                             Online Courses
                         </Typography>
                     </a>
-                    <a href='/result'>
+                    <a href='/result' style={{ textDecoration: 'none' }}>
                         <Typography
                             onClick={handleNavigateResult}
                             color='#fff'

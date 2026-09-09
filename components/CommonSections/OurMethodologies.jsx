@@ -9,15 +9,15 @@ import ChevronRightIcon from '@mui/icons-material/ChevronRight';
 import images from '@/lib/images';
 
 // Image paths for Concept Building and Learning Redefined
-const image1 = '/Images/217412file1.png';
-const image2 = '/Images/241009file1.png';
-const image3 = '/Images/chapterSolving.png';
-const image4 = '/Images/180504file1.png';
-const image5 = '/Images/209283file1.png';
-const image6 = '/Images/272963file1.png';
-const image7 = '/Images/321507file1.png';
-const image8 = '/Images/408255file1.png';
-const image9 = '/Images/408616file1.png';
+const image1 = '/Images/217412file1.webp';
+const image2 = '/Images/241009file1.webp';
+const image3 = '/Images/chapterSolving.webp';
+const image4 = '/Images/180504file1.webp';
+const image5 = '/Images/209283file1.webp';
+const image6 = '/Images/272963file1.webp';
+const image7 = '/Images/321507file1.webp';
+const image8 = '/Images/408255file1.webp';
+const image9 = '/Images/408616file1.webp';
 const image10 = images.file525551;
 const image11 = images.file528236;
 const image12 = images.file582031;
@@ -110,7 +110,7 @@ const OurMethodologies = () => {
         {
             id: 'dpp',
             title: 'Daily Practice Problems (DPP)',
-            description: 'Regular progress is important and to ensure the progress, students must check their level of knowledge by solving "/practice.png" sheets. With the help of problem sheets, they get to know about the multi-conceptual questions and solve them easily.',
+            description: 'Regular progress is important and to ensure the progress, students must check their level of knowledge by solving "/practice.webp" sheets. With the help of problem sheets, they get to know about the multi-conceptual questions and solve them easily.',
             image: image11,
             category: 'Study Material'
         },
@@ -131,7 +131,7 @@ const OurMethodologies = () => {
         {
             id: 'question-banks',
             title: 'Question Banks',
-            description: 'It contains best "/practice.png" questions based on JEE Pattern and is distributed among easy to difficult levels.',
+            description: 'It contains best "/practice.webp" questions based on JEE Pattern and is distributed among easy to difficult levels.',
             image: image14,
             category: 'Study Material'
         },

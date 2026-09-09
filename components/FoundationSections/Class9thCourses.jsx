@@ -71,27 +71,27 @@ students with the knowledge and confidence required to excel in both
 board and competitive exams.`,
             targetYear: '2028',
             admissionOpen: true,
-            img: '/Images/9TH_2_Year_Classroom_Program_for_Class_9th_10th.jpg',
+            img: '/Images/9TH_2_Year_Classroom_Program_for_Class_9th_10th.webp',
             programPlanner: [
                 {
                     id: 33,
                     des: `750+ hours of Conceptual Classes for class 9th and 10th`,
-                    img: '/Images/palnner_icon1.png',
+                    img: '/Images/palnner_icon1.webp',
                 },
                 {
                     id: 32,
                     des: '100+ hours of Revision Classes',
-                    img: '/Images/palnner_icon1.png',
+                    img: '/Images/palnner_icon1.webp',
                 },
                 {
                     id: 31,
                     des: 'Additional classroom slots for Doubt Clearing Classes',
-                    img: '/Images/practice.png',
+                    img: '/Images/practice.webp',
                 },
                 {
                     id: 30,
                     des: 'Chapter-wise Assisted Problem Solving Sessions (APSS)',
-                    img: '/Images/chapterSolving.png',
+                    img: '/Images/chapterSolving.webp',
                 },
             ],
             mocktest: [
@@ -140,27 +140,27 @@ manage their academic workload while excelling in both school and
 competitive exams.`,
             targetYear: '2028',
             admissionOpen: true,
-            img: '/Images/9TH_2_Year_School_Integrated_Program_for_Class_9th_&_10th.jpg',
+            img: '/Images/9TH_2_Year_School_Integrated_Program_for_Class_9th_&_10th.webp',
             programPlanner: [
                 {
                     id: 33,
                     des: '950+ hours of Conceptual Classes for Class 9th & 10th',
-                    img: '/Images/palnner_icon1.png',
+                    img: '/Images/palnner_icon1.webp',
                 },
                 {
                     id: 32,
                     des: '100+ hours of Revision Classes',
-                    img: '/Images/palnner_icon1.png',
+                    img: '/Images/palnner_icon1.webp',
                 },
                 {
                     id: 31,
                     des: 'Additional classroom slots for Doubt Clearing Classes',
-                    img: '/Images/practice.png',
+                    img: '/Images/practice.webp',
                 },
                 {
                     id: 30,
                     des: 'Along with unique Assisted Problem Solving Sessions (APSS)',
-                    img: '/Images/chapterSolving.png',
+                    img: '/Images/chapterSolving.webp',
                 },
             ],
             mocktest: [

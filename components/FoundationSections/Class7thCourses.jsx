@@ -61,27 +61,27 @@ const Class7thFoundationCourses = () => {
             description3: ``,
             targetYear: '2030',
             admissionOpen: true,
-            img: '/Images/WhatsApp Image 2025-10-15 at 13.20.51 (1).jpeg',
+            img: '/Images/WhatsApp Image 2025-10-15 at 13.20.51 (1).webp',
             programPlanner: [
                 {
                     id: 33,
                     des: `1300+ hours of Conceptual Classes for class 7th, 8th, 9th & 10th`,
-                    img: '/Images/palnner_icon1.png',
+                    img: '/Images/palnner_icon1.webp',
                 },
                 {
                     id: 32,
                     des: '175+ hours of Revision Classes',
-                    img: '/Images/palnner_icon1.png',
+                    img: '/Images/palnner_icon1.webp',
                 },
                 {
                     id: 31,
                     des: 'Additional classroom slots for Doubt Clearing Classes',
-                    img: '/Images/practice.png',
+                    img: '/Images/practice.webp',
                 },
                 {
                     id: 30,
                     des: 'Chapter-wise Assisted Problem Solving Sessions (APSS)',
-                    img: '/Images/chapterSolving.png',
+                    img: '/Images/chapterSolving.webp',
                 },
             ],
             mocktest: [

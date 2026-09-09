@@ -8,6 +8,7 @@ import HomeSection1 from '@/components/HomeComponents/HomeSection1';
 import HomeSection2 from '@/components/HomeComponents/HomeSection2';
 import HomeSection3 from '@/components/HomeComponents/HomeSection3';
 import HomeSection4 from '@/components/HomeComponents/HomeSection4';
+import HomepageSeoSections from '@/components/SEO/HomepageSeoSections';
 import Network from '@/lib/Netwrok';
 import Endpoints from '@/constant/endpoints';
 import instId from '@/constant/instId';
@@ -83,6 +84,7 @@ export default function HomePage() {
         <HomeSection2 />
         <HomeSection4 />
         <HomeSection6 />
+        <HomepageSeoSections />
         <HomeLocationMap />
         <HomeSection5 />
 
