@@ -1,11 +1,96 @@
 import { Box, Container, Typography } from '@mui/material';
+import { useEffect, useRef } from 'react';
+import { setOptions, importLibrary } from '@googlemaps/js-api-loader';
 
-const mapAddress =
-  'Plot No. R-4, Opposite Railway Track, Zone-2, MP Nagar, Bhopal, Madhya Pradesh 462011';
+const AROUS_ACADEMY_LOCATION = {
+  lat: 23.23265393502977,
+  lng: 77.43650213798978,
+};
 
-const mapQuery = encodeURIComponent(mapAddress);
+const GOOGLE_MAPS_API_KEY =
+  process.env.NEXT_PUBLIC_GOOGLE_MAPS_API_KEY;
+
+const GOOGLE_MAPS_URL =
+  'https://www.google.com/maps/search/?api=1&query=Aurous+Academy+MP+Nagar+Bhopal';
+
+const MARKER_ICON_URL =
+  'data:image/svg+xml;charset=UTF-8,' +
+  encodeURIComponent(`
+    <svg xmlns="http://www.w3.org/2000/svg" width="320" height="104" viewBox="0 0 320 104">
+      <ellipse cx="16" cy="97" rx="7" ry="2.5" fill="rgba(0,0,0,0.3)"/>
+      <path d="M16 58 C 8 58 1 65 1 74 C 1 84 16 96 16 96 C 16 96 31 84 31 74 C 31 65 24 58 16 58 Z" fill="#EA4335" stroke="#B31412" stroke-width="1.5"/>
+      <circle cx="16" cy="73" r="5" fill="#ffffff"/>
+      <text x="44" y="56" font-family="'Segoe UI', Arial, sans-serif" font-size="21" font-weight="700" fill="#C62828">Aurous Academy</text>
+      <text x="44" y="78" font-family="'Segoe UI', Arial, sans-serif" font-size="14" font-weight="600" fill="#C62828">Best IIT-JEE, NEET &amp; Foundation</text>
+      <text x="44" y="98" font-family="'Segoe UI', Arial, sans-serif" font-size="14" font-weight="600" fill="#C62828">औरस अकादमी</text>
+    </svg>
+  `);
+
+if (typeof window !== 'undefined' && GOOGLE_MAPS_API_KEY) {
+  setOptions({
+    key: GOOGLE_MAPS_API_KEY,
+    v: 'weekly',
+  });
+}
 
 export default function HomeLocationMap() {
+  const mapRef = useRef(null);
+
+  useEffect(() => {
+    let map;
+
+    const loadMap = async () => {
+      const { Map } = await importLibrary('maps');
+      const { Marker } = await importLibrary('marker');
+
+      map = new Map(mapRef.current, {
+        center: AROUS_ACADEMY_LOCATION,
+        zoom: 16,
+
+        // Hide all Google POIs/businesses.
+        styles: [
+          {
+            featureType: 'poi',
+            stylers: [
+              {
+                visibility: 'off',
+              },
+            ],
+          },
+        ],
+
+        mapTypeControl: false,
+        streetViewControl: false,
+        fullscreenControl: true,
+      });
+
+      // Custom marker: red pin + Aurous Academy label.
+      const marker = new Marker({
+        position: AROUS_ACADEMY_LOCATION,
+        map,
+        title: 'Aurous Academy',
+        icon: {
+          url: MARKER_ICON_URL,
+          scaledSize: new google.maps.Size(320, 104),
+          anchor: new google.maps.Point(16, 96),
+        },
+      });
+
+      // Redirect to Google Maps on click.
+      marker.addListener('click', () => {
+        window.open(GOOGLE_MAPS_URL, '_blank', 'noopener,noreferrer');
+      });
+    };
+
+    loadMap().catch((error) => {
+      console.error('Google Maps failed to load:', error);
+    });
+
+    return () => {
+      map = null;
+    };
+  }, []);
+
   return (
     <Box
       component="section"
@@ -13,7 +98,8 @@ export default function HomeLocationMap() {
       sx={{
         py: { xs: 4, md: 6 },
         px: { xs: 2, md: 3 },
-        background: 'linear-gradient(180deg, #f8fbff 0%, #eef4ff 100%)',
+        background:
+          'linear-gradient(180deg, #f8fbff 0%, #eef4ff 100%)',
       }}
     >
       <Container maxWidth="lg">
@@ -29,6 +115,7 @@ export default function HomeLocationMap() {
         >
           Find Aurous Academy in Bhopal
         </Typography>
+
         <Typography
           sx={{
             color: '#4b5563',
@@ -36,7 +123,8 @@ export default function HomeLocationMap() {
             fontSize: { xs: '0.95rem', md: '1rem' },
           }}
         >
-          Visit our campus at MP Nagar, Zone-2 for IIT-JEE, NEET, and Foundation counseling.
+          Visit our campus at MP Nagar, Zone-2 for IIT-JEE,
+          NEET, and Foundation counseling.
         </Typography>
 
         <Box
@@ -48,22 +136,14 @@ export default function HomeLocationMap() {
             backgroundColor: '#fff',
             position: 'relative',
             width: '100%',
-            pt: '56.25%',
+            height: { xs: '350px', md: '500px' },
           }}
         >
           <Box
-            component="iframe"
-            title="Aurous Academy Location on Google Maps"
-            src={`https://www.google.com/maps?q=${mapQuery}&output=embed`}
-            loading="lazy"
-            referrerPolicy="no-referrer-when-downgrade"
-            allowFullScreen
+            ref={mapRef}
             sx={{
-              position: 'absolute',
-              inset: 0,
               width: '100%',
               height: '100%',
-              border: 0,
             }}
           />
         </Box>
