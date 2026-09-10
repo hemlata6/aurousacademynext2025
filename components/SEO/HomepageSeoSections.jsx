@@ -33,28 +33,63 @@ const whyChoose = [
 
 const faqs = [
   {
-    q: 'Which classes does Aurous Academy offer?',
-    a: 'Aurous Academy offers programs for Classes 7 to 12 along with dropper batches. This includes Foundation courses (Classes 7–10), IIT-JEE (Main & Advanced) coaching for Classes 11 and 12, and NEET-UG coaching, as well as school-integrated and Sankalp programs.',
+    q: 'Does Aurous Academy offer JEE coaching in Bhopal for droppers?',
+    a: 'Yes. Along with Class 11 and Class 12 batches, Aurous runs a dedicated dropper batch for JEE aspirants who want a focused, second attempt at cracking JEE Main and Advanced.',
   },
   {
-    q: 'Does Aurous Academy provide IIT-JEE coaching in Bhopal?',
-    a: 'Yes. Aurous Academy is a well-known IIT-JEE coaching institute in Bhopal, offering classroom, school-integrated, and dropper programs taught by IITian faculty.',
+    q: 'What makes Aurous Academy different from other IIT coaching institutes in Bhopal?',
+    a: 'Small batch sizes, expert faculty, personal mentorship for every student, expert-curated study material, and a scholarship program based on merit rather than just enrollment.',
   },
   {
-    q: 'Does Aurous Academy offer NEET coaching in Bhopal?',
-    a: 'Yes. We offer complete NEET-UG preparation for Classes 11, 12, and droppers, covering Physics, Chemistry, and Biology with regular mock tests and doubt-clearing sessions.',
+    q: 'Is there a Foundation course for students below Class 11?',
+    a: 'Yes, Aurous Academy offers Foundation batches for Class 7 to Class 10, designed to build strong basics in core subjects before students move on to serious JEE or NEET preparation.',
   },
   {
-    q: 'Which foundation classes are available?',
-    a: 'Foundation programs are available for Classes 7, 8, 9, and 10. These focus on building strong fundamentals in Mathematics and Science for future JEE, NEET, and Olympiad preparation.',
+    q: 'Where is Aurous Academy located in Bhopal?',
+    a: 'The campus is located at Plot No. R-4, Opposite Railway Track, Zone-2, MP Nagar, Bhopal, Madhya Pradesh 462011 — a central location accessible from most parts of the city.',
   },
   {
-    q: 'Where is Aurous Academy located?',
-    a: 'Aurous Academy is located at Plot No. R-4, Opposite Railway Track, Zone-2, MP Nagar, Bhopal, Madhya Pradesh 462011.',
+    q: 'Does Aurous Academy provide scholarships?',
+    a: 'Yes, Aurous Academy organises APRE (Aurous Potential Recognition Exam) and PRAGYAN Scholarship test, offering up to 100% scholarship on fees for eligible students.',
   },
   {
-    q: 'Does Aurous Academy offer online courses?',
-    a: 'Yes. Aurous Academy also offers online courses through its online learning platform, so students can learn from anywhere.',
+    q: 'Are online classes available at Aurous Academy?',
+    a: 'Yes, along with offline classroom coaching in Bhopal, Aurous Academy also offers online courses and a learning app available on mobile, tablet, and desktop.',
+  },
+  {
+    q: 'How will I manage school along with NEET/JEE preparation?',
+    a: 'Aurous Academy follows a structured preparation approach that combines classroom learning, regular practice, tests and mentorship, helping students stay on track with their competitive exam preparation alongside school studies.',
+  },
+  {
+    q: 'How often are tests conducted?',
+    a: 'Regular tests and mock exams are conducted to help students assess their preparation, practise under exam-like conditions and identify areas that need improvement.',
+  },
+  {
+    q: 'Will I get study material for my preparation?',
+    a: 'Yes. Students get access to expert-curated study material along with classroom learning and the Aurous digital learning platform to support their preparation.',
+  },
+  {
+    q: 'What if I get stuck on a topic?',
+    a: 'Stuck on a topic? You don\'t have to wait for the next class. Aurous Academy provides regular doubt-solving sessions, and students can communicate with faculty beyond class hours to get their questions addressed.',
+  },
+  {
+    q: 'What happens if I miss a class?',
+    a: 'If you miss a class, you can use Aurous Academy\'s online learning platform and app to stay connected with your preparation. You can also reach out to faculty for guidance and get your doubts addressed so you can get back on track.',
+  },
+  {
+    q: 'How can I contact Aurous Academy for admission details?',
+    a: (
+      <>
+        You can call +91 95225-12624 (8:00 AM to 8:00 PM), email{' '}
+        <a
+          href="mailto:support@aurousacademy.com"
+          style={{ color: '#E8410E', fontWeight: 600, textDecoration: 'none' }}
+        >
+          support@aurousacademy.com
+        </a>
+        , or visit the campus in MP Nagar, Zone-2, Bhopal directly.
+      </>
+    ),
   },
 ];
 
@@ -81,28 +116,99 @@ export default function HomepageSeoSections() {
             mb: 1.5,
           }}
         >
-          About Aurous Academy
+          Aurous Academy – Bhopal&apos;s Trusted Name for NEET, JEE and IIT Coaching
         </Typography>
         <Typography sx={{ color: '#4b5563', lineHeight: 1.8, mb: 2 }}>
-          Aurous Academy is a premier coaching institute in Bhopal, Madhya Pradesh, committed to
-          guiding students toward success in India&apos;s most competitive entrance examinations —
-          IIT-JEE (Main &amp; Advanced) and NEET-UG. Located at MP Nagar, the academy offers
-          structured classroom programs for Classes 11, 12, and dropper batches, helping aspirants
-          build the conceptual clarity and exam temperament required to secure admissions to the
-          IITs, NITs, and leading medical colleges across the country.
+          Aurous Academy Private Limited has been operating in Bhopal since 2019, guided by a simple
+          principle: every student who walks through our doors deserves a clear strategy, a
+          personalised approach to addressing knowledge gaps, and a team of instructors who take
+          preparation as seriously as the students themselves. Over the years, this approach has
+          evolved into a comprehensive preparation ecosystem comprising offline classes, an online
+          learning platform, and a dedicated app (for smartphones, tablets, and PCs) that tracks
+          student daily progress. The system is complemented by regular doubt-solving sessions to
+          review complex topics and an analysis of past exam papers, ensuring preparation grounded
+          in data rather than mere intuition.
+        </Typography>
+
+        {/* NEET Coaching in Bhopal */}
+        <Typography
+          component="h2"
+          sx={{
+            fontSize: { xs: '1.5rem', md: '2rem' },
+            fontWeight: 700,
+            color: '#1f2937',
+            mb: 1.5,
+            mt: 5,
+          }}
+        >
+          NEET Coaching in Bhopal — Minus the Guesswork
+        </Typography>
+        <Typography sx={{ color: '#4b5563', lineHeight: 1.8, mb: 2 }}>
+          The NEET exam leaves no room for error. It covers three subjects and offers just one
+          attempt—with only 180 minutes to turn two years of hard work into a successful result.
+          Our{' '}
+          <SmartLink
+            href="https://aurousacademy.com/"
+            style={{ color: '#E8410E', fontWeight: 600, textDecoration: 'none' }}
+          >
+            NEET coaching in Bhopal
+          </SmartLink>{' '}
+          goes far beyond the rote memorization of NCERT textbooks; most students have already tried
+          that approach on their own and are well aware of its limitations. We focus on the
+          practical realities of the exam: techniques for eliminating incorrect options, speed, and
+          the ability to decide which questions are best skipped. We deliberately keep our class
+          sizes small, ensuring that a biology question arising on a Tuesday doesn&apos;t have to
+          wait until Friday for an answer. Each student is assigned a mentor who tracks their actual
+          progress—not just attendance—and our faculty consist of educators with a proven track
+          record of successfully preparing students for NEET.
+        </Typography>
+
+        {/* JEE and IIT Coaching in Bhopal */}
+        <Typography
+          component="h2"
+          sx={{
+            fontSize: { xs: '1.5rem', md: '2rem' },
+            fontWeight: 700,
+            color: '#1f2937',
+            mb: 1.5,
+            mt: 5,
+          }}
+        >
+          JEE and IIT Coaching in Bhopal for Students Who Want More Than a Qualifying Score
+        </Typography>
+        <Typography sx={{ color: '#4b5563', lineHeight: 1.8, mb: 2 }}>
+          If you ask an IIT student what distinguishes those who merely pass the JEE from those who
+          secure top rankings, the answer is almost always the same: the speed at which they solve
+          problems under strict time constraints, rather than just theoretical knowledge. This
+          principle lies at the heart of our{' '}
+          <SmartLink
+            href="https://aurousacademy.com/"
+            style={{ color: '#E8410E', fontWeight: 600, textDecoration: 'none' }}
+          >
+            JEE and IIT coaching in Bhopal
+          </SmartLink>
+          .
+        </Typography>
+        <Typography sx={{ color: '#4b5563', lineHeight: 1.8, mb: 2 }}>
+          Our instructors are IITians, a fact that shapes their teaching approach: they go beyond
+          simply presenting textbook material, placing special emphasis on effective
+          problem-solving techniques and an intuitive grasp of the subject—insights gained only
+          through firsthand experience with the exam. Each subject—physics, chemistry, and
+          mathematics—is taught by a specialist in that field rather than a generalist instructor;
+          furthermore, we regularly conduct mock exams that cover the entire syllabus. As a result,
+          students do not merely &quot;work through the chapters&quot; a week before the test but
+          are genuinely prepared for the exam itself.
         </Typography>
         <Typography sx={{ color: '#4b5563', lineHeight: 1.8, mb: 4 }}>
-          Preparation at Aurous Academy begins early with Foundation courses for Classes 7 to 10,
-          where students develop strong fundamentals in Mathematics and Science before stepping into
-          rigorous JEE and NEET training. Our teaching methodology combines concept-based lectures,
-          comprehensive study material, regular tests, and personalised mentorship. With experienced
-          faculty and a student-first support system, Aurous Academy ensures that every learner
-          receives individual attention, timely doubt resolution, and consistent academic guidance
-          throughout their journey.
+          Students who join us earlier—between the 7th and 10th grades—go through our Foundation
+          program first. Admittedly, this stage is less intensive than the JEE or NEET exam
+          preparation courses; however, it is precisely here that the fundamental groundwork is
+          laid, ensuring that students do not have to start from scratch when they move into the
+          11th grade.
         </Typography>
 
         {/* Why Choose Aurous Academy */}
-        <Typography
+        {/* <Typography
           component="h2"
           sx={{
             fontSize: { xs: '1.5rem', md: '2rem' },
@@ -149,7 +255,7 @@ export default function HomepageSeoSections() {
               </Box>
             </Grid>
           ))}
-        </Grid>
+        </Grid> */}
 
         {/* IIT-JEE Coaching in Bhopal */}
         <Typography
@@ -219,7 +325,7 @@ export default function HomepageSeoSections() {
         <SmartLink href="/foundation">Explore Foundation Programs →</SmartLink>
 
         {/* FAQ */}
-        <Typography
+        {/* <Typography
           component="h2"
           sx={{
             fontSize: { xs: '1.5rem', md: '2rem' },
@@ -278,7 +384,7 @@ export default function HomepageSeoSections() {
               </Box>
             </Box>
           ))}
-        </Box>
+        </Box> */}
       </Container>
     </Box>
   );

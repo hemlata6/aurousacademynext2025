@@ -8,6 +8,8 @@ import HomeSection1 from '@/components/HomeComponents/HomeSection1';
 import HomeSection2 from '@/components/HomeComponents/HomeSection2';
 import HomeSection3 from '@/components/HomeComponents/HomeSection3';
 import HomeSection4 from '@/components/HomeComponents/HomeSection4';
+import WhyChoosHomeSection from '@/components/HomeComponents/WhyChoosHomeSection';
+import FAQHomeSection from '@/components/HomeComponents/FAQHomeSection';
 import HomepageSeoSections from '@/components/SEO/HomepageSeoSections';
 import Network from '@/lib/Netwrok';
 import Endpoints from '@/constant/endpoints';
@@ -82,11 +84,13 @@ export default function HomePage() {
           <HomeSection3 />
         </div>
         <HomeSection2 />
+        <WhyChoosHomeSection />
         <HomeSection4 />
         <HomeSection6 />
-        <HomepageSeoSections />
+        {/* <HomepageSeoSections /> */}
         <HomeLocationMap />
         <HomeSection5 />
+        <FAQHomeSection />
 
         <Tooltip title="Call Us Now" placement="top-start">
           <Fab

@@ -5,6 +5,7 @@ import Grid from '@mui/material/Grid2';
 import Network from '@/lib/Netwrok';
 import AnnouncementDialog from '@/components/CommonSections/AnnouncementDialog';
 import instId from '@/constant/instId';
+import HomepageSeoSections from '@/components/SEO/HomepageSeoSections';
 
 const HomeSection1 = () => {
 
@@ -282,6 +283,7 @@ const HomeSection1 = () => {
                     </Box>
                 </Grid>
             </Grid>
+            <HomepageSeoSections />
             <Dialog
                 open={open}
                 onClose={handleClose}
