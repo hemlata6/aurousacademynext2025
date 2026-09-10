@@ -116,7 +116,7 @@ export default function HomepageSeoSections() {
             mb: 1.5,
           }}
         >
-          Aurous Academy – Bhopal&apos;s Trusted Name for NEET, JEE and IIT Coaching
+          Aurous Academy – Bhopal&apos;s Trusted Name for IIT JEE &amp; NEET Coaching
         </Typography>
         <Typography sx={{ color: '#4b5563', lineHeight: 1.8, mb: 2 }}>
           Aurous Academy Private Limited has been operating in Bhopal since 2019, guided by a simple
@@ -174,7 +174,7 @@ export default function HomepageSeoSections() {
             mt: 5,
           }}
         >
-          JEE and IIT Coaching in Bhopal for Students Who Want More Than a Qualifying Score
+          IIT JEE Coaching in Bhopal — For Students Who Want More Than a Qualifying Score
         </Typography>
         <Typography sx={{ color: '#4b5563', lineHeight: 1.8, mb: 2 }}>
           If you ask an IIT student what distinguishes those who merely pass the JEE from those who
@@ -268,7 +268,7 @@ export default function HomepageSeoSections() {
             mt: 6,
           }}
         >
-          IIT-JEE Coaching in Bhopal
+          Best IIT JEE Coaching in Bhopal
         </Typography>
         <Typography sx={{ color: '#4b5563', lineHeight: 1.8, mb: 1 }}>
           Aurous Academy is one of the most trusted names for IIT-JEE coaching in Bhopal. Our JEE
