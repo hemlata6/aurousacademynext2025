@@ -60,7 +60,7 @@ export default function RootLayoutClient({ children }) {
       )}
 
       {/* NavBarTwo - Fixed at top for entire scroll on mobile, normal on desktop */}
-      <div style={mounted && isMobile ? {
+      {/* <div style={mounted && isMobile ? {
         position: 'fixed',
         top: 0,
         left: 0,
@@ -71,7 +71,7 @@ export default function RootLayoutClient({ children }) {
         boxShadow: '0 2px 10px rgba(0,0,0,0.08)'
       } : {}}>
         <NavBarTwo />
-      </div>
+      </div> */}
 
       {/* Main content */}
       {children}

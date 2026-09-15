@@ -1,4 +1,4 @@
-import { Poppins, Roboto_Condensed } from 'next/font/google';
+import { Plus_Jakarta_Sans } from 'next/font/google';
 import Footer from '@/components/CommonSections/Footer';
 import Providers from '@/components/Providers';
 import ScriptsAndTracking from '@/components/ScriptsAndTracking';
@@ -6,18 +6,11 @@ import { DEFAULT_OG_IMAGE_URL, SITE_NAME, SITE_URL, SOCIAL_URLS } from '@/lib/si
 import RootLayoutClient from './RootLayoutClient';
 import '@/styles/globals.css';
 
-const poppins = Poppins({
+const plusJakartaSans = Plus_Jakarta_Sans({
   subsets: ['latin'],
-  variable: '--font-poppins',
+  variable: '--font-plus-jakarta-sans',
   display: 'swap',
   weight: ['400', '500', '600', '700', '800'],
-});
-
-const robotoCondensed = Roboto_Condensed({
-  subsets: ['latin'],
-  variable: '--font-roboto-condensed',
-  display: 'swap',
-  weight: ['400', '500', '600', '700'],
 });
 
 export const viewport = {
@@ -72,7 +65,7 @@ export const metadata = {
 
 export default function RootLayout({ children }) {
   return (
-    <html lang="en" className={`${poppins.variable} ${robotoCondensed.variable}`}>
+    <html lang="en" className={plusJakartaSans.variable}>
       <head>
         {/* Preconnect for performance */}
         <link rel="preconnect" href="https://www.googletagmanager.com" />

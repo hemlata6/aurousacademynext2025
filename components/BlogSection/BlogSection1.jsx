@@ -67,7 +67,7 @@ const BlogSection1 = () => {
             const allFolders = [];
             for (const course of filteredCourses) {
                 try {
-                    const childResponse = await Network.fetchCheduleApi(course.id, 0);
+                    const childResponse = await Network.fetchScheduleApi(course.id, 0);
                     if (childResponse?.contentList) {
                         const folders = childResponse.contentList.filter(
                             item => item.active === true && item?.entityType === 'folder'
@@ -95,7 +95,7 @@ const BlogSection1 = () => {
     const getMergedSchedules = async (courseId, parentId = 0) => {
         try {
             setLoading(true);
-            const response = await Network.fetchCheduleApi(courseId, parentId);
+            const response = await Network.fetchScheduleApi(courseId, parentId);
             if (response?.contentList) {
                 const activeSchedules = response.contentList.filter(item => item.active === true && (item.entityType === 'folder' || item.entityType === 'blog'));
                 setSelectedSceduleList(activeSchedules);

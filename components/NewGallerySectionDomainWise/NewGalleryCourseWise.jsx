@@ -86,7 +86,7 @@ const NewGalleryCourseWise = () => {
     const getMergedSchedules = async (courseId, parentId = 0) => {
         try {
             setLoading(true);
-            const response = await Network.fetchCheduleApi(courseId, parentId);
+            const response = await Network.fetchScheduleApi(courseId, parentId);
             setParentName(response?.parentName || '');
             if (response?.contentList) {
                 const activeSchedules = response.contentList.filter(item => item.active === true);

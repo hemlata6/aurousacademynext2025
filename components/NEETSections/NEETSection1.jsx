@@ -105,9 +105,9 @@ const NEETSection1 = () => {
     return (
         <Box
             sx={{
-                minHeight: '100vh',
+                // minHeight: '100vh',
                 background: 'linear-gradient(135deg, #f0fff4 0%, #dcfce7 100%)',
-                py: { xs: 4, md: 6 },
+                py: { xs: 4, md: 10 },
                 position: 'relative',
                 overflow: 'hidden',
                 '&::before': {

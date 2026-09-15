@@ -1,24 +1,25 @@
 ﻿'use client';
 
-import { Box, Button, Stack, Typography, useMediaQuery, AppBar, Toolbar, Container } from '@mui/material';
-import React, { useState, useEffect } from 'react'
-import Grid from '@mui/material/Grid2';
-import images from '@/lib/images';
+import React, { useState, useEffect } from 'react';
+import Link from 'next/link';
 import { useRouter } from 'next/navigation';
+import { Dialog } from '@mui/material';
+import images from '@/lib/images';
 import Network from '@/lib/Netwrok';
 import instId from '@/constant/instId';
+import ContactUs from './ContactUs';
 
 const Logo = images.logo;
-const Cellphone = images.cellphoneIcon;
-const ButtonIcon = images.buttonIcon;
 
 const NavBarOne = () => {
-    const isMobile = useMediaQuery("(max-width:768px)");
-    const isTablet = useMediaQuery("(max-width:1024px)");
     const router = useRouter();
     const [scrolled, setScrolled] = useState(false);
     const [banners, setBanners] = useState([]);
-    // const instId = 120;
+    const [openContactUs, setOpenContactUs] = useState(false);
+    const [course, setCourse] = useState([]);
+    const [resultCourseId, setResultCourseId] = useState(null);
+    const [loading, setLoading] = useState(false);
+    const [error, setError] = useState('');
 
     useEffect(() => {
         getBanners();
@@ -41,17 +42,17 @@ const NavBarOne = () => {
             "contact": ''
         }
         const url = `https://portal.aurousacademy.com/#/data=${btoa(JSON.stringify(object))}`;
-        // Open the WhatsApp URL in a new tab
+        // Open the URL in a new tab
         window.open(url, '_blank');
     };
 
-    // const handleNavigateAPRE = () => {
-    //     // const url = 'https://apre.aurousacademy.com/'
-    //      const url = 'https://apre.aurousacademy.com/'
-    //     window.open(url, '_blank', 'noreferrer');
-    // };
     const handleNavigate = () => {
         router.push('/');
+    };
+
+    const handleOpenContactUs = (e) => {
+        e.preventDefault();
+        setOpenContactUs(true);
     };
 
     const handleNavigateAPRE = () => {
@@ -73,153 +74,210 @@ const NavBarOne = () => {
         }
     };
 
+    const loadCourses = async () => {
+        try {
+            setLoading(true);
+            setError('');
+            const response = await Network.fetchCourses(instId.instId);
+            const courses = response?.courses || [];
+            const target = courses.find(
+                (c) => (c?.name || c?.title || '').trim().toLowerCase() === 'website results'
+            );
+
+            if (!target?.id) {
+                setCourse([]);
+                return;
+            }
+
+            setResultCourseId(target.id);
+
+            const content = await Network.fetchScheduleApi(target.id, 0);
+            const folders = (content?.contentList || []).filter((item) => item?.active !== false);
+
+            const withYears = await Promise.all(
+                folders.map(async (folder) => {
+                    const childResponse = await Network.fetchScheduleApi(target.id, folder.id);
+                    return {
+                        ...folder,
+                        children: (childResponse?.contentList || []).filter((it) => it?.active !== false),
+                    };
+                })
+            );
+
+            setCourse(withYears);
+        } catch (err) {
+            console.error('Error fetching courses:', err);
+            setError('Failed to load courses.');
+        } finally {
+            setLoading(false);
+        }
+    };
+
+    useEffect(() => {
+        loadCourses();
+    }, []);
+
     return (
-        <AppBar
-            position="sticky"
-            elevation={0}
-            sx={{
-                background: scrolled
-                    ? 'linear-gradient(135deg, rgba(255, 255, 255, 0.98) 0%, rgba(248, 249, 250, 0.95) 100%)'
-                    : 'linear-gradient(135deg, #ffffff 0%, #fefefe 100%)',
-                backdropFilter: scrolled ? 'blur(20px)' : 'none',
-                borderBottom: scrolled ? '2px solid rgba(183, 14, 14, 0.1)' : '1px solid rgba(0, 0, 0, 0.05)',
-                transition: 'all 0.3s cubic-bezier(0.4, 0, 0.2, 1)',
-                boxShadow: scrolled
-                    ? '0 8px 32px rgba(183, 14, 14, 0.15)'
-                    : '0 2px 12px rgba(0, 0, 0, 0.08)',
-                    margin:'0px',
-            }}
-        >
-            <Container maxWidth="xl">
-                <Toolbar
-                    disableGutters
-                    sx={{
-                        minHeight: { xs: '70px', sm: '80px', md: '90px' },
-                        // px: { xs: 1, sm: 2, md: 4 },
-                        display: 'flex',
-                        justifyContent: 'space-between',
-                        alignItems: 'center',
-                        width: '100%'
-                    }}
-                >
-                    {/* Logo Section - Left Side */}
-                    <Box
-                        component="img"
-                        src={Logo}
-                        alt="Aurous Academy"
-                        onClick={handleNavigate}
-                        sx={{
-                            height: { xs: '45px', sm: '55px', md: '65px' },
-                            width: 'auto',
-                            cursor: 'pointer',
-                            transition: 'all 0.3s ease-in-out',
-                            filter: 'drop-shadow(0 4px 8px rgba(183, 14, 14, 0.15))',
-                            flexShrink: 0,
-                            '&:hover': {
-                                transform: 'scale(1.05)',
-                                filter: 'drop-shadow(0 6px 12px rgba(183, 14, 14, 0.25))',
-                            }
-                        }}
-                    />
+        <>
+            <header className={`w-full bg-white border-b sticky top-0 z-50 transition-all duration-300 ${scrolled ? 'border-rose-200 shadow-md' : 'border-slate-200 shadow-sm'}`}>
+                <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
 
-                    {/* Navigation Actions - Right Side */}
-                    <Stack
-                        direction="row"
-                        spacing={isMobile ? 1 : 2}
-                        alignItems="center"
-                        sx={{ flexShrink: 0 }}
-                    >
-                        {/* Admit Card Button - Always visible but smaller on mobile */}
-                        <Button
-                            onClick={(e) => handleConvertToBase64(e)}
-                            variant="outlined"
-                            sx={{
-                                textTransform: 'none',
-                                background: 'linear-gradient(135deg, #ffffff 0%, #f8f9fa 100%)',
-                                border: isMobile ? '1.5px solid #B70E0E' : '2px solid #B70E0E',
-                                color: '#B70E0E',
-                                minWidth: isMobile ? '80px' : { sm: '140px', md: '160px', lg: '180px' },
-                                height: isMobile ? '35px' : { sm: '45px', md: '50px' },
-                                fontSize: isMobile ? '10px' : { sm: '12px', md: '13px' },
-                                fontWeight: '600',
-                                borderRadius: isMobile ? '18px' : '25px',
-                                position: 'relative',
-                                overflow: 'hidden',
-                                boxShadow: isMobile ? '0 2px 8px rgba(183, 14, 14, 0.15)' : '0 4px 15px rgba(183, 14, 14, 0.2)',
-                                transition: 'all 0.3s cubic-bezier(0.4, 0, 0.2, 1)',
-                                '&::before': {
-                                    content: '""',
-                                    position: 'absolute',
-                                    top: 0,
-                                    left: '-100%',
-                                    width: '100%',
-                                    height: '100%',
-                                    background: 'linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.4), transparent)',
-                                    transition: 'left 0.5s',
-                                },
-                                '&:hover': {
-                                    background: 'linear-gradient(135deg, #B70E0E 0%, #d41e1e 100%)',
-                                    color: '#ffffff',
-                                    transform: 'translateY(-2px)',
-                                    boxShadow: isMobile ? '0 4px 12px rgba(183, 14, 14, 0.25)' : '0 8px 25px rgba(183, 14, 14, 0.35)',
-                                    '&::before': {
-                                        left: '100%',
-                                    }
-                                },
-                            }}
+                    {/* LINE 1: Logo + Action Buttons */}
+                    <div className="flex items-center justify-between py-3.5">
+                        <a
+                            href="#"
+                            onClick={(e) => { e.preventDefault(); handleNavigate(); }}
+                            className="flex items-center group"
                         >
-                            {isMobile ? '📋' : '📋 Download Admit Card'}
-                        </Button>
+                            <img
+                                className="h-14 sm:h-16 w-auto object-contain transition-transform duration-300 group-hover:scale-105"
+                                src={Logo}
+                                alt="Aurous Academy Logo"
+                            />
+                        </a>
 
-                        {/* Scholarship Button */}
-                        <Button
-                            onClick={handleNavigateAPRE}
-                            variant="contained"
-                            sx={{
-                                textTransform: 'none',
-                                background: '#E3F0FF',
-                                color: '#1a1a1a',
-                                border: '2px solid #3399FF',
-                                minWidth: isMobile ? '120px' : { xs: '160px', sm: '180px', md: '220px', lg: '250px' },
-                                height: isMobile ? '35px' : { xs: '45px', sm: '50px', md: '55px' },
-                                fontSize: isMobile ? '10px' : { xs: '11px', sm: '12px', md: '14px' },
-                                fontWeight: '700',
-                                borderRadius: isMobile ? '18px' : '27px',
-                                position: 'relative',
-                                overflow: 'hidden',
-                                boxShadow: isMobile ? '0 3px 12px rgba(255, 202, 8, 0.3)' : '0 6px 20px rgba(255, 202, 8, 0.4)',
-                                transition: 'all 0.3s cubic-bezier(0.4, 0, 0.2, 1)',
-                                '&::before': {
-                                    content: '""',
-                                    position: 'absolute',
-                                    top: 0,
-                                    left: 0,
-                                    right: 0,
-                                    bottom: 0,
-                                    background: 'linear-gradient(45deg, transparent 30%, rgba(255, 255, 255, 0.4) 50%, transparent 70%)',
-                                    transform: 'translateX(-100%)',
-                                    transition: 'transform 0.6s',
-                                },
-                                '&:hover': {
-                                    background: '#D0E7FF',
-                                    border: '2px solid #1976D2',
-                                    transform: 'translateY(-3px) scale(1.02)',
-                                    boxShadow: isMobile ? '0 5px 18px rgba(51, 153, 255, 0.18)' : '0 10px 30px rgba(51, 153, 255, 0.22)',
-                                    '&::before': {
-                                        transform: 'translateX(100%)',
-                                    }
-                                },
-                                '&:active': {
-                                    transform: 'translateY(-1px) scale(0.98)',
-                                }
-                            }}
-                        >
-                         🎓 {isMobile ? 'Scholarship' : 'Register for Scholarship Exam'}
-                        </Button>
-                    </Stack>
-                </Toolbar>
-            </Container>
-        </AppBar>
+                        <div className="flex items-center gap-3.5">
+                            <button
+                                onClick={(e) => handleConvertToBase64(e)}
+                                className="border border-rose-200 bg-rose-50/80 hover:bg-rose-100 text-rose-600 font-extrabold px-4 py-2.5 rounded-xl text-xs sm:text-sm transition flex items-center gap-2 shadow-sm"
+                            >
+                                <span className="h-2 w-2 rounded-full bg-rose-600 animate-pulse"></span>
+                                Download Admit Card
+                            </button>
+
+                            <button
+                                onClick={handleNavigateAPRE}
+                                className="bg-aurous-darkGreen hover:bg-aurous-emeraldAccent text-white font-extrabold px-6 py-3 rounded-xl text-sm sm:text-base transition shadow-lg shadow-emerald-950/20 transform hover:-translate-y-0.5 flex items-center gap-2"
+                            >
+                                <span>Apply Scholarship Exam</span>
+                                <svg className="w-4 h-4 text-aurous-yellow" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2.5" d="M14 5l7 7m0 0l-7 7m7-7H3" /></svg>
+                            </button>
+                        </div>
+                    </div>
+
+                    {/* LINE 2: Horizontal Menu Tabs */}
+                    <div className="border-t border-slate-100 hidden lg:block">
+                        <nav className="flex items-center justify-between w-full py-2.5 text-[15px] font-bold text-slate-700">
+
+                            {/* Courses Dropdown */}
+                            <div className="relative group">
+                                <button className="hover:text-aurous-darkGreen flex items-center gap-1.5 py-1.5 transition">
+                                    Courses <span className="text-xs text-slate-400 group-hover:text-aurous-darkGreen">▾</span>
+                                </button>
+                                <div className="absolute left-0 top-full hidden group-hover:block w-60 bg-white shadow-xl rounded-xl border border-slate-100 p-2 z-50">
+                                    <Link href="/jee" className="block p-2.5 hover:bg-emerald-50/60 rounded-lg text-slate-800 hover:text-aurous-darkGreen transition font-semibold">IIT-JEE (Main & Adv)</Link>
+                                    <Link href="/neet" className="block p-2.5 hover:bg-emerald-50/60 rounded-lg text-slate-800 hover:text-aurous-darkGreen transition font-semibold">NEET-UG Medical</Link>
+                                    <Link href="/foundation" className="block p-2.5 hover:bg-emerald-50/60 rounded-lg text-slate-800 hover:text-aurous-darkGreen transition font-semibold">Foundation (Class 7-10)</Link>
+                                    <Link href="https://aurousacademy.graphy.com/" className="block p-2.5 hover:bg-emerald-50/60 rounded-lg text-slate-800 hover:text-aurous-darkGreen transition font-semibold">Online Courses</Link>
+                                </div>
+                            </div>
+
+                            {/* Scholarship Events Dropdown */}
+                            <div className="relative group">
+                                <button className="hover:text-aurous-darkGreen flex items-center gap-1.5 py-1.5 transition">
+                                    Scholarship Events <span className="text-xs text-slate-400 group-hover:text-aurous-darkGreen">▾</span>
+                                </button>
+                                <div className="absolute left-0 top-full hidden group-hover:block w-56 bg-white shadow-xl rounded-xl border border-slate-100 p-2 z-50">
+                                    <a href="https://apre.aurousacademy.com/" target="_blank" rel="noreferrer" className="block p-2.5 hover:bg-emerald-50/60 rounded-lg text-slate-800 hover:text-aurous-darkGreen transition font-semibold">APRE</a>
+                                    <a href="https://pragyan.aurousacademy.com/" target="_blank" rel="noreferrer" className="block p-2.5 hover:bg-emerald-50/60 rounded-lg text-slate-800 hover:text-aurous-darkGreen transition font-semibold">Pragyan Scholarship Exam</a>
+                                </div>
+                            </div>
+
+                            {/* About Aurous Dropdown */}
+                            <div className="relative group">
+                                <button className="hover:text-aurous-darkGreen flex items-center gap-1.5 py-1.5 transition">
+                                    About Aurous <span className="text-xs text-slate-400 group-hover:text-aurous-darkGreen">▾</span>
+                                </button>
+                                <div className="absolute left-0 top-full hidden group-hover:block w-52 bg-white shadow-xl rounded-xl border border-slate-100 p-2 z-50">
+                                    <Link href="/about" className="block p-2.5 hover:bg-emerald-50/60 rounded-lg text-slate-800 hover:text-aurous-darkGreen transition font-semibold">About Academy</Link>
+                                    <Link href="/ourTeam" className="block p-2.5 hover:bg-emerald-50/60 rounded-lg text-slate-800 hover:text-aurous-darkGreen transition font-semibold">Expert Faculty</Link>
+                                </div>
+                            </div>
+
+                            {/* Results Dropdown */}
+                            <div className="relative group">
+                                <button className="hover:text-aurous-darkGreen flex items-center gap-1.5 py-1.5 transition">
+                                    Results <span className="text-xs text-slate-400 group-hover:text-aurous-darkGreen">▾</span>
+                                </button>
+                                <div className="absolute left-0 top-full hidden group-hover:block w-52 bg-white shadow-xl rounded-xl border border-slate-100 p-2 z-50">
+                                    {course.length > 0 ? (
+                                        course.map((item) => (
+                                            <div className="relative group/sub" key={item.id}>
+                                                <button className="w-full text-left flex items-center justify-between p-2.5 hover:bg-emerald-50/60 rounded-lg text-slate-800 hover:text-aurous-darkGreen transition font-semibold">
+                                                    <span>{item.title}</span>
+                                                    <span className="text-xs text-slate-400">▸</span>
+                                                </button>
+                                                <div className="absolute left-full top-0 hidden group-hover/sub:block w-36 bg-white shadow-2xl rounded-xl border border-slate-100 p-2 ml-1">
+                                                    {(item.children || []).map((year) => (
+                                                        <Link
+                                                            key={year.id}
+                                                            href="/result"
+                                                            onClick={() => {
+                                                                const data = {
+                                                                    courseId: resultCourseId,
+                                                                    parentId: year.id,
+                                                                };
+                                                                sessionStorage.setItem('resultParams', JSON.stringify(data));
+                                                                window.dispatchEvent(new CustomEvent('resultParamsChanged', { detail: data }));
+                                                            }}
+                                                            className="block p-2 hover:bg-emerald-50/60 rounded-lg text-slate-700 hover:text-aurous-darkGreen transition font-semibold"
+                                                        >
+                                                            {year.title}
+                                                        </Link>
+                                                    ))}
+                                                </div>
+                                            </div>
+                                        ))
+                                    ) : (
+                                        <a href="#" className="block p-2.5 hover:bg-emerald-50/60 rounded-lg text-slate-800 hover:text-aurous-darkGreen transition font-semibold">Results</a>
+                                    )}
+
+                                    {/* <div className="relative group/sub">
+                                        <button className="w-full text-left flex items-center justify-between p-2.5 hover:bg-emerald-50/60 rounded-lg text-slate-800 hover:text-aurous-darkGreen transition font-semibold">
+                                            <span>NEET Results</span>
+                                            <span className="text-xs text-slate-400">▸</span>
+                                        </button>
+                                        <div className="absolute left-full top-0 hidden group-hover/sub:block w-36 bg-white shadow-2xl rounded-xl border border-slate-100 p-2 ml-1">
+                                            <a href="#" className="block p-2 hover:bg-emerald-50/60 rounded-lg text-slate-700 hover:text-aurous-darkGreen transition font-semibold">2026</a>
+                                            <a href="#" className="block p-2 hover:bg-emerald-50/60 rounded-lg text-slate-700 hover:text-aurous-darkGreen transition font-semibold">2025</a>
+                                            <a href="#" className="block p-2 hover:bg-emerald-50/60 rounded-lg text-slate-700 hover:text-aurous-darkGreen transition font-semibold">2024</a>
+                                            <a href="#" className="block p-2 hover:bg-emerald-50/60 rounded-lg text-slate-700 hover:text-aurous-darkGreen transition font-semibold">2023</a>
+                                        </div>
+                                    </div> */}
+                                </div>
+                            </div>
+
+                            <Link href="/banner" className="hover:text-aurous-darkGreen transition py-1.5">Gallery</Link>
+                            <Link href="/timetable" className="hover:text-aurous-darkGreen transition py-1.5">Timetable</Link>
+                            <button onClick={handleOpenContactUs} className="hover:text-aurous-darkGreen transition py-1.5">Contact</button>
+
+                            <a href="tel:+919993936947" className="flex items-center gap-2 bg-slate-900 text-white hover:bg-aurous-darkGreen font-extrabold px-3.5 py-1.5 rounded-lg text-sm transition shadow-sm border border-slate-800">
+                                <svg className="w-4 h-4 text-aurous-yellow" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2.5" d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z" /></svg>
+                                <span>9993936947</span>
+                            </a>
+
+                        </nav>
+                    </div>
+
+                </div>
+            </header>
+
+            <Dialog
+                open={openContactUs}
+                onClose={() => setOpenContactUs(false)}
+                sx={{
+                    "& .MuiDialog-container": {
+                        "& .MuiPaper-root": {
+                            width: "100%",
+                            maxWidth: "450px",
+                            borderRadius: '16px',
+                        },
+                    },
+                }}
+            >
+                <ContactUs handleClose={() => setOpenContactUs(false)} />
+            </Dialog>
+        </>
     )
 }
 

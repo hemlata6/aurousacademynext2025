@@ -39,7 +39,49 @@ const ResultSection2 = () => {
 
     useEffect(() => {
         window.scrollTo(0, 0);
-        getAllCourses();
+
+        let courseId = null;
+        let parentId = null;
+
+        try {
+            const stored = sessionStorage.getItem('resultParams');
+            if (stored) {
+                const parsed = JSON.parse(stored);
+                courseId = parsed?.courseId ?? null;
+                parentId = parsed?.parentId ?? null;
+            }
+        } catch (error) {
+            console.error('Error reading result params:', error);
+        }
+
+        sessionStorage.removeItem('resultParams');
+
+        if (courseId && parentId) {
+            setOriginalCourseId(courseId);
+            setSelectedCourse({ id: courseId });
+            setNavigationStack([{ id: courseId }]);
+            getMergedSchedules(courseId, parentId);
+        } else {
+            getAllCourses();
+        }
+        // eslint-disable-next-line react-hooks/exhaustive-deps
+    }, []);
+
+    // Re-run when a new result is selected from the navbar while already on /result
+    useEffect(() => {
+        const handleResultParamsChanged = (event) => {
+            const { courseId, parentId } = event.detail || {};
+            if (courseId && parentId) {
+                setOriginalCourseId(courseId);
+                setSelectedCourse({ id: courseId });
+                setNavigationStack([{ id: courseId }]);
+                getMergedSchedules(courseId, parentId);
+            }
+        };
+
+        window.addEventListener('resultParamsChanged', handleResultParamsChanged);
+        return () => window.removeEventListener('resultParamsChanged', handleResultParamsChanged);
+        // eslint-disable-next-line react-hooks/exhaustive-deps
     }, []);
 
     // Auto-select first course when coursesList loads
@@ -75,7 +117,7 @@ const ResultSection2 = () => {
     const getMergedSchedules = async (courseId, parentId = 0) => {
         try {
             setLoading(true);
-            const response = await Network.fetchCheduleApi(courseId, parentId);
+            const response = await Network.fetchScheduleApi(courseId, parentId);
             setParentName(response?.parentName || '');
             if (response?.contentList) {
                 const activeSchedules = response.contentList.filter(item => item.active === true);
@@ -222,169 +264,10 @@ const ResultSection2 = () => {
     };
 
     return (
-        <Box
-            sx={{
-                minHeight: '100vh',
-                background: 'linear-gradient(135deg, #0a0a0a 0%, #1a1a2e 25%, #16213e 50%, #0f0f0f 100%)',
-                position: 'relative',
-                overflow: 'hidden',
-                '&::before': {
-                    content: '""',
-                    position: 'absolute',
-                    top: 0,
-                    left: 0,
-                    right: 0,
-                    bottom: 0,
-                    background: 'radial-gradient(circle at 20% 80%, rgba(255, 202, 8, 0.1) 0%, transparent 50%), radial-gradient(circle at 80% 20%, rgba(255, 165, 0, 0.08) 0%, transparent 50%)',
-                    pointerEvents: 'none',
-                },
-            }}
-        >
-            <Container
-                maxWidth="xl"
-                sx={{
-                    position: 'relative',
-                    zIndex: 2,
-                    py: { xs: 4, md: 8 },
-                    px: { xs: 2, md: 6 }
-                }}
-            >
-                {/* Hero Section */}
-                <Box sx={{ textAlign: 'center', mb: 8 }}>
-                    <Box
-                        sx={{
-                            display: 'inline-flex',
-                            alignItems: 'center',
-                            background: 'rgba(255, 215, 0, 0.1)',
-                            backdropFilter: 'blur(10px)',
-                            border: '1px solid rgba(255, 215, 0, 0.3)',
-                            borderRadius: '50px',
-                            px: 3,
-                            py: 1,
-                            mb: 4,
-                        }}
-                    >
-                        <TrophyIcon sx={{ color: '#FFD700', mr: 1 }} />
-                        <Typography
-                            variant="body2"
-                            sx={{
-                                color: '#FFD700',
-                                fontWeight: 600,
-                                letterSpacing: '0.5px'
-                            }}
-                        >
-                            Celebrate Excellence
-                        </Typography>
-                    </Box>
-
-                    <Typography
-                        variant="h1"
-                        sx={{
-                            background: 'linear-gradient(45deg, #FFD700, #FFA500, #FF8C00)',
-                            backgroundClip: 'text',
-                            WebkitBackgroundClip: 'text',
-                            WebkitTextFillColor: 'transparent',
-                            fontWeight: 700,
-                            fontSize: { xs: '2.5rem', md: '4rem' },
-                            mb: 3,
-                            textShadow: '0 0 30px rgba(255, 215, 0, 0.3)',
-                        }}
-                    >
-                        Academic Results
-                    </Typography>
-
-                    <Typography
-                        variant="h6"
-                        sx={{
-                            color: 'rgba(255, 255, 255, 0.8)',
-                            maxWidth: '600px',
-                            mx: 'auto',
-                            lineHeight: 1.6,
-                            fontSize: { xs: '1rem', md: '1.25rem' }
-                        }}
-                    >
-                        Explore our comprehensive collection of exam results and academic achievements
-                    </Typography>
-                </Box>
-
-                {/* Display Schedules or Courses */}
+        <Box>
+            {/* Display Schedules or Courses */}
                 {selectedCourse ? (
                     <>
-                        {
-                            parentName !== 'result' && (
-                                <>
-                                    {/* Back Button and Breadcrumb Navigation */}
-                                    <Box sx={{ mb: 4, display: 'flex', alignItems: 'center', gap: 2, flexWrap: 'wrap' }}>
-                                        <Button
-                                            variant="contained"
-                                            onClick={handleBackClick}
-                                            sx={{
-                                                background: 'linear-gradient(135deg, #FFD700 0%, #FFA500 100%)',
-                                                color: '#000',
-                                                fontWeight: 700,
-                                                borderRadius: '12px',
-                                                px: 3,
-                                                py: 1.5,
-                                                textTransform: 'none',
-                                                '&:hover': {
-                                                    background: 'linear-gradient(135deg, #FFA500 0%, #FF8C00 100%)',
-                                                    boxShadow: '0 8px 20px rgba(255, 215, 0, 0.4)',
-                                                }
-                                            }}
-                                        >
-                                             Back
-                                        </Button>
-
-                                        {/* Breadcrumb Navigation */}
-                                        {/* <Box sx={{ display: 'flex', alignItems: 'center', gap: 1, flexWrap: 'wrap' }}>
-                                <Button
-                                    variant="text"
-                                    onClick={() => {
-                                        setNavigationStack([]);
-                                        setSelectedCourse(null);
-                                        setSelectedSceduleList([]);
-                                    }}
-                                    sx={{
-                                        color: 'rgba(255, 215, 0, 0.8)',
-                                        textTransform: 'none',
-                                        fontSize: '1rem',
-                                        '&:hover': {
-                                            color: '#FFD700',
-                                            background: 'rgba(255, 215, 0, 0.1)',
-                                        }
-                                    }}
-                                >
-                                    Results
-                                </Button>
-
-                                {navigationStack.map((item, index) => (
-                                    <React.Fragment key={item.id}>
-                                        <Typography sx={{ color: 'rgba(255, 215, 0, 0.6)' }}>/</Typography>
-                                        <Button
-                                            variant="text"
-                                            onClick={() => handleNavigateToItem(item)}
-                                            sx={{
-                                                color: index === navigationStack.length - 1 ? '#FFD700' : 'rgba(255, 215, 0, 0.8)',
-                                                fontWeight: index === navigationStack.length - 1 ? 700 : 400,
-                                                textTransform: 'none',
-                                                fontSize: '1rem',
-                                                '&:hover': {
-                                                    color: '#FFD700',
-                                                    background: 'rgba(255, 215, 0, 0.1)',
-                                                }
-                                            }}
-                                        >
-                                            {item?.title}
-                                        </Button>
-                                    </React.Fragment>
-                                ))}
-                            </Box> */}
-                                    </Box>
-                                </>
-                            )
-                        }
-
-
                         {/* Schedule Items */}
                         {loading ? (
                             <Grid2 container spacing={3}>
@@ -402,142 +285,30 @@ const ResultSection2 = () => {
                                 ))}
                             </Grid2>
                         ) : selectedSceduleList?.length > 0 ? (
-                            <Grid2 container spacing={3}>
-                                {selectedSceduleList.map((item, index) => (
-                                    <Grid2 size={{ xs: 12, sm: 6, md: 4, lg: 3 }} key={index}>
-                                        <Fade in={true} timeout={300 + index * 100}>
-                                            <Card
-                                                sx={{
+                            <Box sx={{ display: 'flex', flexDirection: 'column', gap: 2 , py:8}}>
+                                {selectedSceduleList
+                                    .filter((item) => item?.entityType === 'image')
+                                    .map((item) => {
+                                        const rawUrl = item?.thumb || item?.image || item?.url;
+                                        if (!rawUrl) return null;
+                                        const fullUrl = rawUrl.startsWith('http')
+                                            ? rawUrl
+                                            : Endpoints.mediaBaseUrl + rawUrl;
+                                        return (
+                                            <img
+                                                key={item.id}
+                                                src={fullUrl}
+                                                alt={item?.title || item?.name || 'Result'}
+                                                style={{
                                                     width: '100%',
-                                                    height: '100%',
-                                                    borderRadius: '20px',
-                                                    background: 'rgba(255, 255, 255, 0.05)',
-                                                    backdropFilter: 'blur(25px)',
-                                                    border: '1px solid rgba(255, 255, 255, 0.1)',
-                                                    boxShadow: '0 8px 32px rgba(0, 0, 0, 0.3)',
-                                                    transition: 'all 0.4s cubic-bezier(0.4, 0, 0.2, 1)',
-                                                    cursor: 'pointer',
-                                                    position: 'relative',
-                                                    display: 'flex',
-                                                    flexDirection: 'column',
-                                                    overflow: 'hidden',
-                                                    '&:hover': {
-                                                        transform: 'translateY(-12px)',
-                                                        boxShadow: '0 25px 50px rgba(255, 215, 0, 0.15), 0 0 25px rgba(255, 215, 0, 0.1)',
-                                                        background: 'rgba(255, 255, 255, 0.08)',
-                                                        border: '1px solid rgba(255, 215, 0, 0.3)',
-                                                        '& .action-button': {
-                                                            transform: 'translateY(-2px)',
-                                                            boxShadow: '0 10px 25px rgba(255, 215, 0, 0.3)',
-                                                        },
-                                                        '& .item-thumbnail': {
-                                                            transform: 'scale(1.08)',
-                                                        },
-                                                    }
+                                                    height: 'auto',
+                                                    display: 'block',
+                                                    borderRadius: '12px',
                                                 }}
-                                                onClick={() => {
-                                                    if (!['video', 'audio', 'blog', 'note', 'quiz', 'image'].includes(item?.entityType)) {
-                                                        handleCardClick(item);
-                                                    }
-                                                }}
-                                            >
-                                                {/* Item Thumbnail */}
-                                                {(item?.thumb || item?.logo) ? (
-                                                    <Box
-                                                        sx={{
-                                                            position: 'relative',
-                                                            width: '100%',
-                                                            height: '180px',
-                                                            overflow: 'hidden',
-                                                            borderRadius: '20px 20px 0 0'
-                                                        }}
-                                                        onClick={(e) => {
-                                                            e.stopPropagation();
-                                                            if (item?.entityType === 'folder') {
-                                                                handleCardClick(item);
-                                                            } else {
-                                                                handleOpenPreview(item, e);
-                                                            }
-                                                        }}
-                                                    >
-                                                        <img
-                                                            className="item-thumbnail"
-                                                            src={`${Endpoints.mediaBaseUrl + (item?.thumb || item?.logo)}`}
-                                                            alt={`${item?.title || item?.name || 'Result resource'} preview`}
-                                                            style={{
-                                                                width: '100%',
-                                                                height: '100%',
-                                                                objectFit: 'cover',
-                                                                objectPosition: 'center',
-                                                                display: 'block',
-                                                                transition: 'transform 0.5s ease',
-                                                            }}
-                                                        />
-                                                        <Box
-                                                            sx={{
-                                                                position: 'absolute',
-                                                                top: 0,
-                                                                left: 0,
-                                                                right: 0,
-                                                                bottom: 0,
-                                                                background: 'linear-gradient(180deg, rgba(0,0,0,0) 0%, rgba(0,0,0,0.4) 100%)',
-                                                            }}
-                                                        />
-                                                        {(item?.entityType === 'video' || item?.entityType === 'audio') && (
-                                                            <Box
-                                                                sx={{
-                                                                    position: 'absolute',
-                                                                    top: '50%',
-                                                                    left: '50%',
-                                                                    transform: 'translate(-50%, -50%)',
-                                                                    background: 'rgba(255, 215, 0, 0.95)',
-                                                                    borderRadius: '50%',
-                                                                    p: 1.5,
-                                                                    display: 'flex',
-                                                                    alignItems: 'center',
-                                                                    justifyContent: 'center',
-                                                                }}
-                                                            >
-                                                                {item?.entityType === 'video' ?
-                                                                    <PlayCircleIcon sx={{ color: '#000', fontSize: 32 }} /> :
-                                                                    <AudiotrackIcon sx={{ color: '#000', fontSize: 32 }} />
-                                                                }
-                                                            </Box>
-                                                        )}
-                                                    </Box>
-                                                ) : (
-                                                    <Box
-                                                        sx={{
-                                                            width: '100%',
-                                                            height: '180px',
-                                                            background: 'linear-gradient(135deg, rgba(255, 215, 0, 0.1) 0%, rgba(255, 165, 0, 0.05) 100%)',
-                                                            display: 'flex',
-                                                            alignItems: 'center',
-                                                            justifyContent: 'center',
-                                                            borderRadius: '20px 20px 0 0'
-                                                        }}
-                                                    >
-                                                        <Box
-                                                            sx={{
-                                                                display: 'flex',
-                                                                alignItems: 'center',
-                                                                justifyContent: 'center',
-                                                                width: '60px',
-                                                                height: '60px',
-                                                                background: 'rgba(255, 215, 0, 0.15)',
-                                                                borderRadius: '16px',
-                                                            }}
-                                                        >
-                                                            {getItemIcon(item?.entityType)}
-                                                        </Box>
-                                                    </Box>
-                                                )}
-                                                
-                                            </Card>
-                                        </Fade>
-                                    </Grid2>
-                                ))}
-                            </Grid2>
+                                            />
+                                        );
+                                    })}
+                            </Box>
                         ) : (
                             <Box
                                 sx={{
@@ -755,7 +526,6 @@ const ResultSection2 = () => {
                         )}
                     </>
                 )}
-            </Container>
 
             {/* Content Preview Dialog */}
             <ContentPreview

@@ -226,7 +226,7 @@ const BlogListClient = () => {
     const getMergedSchedules = async (cId, folderId = null) => {
         try {
             setLoading(true);
-            let response = await Network.fetchCheduleApi(cId, folderId || 0);
+            let response = await Network.fetchScheduleApi(cId, folderId || 0);
 
             if (response?.contentList) {
                 const content = response.contentList;

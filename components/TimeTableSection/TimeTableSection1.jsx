@@ -88,7 +88,7 @@ const TimeTableSection1 = () => {
 
             await Promise.all(
                 coursesList.map(async (course) => {
-                    const response = await Network.fetchCheduleApi(course.id, 0);
+                    const response = await Network.fetchScheduleApi(course.id, 0);
                     if (response?.contentList) {
                         const activeSchedules = response.contentList.filter(item => item.active === true);
                         allSchedules = [...allSchedules, ...activeSchedules];

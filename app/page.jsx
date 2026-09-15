@@ -14,6 +14,7 @@ import HomepageSeoSections from '@/components/SEO/HomepageSeoSections';
 import Network from '@/lib/Netwrok';
 import Endpoints from '@/constant/endpoints';
 import instId from '@/constant/instId';
+import VerifiedStudentsResultSection from '@/components/CommonSections/VerifiedStudentsResultSection';
 
 const HomeSection5 = dynamic(() => import('@/components/HomeComponents/HomeSection5'));
 const HomeSection6 = dynamic(() => import('@/components/HomeComponents/HomeSection6'));
@@ -80,16 +81,17 @@ export default function HomePage() {
           Best IIT JEE and NEET Coaching Institute in Bhopal
         </h1>
         <HomeSection1 />
+        <VerifiedStudentsResultSection />
         <div ref={homeSection2Ref}>
           <HomeSection3 />
         </div>
-        <HomeSection2 />
+        {/* <HomeSection2 /> */}
         <WhyChoosHomeSection />
-        <HomeSection4 />
+        {/* <HomeSection4 /> */}
+        <HomeLocationMap />
         <HomeSection6 />
         {/* <HomepageSeoSections /> */}
-        <HomeLocationMap />
-        <HomeSection5 />
+        {/* <HomeSection5 /> */}
         <FAQHomeSection />
 
         <Tooltip title="Call Us Now" placement="top-start">
