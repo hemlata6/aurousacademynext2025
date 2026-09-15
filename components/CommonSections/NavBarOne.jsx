@@ -3,7 +3,9 @@
 import React, { useState, useEffect } from 'react';
 import Link from 'next/link';
 import { useRouter } from 'next/navigation';
-import { Dialog } from '@mui/material';
+import { Dialog, Drawer, IconButton } from '@mui/material';
+import MenuIcon from '@mui/icons-material/Menu';
+import CloseIcon from '@mui/icons-material/Close';
 import images from '@/lib/images';
 import Network from '@/lib/Netwrok';
 import instId from '@/constant/instId';
@@ -20,6 +22,9 @@ const NavBarOne = () => {
     const [resultCourseId, setResultCourseId] = useState(null);
     const [loading, setLoading] = useState(false);
     const [error, setError] = useState('');
+    const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
+    const [openCourses, setOpenCourses] = useState(false);
+    const [openResults, setOpenResults] = useState(false);
 
     useEffect(() => {
         getBanners();
@@ -130,13 +135,14 @@ const NavBarOne = () => {
                             className="flex items-center group"
                         >
                             <img
-                                className="h-14 sm:h-16 w-auto object-contain transition-transform duration-300 group-hover:scale-105"
+                                className="h-12 sm:h-16 w-auto object-contain transition-transform duration-300 group-hover:scale-105"
                                 src={Logo}
                                 alt="Aurous Academy Logo"
                             />
                         </a>
 
-                        <div className="flex items-center gap-3.5">
+                        {/* Desktop action buttons */}
+                        <div className="hidden items-center gap-3.5 lg:flex">
                             <button
                                 onClick={(e) => handleConvertToBase64(e)}
                                 className="border border-rose-200 bg-rose-50/80 hover:bg-rose-100 text-rose-600 font-extrabold px-4 py-2.5 rounded-xl text-xs sm:text-sm transition flex items-center gap-2 shadow-sm"
@@ -153,6 +159,16 @@ const NavBarOne = () => {
                                 <svg className="w-4 h-4 text-aurous-yellow" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2.5" d="M14 5l7 7m0 0l-7 7m7-7H3" /></svg>
                             </button>
                         </div>
+
+                        {/* Mobile hamburger */}
+                        <IconButton
+                            className="lg:hidden"
+                            onClick={() => setMobileMenuOpen(true)}
+                            aria-label="Open navigation menu"
+                            sx={{ color: '#00382B' }}
+                        >
+                            <MenuIcon sx={{ fontSize: 32 }} />
+                        </IconButton>
                     </div>
 
                     {/* LINE 2: Horizontal Menu Tabs */}
@@ -261,6 +277,111 @@ const NavBarOne = () => {
 
                 </div>
             </header>
+
+            {/* Mobile navigation drawer */}
+            <Drawer
+                anchor="right"
+                open={mobileMenuOpen}
+                onClose={() => setMobileMenuOpen(false)}
+                PaperProps={{ sx: { width: 300, maxWidth: '85vw' } }}
+            >
+                <div className="flex h-full flex-col bg-white">
+                    <div className="flex items-center justify-between border-b border-slate-200 px-4 py-3">
+                        <span className="text-base font-extrabold text-aurous-darkGreen">Menu</span>
+                        <IconButton onClick={() => setMobileMenuOpen(false)} aria-label="Close menu">
+                            <CloseIcon />
+                        </IconButton>
+                    </div>
+
+                    <div className="flex-1 overflow-y-auto px-3 py-2">
+                        <button
+                            type="button"
+                            onClick={() => setOpenCourses((v) => !v)}
+                            className="flex w-full items-center justify-between rounded-lg p-3 text-left text-sm font-bold text-slate-800 hover:bg-emerald-50/60"
+                        >
+                            Courses
+                            <span className="text-slate-400">{openCourses ? '▾' : '▸'}</span>
+                        </button>
+                        {openCourses && (
+                            <div className="mb-1 ml-2 border-l border-slate-200 pl-2">
+                                <Link href="/jee" onClick={() => setMobileMenuOpen(false)} className="block rounded-lg p-2.5 text-sm font-semibold text-slate-700 hover:bg-emerald-50/60">IIT-JEE (Main & Adv)</Link>
+                                <Link href="/neet" onClick={() => setMobileMenuOpen(false)} className="block rounded-lg p-2.5 text-sm font-semibold text-slate-700 hover:bg-emerald-50/60">NEET-UG Medical</Link>
+                                <Link href="/foundation" onClick={() => setMobileMenuOpen(false)} className="block rounded-lg p-2.5 text-sm font-semibold text-slate-700 hover:bg-emerald-50/60">Foundation (Class 7-10)</Link>
+                                <a href="https://aurousacademy.graphy.com/" target="_blank" rel="noreferrer" className="block rounded-lg p-2.5 text-sm font-semibold text-slate-700 hover:bg-emerald-50/60">Online Courses</a>
+                            </div>
+                        )}
+
+                        <a href="https://apre.aurousacademy.com/" target="_blank" rel="noreferrer" className="block rounded-lg p-3 text-sm font-bold text-slate-800 hover:bg-emerald-50/60">APRE Scholarship Exam</a>
+                        <a href="https://pragyan.aurousacademy.com/" target="_blank" rel="noreferrer" className="block rounded-lg p-3 text-sm font-bold text-slate-800 hover:bg-emerald-50/60">Pragyan Scholarship Exam</a>
+
+                        <Link href="/about" onClick={() => setMobileMenuOpen(false)} className="block rounded-lg p-3 text-sm font-bold text-slate-800 hover:bg-emerald-50/60">About Academy</Link>
+                        <Link href="/ourTeam" onClick={() => setMobileMenuOpen(false)} className="block rounded-lg p-3 text-sm font-bold text-slate-800 hover:bg-emerald-50/60">Expert Faculty</Link>
+
+                        <button
+                            type="button"
+                            onClick={() => setOpenResults((v) => !v)}
+                            className="flex w-full items-center justify-between rounded-lg p-3 text-left text-sm font-bold text-slate-800 hover:bg-emerald-50/60"
+                        >
+                            Results
+                            <span className="text-slate-400">{openResults ? '▾' : '▸'}</span>
+                        </button>
+                        {openResults && (
+                            <div className="mb-1 ml-2 border-l border-slate-200 pl-2">
+                                {course.length > 0 ? (
+                                    course.map((item) => (
+                                        <div key={item.id}>
+                                            <div className="p-2.5 text-sm font-bold text-aurous-darkGreen">{item.title}</div>
+                                            {(item.children || []).map((year) => (
+                                                <Link
+                                                    key={year.id}
+                                                    href="/result"
+                                                    onClick={() => {
+                                                        const data = { courseId: resultCourseId, parentId: year.id };
+                                                        sessionStorage.setItem('resultParams', JSON.stringify(data));
+                                                        window.dispatchEvent(new CustomEvent('resultParamsChanged', { detail: data }));
+                                                        setMobileMenuOpen(false);
+                                                    }}
+                                                    className="block rounded-lg p-2.5 pl-5 text-sm font-semibold text-slate-700 hover:bg-emerald-50/60"
+                                                >
+                                                    {year.title}
+                                                </Link>
+                                            ))}
+                                        </div>
+                                    ))
+                                ) : (
+                                    <Link href="/result" onClick={() => setMobileMenuOpen(false)} className="block rounded-lg p-2.5 text-sm font-semibold text-slate-700 hover:bg-emerald-50/60">Results</Link>
+                                )}
+                            </div>
+                        )}
+
+                        <Link href="/banner" onClick={() => setMobileMenuOpen(false)} className="block rounded-lg p-3 text-sm font-bold text-slate-800 hover:bg-emerald-50/60">Gallery</Link>
+                        <Link href="/timetable" onClick={() => setMobileMenuOpen(false)} className="block rounded-lg p-3 text-sm font-bold text-slate-800 hover:bg-emerald-50/60">Timetable</Link>
+                        <button
+                            type="button"
+                            onClick={() => { setMobileMenuOpen(false); setOpenContactUs(true); }}
+                            className="block w-full rounded-lg p-3 text-left text-sm font-bold text-slate-800 hover:bg-emerald-50/60"
+                        >
+                            Contact
+                        </button>
+                    </div>
+
+                    <div className="border-t border-slate-200 p-3">
+                        <button
+                            onClick={(e) => handleConvertToBase64(e)}
+                            className="mb-2 flex w-full items-center justify-center gap-2 rounded-xl border border-rose-200 bg-rose-50/80 px-4 py-2.5 text-xs font-extrabold text-rose-600 shadow-sm"
+                        >
+                            <span className="h-2 w-2 rounded-full bg-rose-600 animate-pulse"></span>
+                            Download Admit Card
+                        </button>
+                        <button
+                            onClick={handleNavigateAPRE}
+                            className="flex w-full items-center justify-center gap-2 rounded-xl bg-aurous-darkGreen px-4 py-2.5 text-xs font-extrabold text-white shadow-sm"
+                        >
+                            Apply Scholarship Exam
+                        </button>
+                    </div>
+                </div>
+            </Drawer>
 
             <Dialog
                 open={openContactUs}

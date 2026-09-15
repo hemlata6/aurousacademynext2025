@@ -44,8 +44,8 @@ export default function RootLayoutClient({ children }) {
 
   return (
     <div style={{ paddingTop: '90px' }}>
-      {/* NavBarOne - Fixed at top for entire scroll on desktop */}
-      {mounted && !isMobile && (
+      {/* NavBarOne - Fixed at top for entire scroll on all devices */}
+      {mounted && (
         <div style={{
           position: 'fixed',
           top: 0,
