@@ -1,10 +1,17 @@
-import React from 'react';
+'use client';
+
+import React, { useState } from 'react';
+import { Dialog, DialogContent, IconButton, Typography, Box, Button } from '@mui/material';
+import CloseIcon from '@mui/icons-material/Close';
 
 const GOOGLE_MAPS_URL =
   'https://www.google.com/maps/search/?api=1&query=Aurous+Academy+MP+Nagar+Bhopal';
 
 const HomeLocationMap = () => {
+  const [open, setOpen] = useState(false);
+
   return (
+    <>
     <section className="bg-slate-50 px-4 py-12 sm:px-6 lg:px-8" id="campus">
       <div className="mx-auto max-w-7xl">
         <div className="grid grid-cols-1 overflow-hidden rounded-3xl border border-emerald-900/40 bg-aurous-darkGreen text-white shadow-xl lg:grid-cols-12">
@@ -49,7 +56,7 @@ const HomeLocationMap = () => {
                   <svg className="h-4 w-4 flex-shrink-0 text-aurous-yellow" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                     <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2.5" d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z"/>
                   </svg>
-                  <span>9993936947</span>
+                  <span>9685099770</span>
                 </div>
               </div>
 
@@ -86,13 +93,14 @@ const HomeLocationMap = () => {
 
             {/* CTA Buttons */}
             <div className="flex flex-col gap-3 pt-2 sm:flex-row sm:items-center">
-              <a
-                href="#contact"
+              <button
+                type="button"
+                onClick={() => setOpen(true)}
                 className="flex items-center justify-center gap-2 rounded-xl bg-aurous-yellow px-6 py-3 text-center text-xs font-black text-slate-950 shadow-md transition duration-300 hover:bg-amber-400 sm:text-sm"
               >
                 <span>Plan a Visit</span>
                 <span className="text-base font-bold">→</span>
-              </a>
+              </button>
 
               <a
                 href={GOOGLE_MAPS_URL}
@@ -111,6 +119,66 @@ const HomeLocationMap = () => {
         </div>
       </div>
     </section>
+
+    <Dialog
+      open={open}
+      onClose={() => setOpen(false)}
+      fullWidth
+      maxWidth="sm"
+      PaperProps={{ sx: { borderRadius: '16px', p: 2 } }}
+    >
+      <Box sx={{ display: 'flex', justifyContent: 'flex-end' }}>
+        <IconButton onClick={() => setOpen(false)} aria-label="Close">
+          <CloseIcon />
+        </IconButton>
+      </Box>
+      <DialogContent sx={{ textAlign: 'center', py: 2 }}>
+        <Typography variant="h5" sx={{ fontWeight: 800, color: '#1f2937', mb: 1.5 }}>
+          Plan your campus visit
+        </Typography>
+        <Typography sx={{ color: '#4b5563', mb: 3, lineHeight: 1.6 }}>
+          Visit Plot No. R-4, opposite Railway Track, Zone-2, MP Nagar, Bhopal,
+          Madhya Pradesh 462011. Call to confirm a counselling appointment.
+        </Typography>
+        <Box sx={{ display: 'flex', flexDirection: { xs: 'column', sm: 'row' }, gap: 2, justifyContent: 'center' }}>
+          <Button
+            variant="contained"
+            href="tel:+919993936947"
+            sx={{
+              backgroundColor: '#00382B',
+              color: '#fff',
+              textTransform: 'none',
+              fontWeight: 700,
+              px: 3,
+              py: 1.25,
+              borderRadius: '10px',
+              '&:hover': { backgroundColor: '#00523F' },
+            }}
+          >
+            Call 9993936947
+          </Button>
+          <Button
+            variant="contained"
+            href="https://wa.me/919993936947"
+            target="_blank"
+            rel="noopener noreferrer"
+            sx={{
+              backgroundColor: '#FFC800',
+              color: '#1f2937',
+              textTransform: 'none',
+              fontWeight: 700,
+              px: 3,
+              py: 1.25,
+              borderRadius: '10px',
+              '&:hover': { backgroundColor: '#F5B800' },
+            }}
+          >
+            Ask on WhatsApp
+          </Button>
+        </Box>
+      </DialogContent>
+    </Dialog>
+    </>
   );
 };
 

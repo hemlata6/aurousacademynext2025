@@ -230,7 +230,7 @@ const VerifiedStudentsResultSection = () => {
 
         {/* LEVEL 3 cards (final content of the selected level-2 item) */}
         {level3.length > 0 && (
-          <div className="grid min-h-[160px] grid-cols-1 gap-4 sm:grid-cols-2 sm:gap-6 lg:grid-cols-3">
+          <div className="grid min-h-[160px] gap-4 sm:gap-6" style={{ gridTemplateColumns: 'repeat(4, 1fr)' }}>
             {level3.map((item) => {
               const mediaUrl = getMediaUrl(item);
               const title = item?.title || item?.name || 'Untitled Image';
@@ -251,7 +251,7 @@ const VerifiedStudentsResultSection = () => {
                         <img
                           src={mediaUrl}
                           alt={altText}
-                          className="h-full w-full object-cover transition-transform duration-500 group-hover:scale-110"
+                          className="h-[18vh] w-full object-cover transition-transform duration-500 group-hover:scale-110"
                         />
                       ) : (
                         <div className="flex h-full w-full items-center justify-center text-3xl text-emerald-200">★</div>

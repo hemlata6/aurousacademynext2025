@@ -36,16 +36,37 @@ const HomeSection3 = () => {
 
                         <div className="relative z-10">
                             <div className="mb-2 flex items-center gap-3.5">
-                                <div className="card-icon-container flex items-center justify-center rounded-2xl border border-emerald-700/60 bg-emerald-900/80 p-3 text-aurous-yellow shadow-inner transition-transform">
-                                    <svg className="h-8 w-8" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="1.8" d="M19.428 15.428a2 2 0 00-1.022-.547l-2.387-.477a6 6 0 00-3.86.517l-.318.158a6 6 0 01-3.86.517L5.6 15.12a2 2 0 01-1.023-.547M12 4.5v15m0-15a3 3 0 100-6 3 3 0 000 6zm0 15a3 3 0 100 6 3 3 0 000-6z"/>
-                                        <circle cx="12" cy="12" r="3" strokeWidth="2"/>
-                                        <ellipse cx="12" cy="12" rx="9" ry="3.5" transform="rotate(30 12 12)" strokeWidth="1.5"/>
-                                        <ellipse cx="12" cy="12" rx="9" ry="3.5" transform="rotate(150 12 12)" strokeWidth="1.5"/>
+                                <div className="card-icon-container flex items-center justify-center rounded-2xl border border-emerald-700/60 bg-emerald-900/80 p-3 text-white shadow-inner transition-transform">
+                                    <svg
+                                        className="h-8 w-8"
+                                        viewBox="0 0 24 24"
+                                        fill="none"
+                                        stroke="currentColor"
+                                        strokeWidth="1.6"
+                                        strokeLinecap="round"
+                                        strokeLinejoin="round"
+                                        aria-hidden="true"
+                                    >
+                                        <circle cx="12" cy="12" r="1" />
+                                        <ellipse cx="12" cy="12" rx="11" ry="4" />
+                                        <ellipse
+                                            cx="12"
+                                            cy="12"
+                                            rx="11"
+                                            ry="4"
+                                            transform="rotate(60 12 12)"
+                                        />
+                                        <ellipse
+                                            cx="12"
+                                            cy="12"
+                                            rx="11"
+                                            ry="4"
+                                            transform="rotate(120 12 12)"
+                                        />
                                     </svg>
                                 </div>
                                 <div>
-                                    <h3 className="text-2xl font-black tracking-tight text-white transition-colors group-hover:text-aurous-yellow">IIT-JEE</h3>
+                                    <h3 className="text-xl font-black tracking-tight text-white transition-colors group-hover:text-aurous-yellow">IIT-JEE</h3>
                                     <p className="mt-0.5 text-[11px] font-bold tracking-wide text-emerald-200/90">Class 11 | Class 12 | Droppers</p>
                                 </div>
                             </div>
@@ -71,13 +92,10 @@ const HomeSection3 = () => {
                         <div className="relative z-10">
                             <div className="mb-2 flex items-center gap-3.5">
                                 <div className="card-icon-container flex items-center justify-center rounded-2xl border border-amber-500/40 bg-amber-400/60 p-3 text-aurous-darkGreen shadow-inner transition-transform">
-                                    <svg className="h-8 w-8" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M9 5H7a2 2 0 00-2 2v12a2 2 0 002 2h10a2 2 0 002-2V7a2 2 0 00-2-2h-2M9 5a2 2 0 002 2h2a2 2 0 002-2M9 5a2 2 0 012-2h2a2 2 0 012 2m-3 7h3m-3 4h3m-6-4h.01M9 16h.01"/>
-                                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M12 11a2.5 2.5 0 100-5 2.5 2.5 0 000 5z"/>
-                                    </svg>
+                                    <svg className="h-8 w-8" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.6" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true"><path d="M3 2v7a6 6 0 0 0 12 0V2M1 2h4m8 0h4M9 15v2a5 5 0 0 0 10 0v-3"/><circle cx="19" cy="11" r="3"/></svg>
                                 </div>
                                 <div>
-                                    <h3 className="text-2xl font-black tracking-tight text-slate-950">NEET</h3>
+                                    <h3 className="text-xl font-black tracking-tight text-slate-950">NEET</h3>
                                     <p className="mt-0.5 text-[11px] font-bold tracking-wide text-slate-800">Class 11 | Class 12 | Droppers</p>
                                 </div>
                             </div>
@@ -103,13 +121,10 @@ const HomeSection3 = () => {
                         <div className="relative z-10">
                             <div className="mb-2 flex items-center gap-3.5">
                                 <div className="card-icon-container flex items-center justify-center rounded-2xl border border-emerald-200/80 bg-emerald-100 p-3 text-aurous-darkGreen shadow-inner transition-transform">
-                                    <svg className="h-8 w-8" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M12 14l9-5-9-5-9 5 9 5z"/>
-                                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M12 14l6.16-3.422a12.083 12.083 0 01.665 6.479A11.952 11.952 0 0112 20.055a11.952 11.952 0 01-6.824-2.998 12.078 12.078 0 01.665-6.479L12 14z"/>
-                                    </svg>
+                                   <svg className="h-8 w-8" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.6" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true"><path d="M1 8l11-6 11 6-11 6zM5 10v7c5 4 9 4 14 0v-7M23 8v11"/></svg>
                                 </div>
                                 <div>
-                                    <h3 className="text-2xl font-black tracking-tight text-slate-900 transition-colors group-hover:text-aurous-darkGreen">Olympiads & Foundation</h3>
+                                    <h3 className="text-xl font-black tracking-tight text-slate-900 transition-colors group-hover:text-aurous-darkGreen">Olympiads & Foundation</h3>
                                     <p className="mt-0.5 text-[11px] font-bold tracking-wide text-slate-600">Class 7 | Class 8 | Class 9 | Class 10</p>
                                 </div>
                             </div>

@@ -10,63 +10,24 @@ const FAQHomeSection = () => {
 
     const faqs = [
         {
-            q: 'Does Aurous Academy offer JEE coaching in Bhopal for droppers?',
-            a: 'Yes. Along with Class 11 and Class 12 batches, Aurous runs a dedicated dropper batch for JEE aspirants who want a focused, second attempt at cracking JEE Main and Advanced.',
+            q: 'How do I know if my child reached the centre safely?',
+            a: 'Students punch in and out using the institute’s biometric attendance system. Parents receive an SMS when their child arrives at or leaves the academy.',
         },
         {
-            q: 'What makes Aurous Academy different from other IIT coaching institutes in Bhopal?',
-            a: 'Small batch sizes, expert faculty, personal mentorship for every student, expert-curated study material, and a scholarship program based on merit rather than just enrollment.',
+            q: 'Will I be notified about absenteeism?',
+            a: 'If a student does not record a biometric punch, the attendance SMS is not triggered. The academy also maintains manual attendance and calls the parents of absent students.',
         },
         {
-            q: 'Is there a Foundation course for students below Class 11?',
-            a: 'Yes, Aurous Academy offers Foundation batches for Class 7 to Class 10, designed to build strong basics in core subjects before students move on to serious JEE or NEET preparation.',
+            q: 'How can I track my child’s test scores?',
+            a: 'Comprehensive performance data is updated after every mock test. Parents can review attempted and missed scoring opportunities and cumulative peer ranking.',
         },
         {
-            q: 'Where is Aurous Academy located in Bhopal?',
-            a: 'The campus is located at Plot No. R-4, Opposite Railway Track, Zone-2, MP Nagar, Bhopal, Madhya Pradesh 462011 — a central location accessible from most parts of the city.',
+            q: 'How often are Parent-Teacher Meetings (PTMs) held?',
+            a: 'Formal, face-to-face parent-teacher meetings are organized regularly after every major test.',
         },
         {
-            q: 'Does Aurous Academy provide scholarships?',
-            a: 'Yes, Aurous Academy organises APRE (Aurous Potential Recognition Exam) and PRAGYAN Scholarship test, offering up to 100% scholarship on fees for eligible students.',
-        },
-        {
-            q: 'Are online classes available at Aurous Academy?',
-            a: 'Yes, along with offline classroom coaching in Bhopal, Aurous Academy also offers online courses and a learning app available on mobile, tablet, and desktop.',
-        },
-        {
-            q: 'How will I manage school along with NEET/JEE preparation?',
-            a: 'Aurous Academy follows a structured preparation approach that combines classroom learning, regular practice, tests and mentorship, helping students stay on track with their competitive exam preparation alongside school studies.',
-        },
-        {
-            q: 'How often are tests conducted?',
-            a: 'Regular tests and mock exams are conducted to help students assess their preparation, practise under exam-like conditions and identify areas that need improvement.',
-        },
-        {
-            q: 'Will I get study material for my preparation?',
-            a: 'Yes. Students get access to expert-curated study material along with classroom learning and the Aurous digital learning platform to support their preparation.',
-        },
-        {
-            q: 'What if I get stuck on a topic?',
-            a: 'Stuck on a topic? You don\'t have to wait for the next class. Aurous Academy provides regular doubt-solving sessions, and students can communicate with faculty beyond class hours to get their questions addressed.',
-        },
-        {
-            q: 'What happens if I miss a class?',
-            a: 'If you miss a class, you can use Aurous Academy\'s online learning platform and app to stay connected with your preparation. You can also reach out to faculty for guidance and get your doubts addressed so you can get back on track.',
-        },
-        {
-            q: 'How can I contact Aurous Academy for admission details?',
-            a: (
-                <>
-                    You can call +91 95225-12624 (8:00 AM to 8:00 PM), email{' '}
-                    <a
-                        href="mailto:support@aurousacademy.com"
-                        style={{ color: '#E8410E', fontWeight: 600, textDecoration: 'none' }}
-                    >
-                        support@aurousacademy.com
-                    </a>
-                    , or visit the campus in MP Nagar, Zone-2, Bhopal directly.
-                </>
-            ),
+            q: 'Are scholarships available?',
+            a: 'Students can secure fee waivers of up to 100% based on their performance in the admission test. Confirm applicable conditions with the academy.',
         },
     ];
 
@@ -123,7 +84,7 @@ const FAQHomeSection = () => {
 
                             {/* YouTube */}
                             <Link
-                                href="/freeresources"
+                                href="https://www.youtube.com/@aurousdigital"
                                 className="resource-card group flex items-center gap-3 rounded-xl border border-slate-200/80 bg-white p-4"
                             >
                                 <div className="res-icon flex h-10 w-10 flex-shrink-0 items-center justify-center rounded-lg bg-emerald-50 text-aurous-darkGreen transition-colors">

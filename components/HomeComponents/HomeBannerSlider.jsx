@@ -87,7 +87,7 @@ const HomeBannerSlider = () => {
       onMouseEnter={() => setIsPaused(true)}
       onMouseLeave={() => setIsPaused(false)}
     >
-      <div className="w-full overflow-hidden">
+      <div className="w-full h-[500px] overflow-hidden">
         <div
           className="flex transition-transform duration-700 ease-out"
           style={{ transform: `translateX(-${currentIndex * 100}%)` }}
@@ -95,12 +95,12 @@ const HomeBannerSlider = () => {
           {banners.map((img, index) => (
             <div
               key={index}
-              className="relative w-full flex-shrink-0 aspect-[4.5/1] min-h-[120px] overflow-hidden bg-slate-950"
+              className="relative w-full flex-shrink-0 h-[500px] overflow-hidden bg-slate-950"
             >
               <img
                 src={`${Endpoints?.mediaBaseUrl}${img?.banner}`}
                 alt={img?.title || `Aurous Academy banner ${index + 1}`}
-                className="absolute inset-0 h-full w-full object-cover"
+                className="absolute inset-0 h-full w-full"
               />
             </div>
           ))}

@@ -65,7 +65,7 @@ const WhyChoosHomeSection = () => {
                     <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="1" d={feature.icon} />
                   </svg>
                 </div>
-                <h4 className="text-sm font-normal text-slate-800 sm:text-base">{feature.title}</h4>
+                <h4 className="text-sm font-normal text-slate-800 sm:text-base w-[60%]">{feature.title}</h4>
               </div>
             ))}
           </div>

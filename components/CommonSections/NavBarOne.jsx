@@ -102,9 +102,16 @@ const NavBarOne = () => {
             const withYears = await Promise.all(
                 folders.map(async (folder) => {
                     const childResponse = await Network.fetchScheduleApi(target.id, folder.id);
+                    const children = (childResponse?.contentList || [])
+                        .filter((it) => it?.active !== false)
+                        .sort((a, b) => {
+                            const na = parseFloat(String(a?.title || '').replace(/[^0-9.]/g, ''));
+                            const nb = parseFloat(String(b?.title || '').replace(/[^0-9.]/g, ''));
+                            return (Number.isFinite(nb) ? nb : 0) - (Number.isFinite(na) ? na : 0);
+                        });
                     return {
                         ...folder,
-                        children: (childResponse?.contentList || []).filter((it) => it?.active !== false),
+                        children,
                     };
                 })
             );
@@ -143,6 +150,10 @@ const NavBarOne = () => {
 
                         {/* Desktop action buttons */}
                         <div className="hidden items-center gap-3.5 lg:flex">
+                            <a href="tel:+919685099770" className="flex items-center gap-2 bg-slate-900 text-white hover:bg-aurous-darkGreen font-extrabold px-3.5 py-1.5 rounded-lg text-sm transition shadow-sm border border-slate-800">
+                                <svg className="w-4 h-4 text-aurous-yellow" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2.5" d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z" /></svg>
+                                <span>9685099770</span>
+                            </a>
                             <button
                                 onClick={(e) => handleConvertToBase64(e)}
                                 className="border border-rose-200 bg-rose-50/80 hover:bg-rose-100 text-rose-600 font-extrabold px-4 py-2.5 rounded-xl text-xs sm:text-sm transition flex items-center gap-2 shadow-sm"
@@ -161,14 +172,15 @@ const NavBarOne = () => {
                         </div>
 
                         {/* Mobile hamburger */}
-                        <IconButton
-                            className="lg:hidden"
-                            onClick={() => setMobileMenuOpen(true)}
-                            aria-label="Open navigation menu"
-                            sx={{ color: '#00382B' }}
-                        >
-                            <MenuIcon sx={{ fontSize: 32 }} />
-                        </IconButton>
+                        <div className="lg:hidden">
+                            <IconButton
+                                onClick={() => setMobileMenuOpen(true)}
+                                aria-label="Open navigation menu"
+                                sx={{ color: '#00382B' }}
+                            >
+                                <MenuIcon sx={{ fontSize: 32 }} />
+                            </IconButton>
+                        </div>
                     </div>
 
                     {/* LINE 2: Horizontal Menu Tabs */}
@@ -187,11 +199,11 @@ const NavBarOne = () => {
                             {/* Scholarship Events Dropdown */}
                             <div className="relative group">
                                 <button className="hover:text-aurous-darkGreen flex items-center gap-1.5 py-1.5 transition">
-                                    Scholarship Events <span className="text-xs text-slate-400 group-hover:text-aurous-darkGreen">▾</span>
+                                    Scholarship Exam <span className="text-xs text-slate-400 group-hover:text-aurous-darkGreen">▾</span>
                                 </button>
                                 <div className="absolute left-0 top-full hidden group-hover:block w-56 bg-white shadow-xl rounded-xl border border-slate-100 p-2 z-50">
                                     <a href="https://apre.aurousacademy.com/" target="_blank" rel="noreferrer" className="block p-2.5 hover:bg-emerald-50/60 rounded-lg text-slate-800 hover:text-aurous-darkGreen transition font-semibold">APRE</a>
-                                    <a href="https://pragyan.aurousacademy.com/" target="_blank" rel="noreferrer" className="block p-2.5 hover:bg-emerald-50/60 rounded-lg text-slate-800 hover:text-aurous-darkGreen transition font-semibold">Pragyan Scholarship Exam</a>
+                                    <a href="https://pragyan.aurousacademy.com/" target="_blank" rel="noreferrer" className="block p-2.5 hover:bg-emerald-50/60 rounded-lg text-slate-800 hover:text-aurous-darkGreen transition font-semibold">PRAGYAN</a>
                                 </div>
                             </div>
                             {/* Courses Dropdown */}
@@ -262,12 +274,6 @@ const NavBarOne = () => {
                             <Link href="/banner" className="hover:text-aurous-darkGreen transition py-1.5">Gallery</Link>
                             <Link href="/timetable" className="hover:text-aurous-darkGreen transition py-1.5">Timetable</Link>
                             <button onClick={handleOpenContactUs} className="hover:text-aurous-darkGreen transition py-1.5">Contact</button>
-
-                            <a href="tel:+919993936947" className="flex items-center gap-2 bg-slate-900 text-white hover:bg-aurous-darkGreen font-extrabold px-3.5 py-1.5 rounded-lg text-sm transition shadow-sm border border-slate-800">
-                                <svg className="w-4 h-4 text-aurous-yellow" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2.5" d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z" /></svg>
-                                <span>9993936947</span>
-                            </a>
-
                         </nav>
                     </div>
 
@@ -362,6 +368,10 @@ const NavBarOne = () => {
                     </div>
 
                     <div className="border-t border-slate-200 p-3">
+                        <a href="tel:+919685099770" className="flex items-center gap-2 bg-slate-900 text-white hover:bg-aurous-darkGreen font-extrabold px-3.5 py-1.5 rounded-lg text-sm transition shadow-sm border border-slate-800">
+                            <svg className="w-4 h-4 text-aurous-yellow" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2.5" d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z" /></svg>
+                            <span>9685099770</span>
+                        </a>
                         <button
                             onClick={(e) => handleConvertToBase64(e)}
                             className="mb-2 flex w-full items-center justify-center gap-2 rounded-xl border border-rose-200 bg-rose-50/80 px-4 py-2.5 text-xs font-extrabold text-rose-600 shadow-sm"
