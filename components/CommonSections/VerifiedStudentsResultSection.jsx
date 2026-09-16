@@ -191,7 +191,7 @@ const VerifiedStudentsResultSection = () => {
                   type="button"
                   onClick={() => handleLevel1Click(item)}
                   disabled={loading}
-                  className={`tab-btn rounded-xl px-6 py-2.5 text-xs font-extrabold transition active:scale-95 disabled:cursor-not-allowed disabled:opacity-60 sm:text-sm ${
+                  className={`tab-btn rounded-md px-8 py-4 text-xs font-extrabold transition active:scale-95 disabled:cursor-not-allowed disabled:opacity-60 sm:text-lg ${
                     active
                       ? 'bg-aurous-darkGreen text-white shadow-sm'
                       : 'border border-slate-200/80 bg-white font-bold text-slate-700 hover:bg-slate-200/80'
@@ -215,7 +215,7 @@ const VerifiedStudentsResultSection = () => {
                   type="button"
                   onClick={() => handleLevel2Click(item)}
                   disabled={loading}
-                  className={`tab-btn rounded-lg px-5 py-2 text-[11px] font-bold transition active:scale-95 disabled:cursor-not-allowed disabled:opacity-60 sm:text-xs ${
+                  className={`tab-btn rounded-lg px-8 py-4 text-xs font-bold transition active:scale-95 disabled:cursor-not-allowed disabled:opacity-60 sm:text-lg ${
                     active
                       ? 'bg-aurous-darkGreen text-white shadow-sm'
                       : 'border border-slate-200/80 bg-white text-slate-700 hover:bg-slate-200/80'
@@ -230,7 +230,7 @@ const VerifiedStudentsResultSection = () => {
 
         {/* LEVEL 3 cards (final content of the selected level-2 item) */}
         {level3.length > 0 && (
-          <div className="grid min-h-[160px] gap-4 sm:gap-6" style={{ gridTemplateColumns: 'repeat(4, 1fr)' }}>
+          <div className="grid min-h-[160px] grid-cols-1 gap-4 sm:grid-cols-2 sm:gap-6 lg:grid-cols-4">
             {level3.map((item) => {
               const mediaUrl = getMediaUrl(item);
               const title = item?.title || item?.name || 'Untitled Image';
@@ -251,7 +251,7 @@ const VerifiedStudentsResultSection = () => {
                         <img
                           src={mediaUrl}
                           alt={altText}
-                          className="h-full w-full object-cover transition-transform duration-500 group-hover:scale-110"
+                          className="h-[18vh] w-full object-cover transition-transform duration-500 group-hover:scale-110"
                         />
                       ) : (
                         <div className="flex h-full w-full items-center justify-center text-3xl text-emerald-200">★</div>
