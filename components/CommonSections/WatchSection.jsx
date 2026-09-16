@@ -5,22 +5,22 @@ import Link from 'next/link';
 
 const stories = [
   {
-    quote: 'Aurous gave me the right guidance, regular practice and the confidence to keep going.',
-    name: 'Student story preview',
-    meta: 'Illustrative copy · replace with an approved testimonial.',
-    img: 'https://images.unsplash.com/photo-1539571696357-5a69c17a67c6?auto=format&fit=crop&w=300&q=80',
+    quote: 'Aurous Academy’s teachers guided me with the right study material and helped me to resolve every doubt without delay. Their personal attention, one-on-one support and consistent efforts played a major role in my achievement.',
+    name: 'Arsh Jain',
+    meta: 'AIR 131 | JEE Advanced 2026',
+    img: '/arshjain.jpeg',
   },
   {
-    quote: 'The mentors truly care about each student. My concepts got stronger and my rank improved.',
-    name: 'Student story preview',
-    meta: 'Illustrative copy · replace with an approved testimonial.',
-    img: 'https://images.unsplash.com/photo-1500648767791-00dcc994a43e?auto=format&fit=crop&w=300&q=80',
+    quote: 'Aurous Academy provided me with a focused learning environment and a disciplined study routine. The consistent guidance and academic support I received here helped me stay dedicated and confident throughout my preparation',
+    name: 'Tanishq Shukla',
+    meta: 'AIR 711 | JEE Adavnced 2026',
+    img: '/tanishq.jpeg',
   },
   {
-    quote: 'Regular tests and doubt-solving made the difference. I walked into the exam fully prepared.',
-    name: 'Parent story preview',
-    meta: 'Illustrative copy · replace with an approved testimonial.',
-    img: 'https://images.unsplash.com/photo-1438761681033-6461ffad8d80?auto=format&fit=crop&w=300&q=80',
+    quote: 'I have been studying at Aurous Academy since Class 9. The teachers supported me throughout my journey and always explained my doubts promptly, helping me remain consistent in my preparation.',
+    name: 'Bhavya Diwakar',
+    meta: 'AIR 1259 | JEE Advanced 2026',
+    img: '/bhavyadiwakar.jpeg',
   },
 ];
 
@@ -92,13 +92,13 @@ const StudentStoriesSection = () => {
                         />
                       </div>
                       <div className="space-y-3 text-center sm:text-left">
-                        <div className="font-serif text-2xl text-aurous-darkGreen">“</div>
+                        {/* <div className="font-serif text-2xl text-aurous-darkGreen">“</div> */}
                         <p className="-mt-3 text-sm font-semibold leading-relaxed text-slate-700 sm:text-base">
                           {story.quote}
                         </p>
                         <div>
                           <h4 className="text-sm font-extrabold text-slate-900">{story.name}</h4>
-                          <p className="text-xs font-medium italic text-slate-400">{story.meta}</p>
+                          {/* <p className="text-xs font-medium italic text-slate-400">{story.meta}</p> */}
                         </div>
                       </div>
                     </div>
@@ -115,7 +115,7 @@ const StudentStoriesSection = () => {
                   onClick={() => goTo(currentIndex - 1)}
                   className="absolute left-3 top-1/2 z-10 -translate-y-1/2 rounded-full border border-slate-200 bg-white/90 p-2 text-slate-700 shadow-sm transition hover:bg-white hover:text-aurous-darkGreen"
                 >
-                  <svg className="h-4 w-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2.5" d="M15 19l-7-7 7-7"/></svg>
+                  <svg className="h-4 w-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2.5" d="M15 19l-7-7 7-7" /></svg>
                 </button>
                 <button
                   type="button"
@@ -123,7 +123,7 @@ const StudentStoriesSection = () => {
                   onClick={() => goTo(currentIndex + 1)}
                   className="absolute right-3 top-1/2 z-10 -translate-y-1/2 rounded-full border border-slate-200 bg-white/90 p-2 text-slate-700 shadow-sm transition hover:bg-white hover:text-aurous-darkGreen"
                 >
-                  <svg className="h-4 w-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2.5" d="M9 5l7 7-7 7"/></svg>
+                  <svg className="h-4 w-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2.5" d="M9 5l7 7-7 7" /></svg>
                 </button>
 
                 <div className="absolute bottom-4 left-1/2 z-10 flex -translate-x-1/2 items-center gap-2">

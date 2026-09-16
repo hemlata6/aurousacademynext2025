@@ -251,7 +251,7 @@ const VerifiedStudentsResultSection = () => {
                         <img
                           src={mediaUrl}
                           alt={altText}
-                          className="h-[18vh] w-full object-cover transition-transform duration-500 group-hover:scale-110"
+                          className="h-full w-full object-cover transition-transform duration-500 group-hover:scale-110"
                         />
                       ) : (
                         <div className="flex h-full w-full items-center justify-center text-3xl text-emerald-200">★</div>
