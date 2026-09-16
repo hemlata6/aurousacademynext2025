@@ -174,20 +174,16 @@ const NavBarOne = () => {
                     {/* LINE 2: Horizontal Menu Tabs */}
                     <div className="border-t border-slate-100 hidden lg:block">
                         <nav className="flex items-center justify-between w-full py-2.5 text-[15px] font-bold text-slate-700">
-
-                            {/* Courses Dropdown */}
+                            {/* About Aurous Dropdown */}
                             <div className="relative group">
                                 <button className="hover:text-aurous-darkGreen flex items-center gap-1.5 py-1.5 transition">
-                                    Courses <span className="text-xs text-slate-400 group-hover:text-aurous-darkGreen">▾</span>
+                                    About Aurous <span className="text-xs text-slate-400 group-hover:text-aurous-darkGreen">▾</span>
                                 </button>
-                                <div className="absolute left-0 top-full hidden group-hover:block w-60 bg-white shadow-xl rounded-xl border border-slate-100 p-2 z-50">
-                                    <Link href="/jee" className="block p-2.5 hover:bg-emerald-50/60 rounded-lg text-slate-800 hover:text-aurous-darkGreen transition font-semibold">IIT-JEE (Main & Adv)</Link>
-                                    <Link href="/neet" className="block p-2.5 hover:bg-emerald-50/60 rounded-lg text-slate-800 hover:text-aurous-darkGreen transition font-semibold">NEET-UG Medical</Link>
-                                    <Link href="/foundation" className="block p-2.5 hover:bg-emerald-50/60 rounded-lg text-slate-800 hover:text-aurous-darkGreen transition font-semibold">Foundation (Class 7-10)</Link>
-                                    <Link href="https://aurousacademy.graphy.com/" className="block p-2.5 hover:bg-emerald-50/60 rounded-lg text-slate-800 hover:text-aurous-darkGreen transition font-semibold">Online Courses</Link>
+                                <div className="absolute left-0 top-full hidden group-hover:block w-52 bg-white shadow-xl rounded-xl border border-slate-100 p-2 z-50">
+                                    <Link href="/about" className="block p-2.5 hover:bg-emerald-50/60 rounded-lg text-slate-800 hover:text-aurous-darkGreen transition font-semibold">About Academy</Link>
+                                    <Link href="/ourTeam" className="block p-2.5 hover:bg-emerald-50/60 rounded-lg text-slate-800 hover:text-aurous-darkGreen transition font-semibold">Directors' Message</Link>
                                 </div>
                             </div>
-
                             {/* Scholarship Events Dropdown */}
                             <div className="relative group">
                                 <button className="hover:text-aurous-darkGreen flex items-center gap-1.5 py-1.5 transition">
@@ -198,18 +194,18 @@ const NavBarOne = () => {
                                     <a href="https://pragyan.aurousacademy.com/" target="_blank" rel="noreferrer" className="block p-2.5 hover:bg-emerald-50/60 rounded-lg text-slate-800 hover:text-aurous-darkGreen transition font-semibold">Pragyan Scholarship Exam</a>
                                 </div>
                             </div>
-
-                            {/* About Aurous Dropdown */}
+                            {/* Courses Dropdown */}
                             <div className="relative group">
                                 <button className="hover:text-aurous-darkGreen flex items-center gap-1.5 py-1.5 transition">
-                                    About Aurous <span className="text-xs text-slate-400 group-hover:text-aurous-darkGreen">▾</span>
+                                    Courses <span className="text-xs text-slate-400 group-hover:text-aurous-darkGreen">▾</span>
                                 </button>
-                                <div className="absolute left-0 top-full hidden group-hover:block w-52 bg-white shadow-xl rounded-xl border border-slate-100 p-2 z-50">
-                                    <Link href="/about" className="block p-2.5 hover:bg-emerald-50/60 rounded-lg text-slate-800 hover:text-aurous-darkGreen transition font-semibold">About Academy</Link>
-                                    <Link href="/ourTeam" className="block p-2.5 hover:bg-emerald-50/60 rounded-lg text-slate-800 hover:text-aurous-darkGreen transition font-semibold">Expert Faculty</Link>
+                                <div className="absolute left-0 top-full hidden group-hover:block w-60 bg-white shadow-xl rounded-xl border border-slate-100 p-2 z-50">
+                                    <Link href="/jee" className="block p-2.5 hover:bg-emerald-50/60 rounded-lg text-slate-800 hover:text-aurous-darkGreen transition font-semibold">IIT-JEE</Link>
+                                    <Link href="/neet" className="block p-2.5 hover:bg-emerald-50/60 rounded-lg text-slate-800 hover:text-aurous-darkGreen transition font-semibold">NEET</Link>
+                                    <Link href="/foundation" className="block p-2.5 hover:bg-emerald-50/60 rounded-lg text-slate-800 hover:text-aurous-darkGreen transition font-semibold">Olympiad & Foundation</Link>
+                                    <Link href="https://aurousacademy.graphy.com/" className="block p-2.5 hover:bg-emerald-50/60 rounded-lg text-slate-800 hover:text-aurous-darkGreen transition font-semibold">Online Courses</Link>
                                 </div>
                             </div>
-
                             {/* Results Dropdown */}
                             <div className="relative group">
                                 <button className="hover:text-aurous-darkGreen flex items-center gap-1.5 py-1.5 transition">
@@ -304,9 +300,9 @@ const NavBarOne = () => {
                         </button>
                         {openCourses && (
                             <div className="mb-1 ml-2 border-l border-slate-200 pl-2">
-                                <Link href="/jee" onClick={() => setMobileMenuOpen(false)} className="block rounded-lg p-2.5 text-sm font-semibold text-slate-700 hover:bg-emerald-50/60">IIT-JEE (Main & Adv)</Link>
-                                <Link href="/neet" onClick={() => setMobileMenuOpen(false)} className="block rounded-lg p-2.5 text-sm font-semibold text-slate-700 hover:bg-emerald-50/60">NEET-UG Medical</Link>
-                                <Link href="/foundation" onClick={() => setMobileMenuOpen(false)} className="block rounded-lg p-2.5 text-sm font-semibold text-slate-700 hover:bg-emerald-50/60">Foundation (Class 7-10)</Link>
+                                <Link href="/jee" onClick={() => setMobileMenuOpen(false)} className="block rounded-lg p-2.5 text-sm font-semibold text-slate-700 hover:bg-emerald-50/60">IIT-JEE</Link>
+                                <Link href="/neet" onClick={() => setMobileMenuOpen(false)} className="block rounded-lg p-2.5 text-sm font-semibold text-slate-700 hover:bg-emerald-50/60">NEET</Link>
+                                <Link href="/foundation" onClick={() => setMobileMenuOpen(false)} className="block rounded-lg p-2.5 text-sm font-semibold text-slate-700 hover:bg-emerald-50/60">Olympiad & Foundation</Link>
                                 <a href="https://aurousacademy.graphy.com/" target="_blank" rel="noreferrer" className="block rounded-lg p-2.5 text-sm font-semibold text-slate-700 hover:bg-emerald-50/60">Online Courses</a>
                             </div>
                         )}
@@ -315,7 +311,7 @@ const NavBarOne = () => {
                         <a href="https://pragyan.aurousacademy.com/" target="_blank" rel="noreferrer" className="block rounded-lg p-3 text-sm font-bold text-slate-800 hover:bg-emerald-50/60">Pragyan Scholarship Exam</a>
 
                         <Link href="/about" onClick={() => setMobileMenuOpen(false)} className="block rounded-lg p-3 text-sm font-bold text-slate-800 hover:bg-emerald-50/60">About Academy</Link>
-                        <Link href="/ourTeam" onClick={() => setMobileMenuOpen(false)} className="block rounded-lg p-3 text-sm font-bold text-slate-800 hover:bg-emerald-50/60">Expert Faculty</Link>
+                        <Link href="/ourTeam" onClick={() => setMobileMenuOpen(false)} className="block rounded-lg p-3 text-sm font-bold text-slate-800 hover:bg-emerald-50/60">Directors' Message</Link>
 
                         <button
                             type="button"
